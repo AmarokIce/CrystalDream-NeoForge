@@ -76,17 +76,20 @@ repositories {
         name = 'Kotlin for Forge'
         url = 'https://thedarkcolour.github.io/KotlinForForge/'
         content { includeGroup "thedarkcolour" }
+
+    }
+
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content { includeGroup "software.bernie.geckolib" }
     }
 }
 
 dependencies {
     implementation 'thedarkcolour:kotlinforforge-neoforge:5.4.0'
 
-    additionalRuntimeClasspath 'org.jetbrains.kotlin:kotlin-stdlib'
-    additionalRuntimeClasspath 'org.jetbrains.kotlin:kotlin-reflect'
-    additionalRuntimeClasspath 'org.jetbrains.kotlinx:kotlinx-coroutines-core'
-    additionalRuntimeClasspath 'org.jetbrains.kotlinx:kotlinx-serialization-core'
-    additionalRuntimeClasspath 'org.jetbrains.kotlinx:kotlinx-serialization-json'
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 }
 
 tasks.withType(ProcessResources).configureEach {
