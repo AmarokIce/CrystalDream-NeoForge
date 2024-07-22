@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.item
+package club.someoneice.crystaldream.util
 
 import club.someoneice.crystaldream.core.copy
 import club.someoneice.crystaldream.core.giveOrThrowOut
