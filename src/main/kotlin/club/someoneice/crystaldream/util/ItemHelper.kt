@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.UseAnim
 import net.minecraft.world.level.Level
 
-object ItemUtil {
+object ItemHelper {
     fun itemFood(
         hunger: Int,
         saturation: Float,

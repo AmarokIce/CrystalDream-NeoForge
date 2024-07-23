@@ -1,7 +1,7 @@
 package club.someoneice.crystaldream.core.init
 
 import club.someoneice.crystaldream.core.CrystalDream
-import club.someoneice.crystaldream.util.ItemUtil
+import club.someoneice.crystaldream.util.ItemHelper
 import net.minecraft.world.item.Item
 import net.neoforged.neoforge.registries.DeferredRegister
 import thedarkcolour.kotlinforforge.neoforge.forge.getValue
@@ -19,9 +19,9 @@ object ModItems {
     val VERDANT_INGOT: Item by ITEMS.registerSimpleItem("verdant_ingot")
     val VERDANT_NUGGET: Item by ITEMS.registerSimpleItem("verdant_nugget")
 
+    /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")
 
-    /* tea bag */
     val TEABAG_FLOWER: Item by ITEMS.registerSimpleItem("teabag_flower")
     val TEABAG_SUGAR: Item by ITEMS.registerSimpleItem("teabag_sugar")
     val TEABAG_CRYSTAL: Item by ITEMS.registerSimpleItem("teabag_crystal")
@@ -30,6 +30,6 @@ object ModItems {
     val TEABAG_BLOOD: Item by ITEMS.registerSimpleItem("teabag_blood")
 
     /* goblins */
-    val FRUIT_PIE: Item by ITEMS.registerItem("apple_pie") { ItemUtil.itemFood(6, 0.45f) }
+    val FRUIT_PIE: Item by ITEMS.registerItem("apple_pie") { ItemHelper.itemFood(6, 0.45f) }
     val WAND: Item by ITEMS.registerSimpleItem("wand")
 }
