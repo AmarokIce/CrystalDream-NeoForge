@@ -1,9 +1,9 @@
 package club.someoneice.crystaldream.core
 
-import club.someoneice.crystaldream.api.capability.CapabilityCrystalMana
+import club.someoneice.crystaldream.common.capability.CapabilityCrystalMana
 import club.someoneice.crystaldream.common.crystal.AbstractManaCrystal
 import club.someoneice.crystaldream.core.init.ModCapabilities
-import club.someoneice.crystaldream.core.init.ModItems
+import club.someoneice.crystaldream.core.init.ModRegister
 import net.minecraft.core.registries.BuiltInRegistries
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.Mod
@@ -15,10 +15,11 @@ import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 @Mod(CrystalDream.MODID)
 object CrystalDream {
     const val MODID = "crystaldream"
-    val LOG = LogManager.getLogger(MODID)
+    val LOGGER = LogManager.getLogger(MODID)
 
     init {
-        ModItems.ITEMS.register(MOD_BUS)
+        ModRegister.register()
+
         MOD_BUS.addListener(this::onCapabilityRegister)
     }
 
@@ -30,6 +31,7 @@ object CrystalDream {
         BuiltInRegistries.ITEM.forEach {
             if (it !is AbstractManaCrystal) return@forEach
             event.registerItem(ModCapabilities.CRYSTAL_MANA, { item, _ ->
+                LOGGER.info("Register capability crystalmana for item {} ", item.displayName)
                 CapabilityCrystalMana(item)
             }, it)
         }

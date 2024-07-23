@@ -1,7 +1,5 @@
 package club.someoneice.crystaldream.util
 
-import club.someoneice.crystaldream.core.copy
-import club.someoneice.crystaldream.core.giveOrThrowOut
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.player.Player
@@ -12,14 +10,6 @@ import net.minecraft.world.item.UseAnim
 import net.minecraft.world.level.Level
 
 object ItemUtil {
-    fun item(maxSize: Int = 64, canRepair: Boolean = true): Item {
-        val properties = Item.Properties()
-        properties.stacksTo(maxSize)
-        if (!canRepair) properties.setNoRepair()
-
-        return Item(properties)
-    }
-
     fun itemFood(
         hunger: Int,
         saturation: Float,

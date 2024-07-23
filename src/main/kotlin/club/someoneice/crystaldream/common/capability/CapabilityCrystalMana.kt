@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.api.capability
+package club.someoneice.crystaldream.common.capability
 
 import club.someoneice.crystaldream.api.ICapabilityCrystalMana
 import net.minecraft.core.component.DataComponents
@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.component.CustomData
 import java.util.concurrent.atomic.AtomicInteger
 
-class CapabilityCrystalMana(private val item: ItemStack): ICapabilityCrystalMana {
+class CapabilityCrystalMana(private val item: ItemStack) : ICapabilityCrystalMana {
     override fun getMana(): Int {
         val data = readData()
         val value = AtomicInteger()
