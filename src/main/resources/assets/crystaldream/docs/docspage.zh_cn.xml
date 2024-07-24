@@ -1,0 +1,211 @@
+<book title="晶彩创意指南" cover="crystaldream:docs/cd_crove" fontSize="1.0">
+
+    <include ref="gbook:xml/standard.xml" />
+    <include ref="crystaldream:docs/crystaldreamrecipe.xml" />
+
+    <!-- 导言 -->
+    <include ref="crystaldream:docs/zh_cn/introduction.xml" />
+
+    <chapter>
+        <section>
+            <space height="33%" />
+            <p color="#606060" space="8">献给每一位晶制师：</p>
+            <p color="#606060">或许你的路，道阻且长，但希望你能坚持你所热爱的——月光下的宝石会一直祝福你。</p>
+
+            <section-break />
+
+            <space height="20%" />
+            <p bold="true" align="center" scale="2">晶彩创意</p>
+            <p align="center">===</p>
+            <p color="#AE00AE" align="center">属于你的晶彩时刻</p>
+        </section>
+        <section>
+            <page_title>
+                <title>目录</title>
+            </page_title>
+
+            <introduction />
+
+            <link ref="工匠爪艺">1. 工匠爪艺</link>
+            <link indent="8" ref="工匠爪艺:工具">工具</link>
+            <link indent="8" ref="工匠爪艺:魔法灌注">魔法灌注</link>
+
+            <link ref="晶彩梦艺">2. 晶彩梦艺</link>
+            <p indent="12" bold="true">物品</p>
+            <link indent="12" ref="晶彩梦艺:翠石矿">翠石矿</link>
+            <link indent="12" ref="晶彩梦艺:迷梦草">迷梦草</link>
+            <link indent="12" ref="晶彩梦艺:迷途之魂">迷途之魂</link>
+            <link indent="12" ref="晶彩梦艺:亡灵交易">亡灵交易</link>
+            <p indent="12" bold="true">世界</p>
+            <link indent="12" ref="晶彩梦艺:沉浸梦境">沉浸梦境</link>
+            <link indent="12" ref="晶彩梦艺:痛苦梦境">痛苦梦境</link>
+            <p indent="12" bold="true">效果</p>
+            <link indent="12" ref="晶彩梦艺:南瓜噩梦">南瓜噩梦</link>
+            <link indent="12" ref="晶彩梦艺:水晶镜像">水晶镜像</link>
+            <link indent="12" ref="晶彩梦艺:迷梦">迷梦</link>
+
+            <link ref="修心茶艺">3. 修心茶艺</link>
+            <link indent="8" ref="API">亲爪酿一壶！</link>
+            <link indent="8" ref="API">芳香传递</link>
+
+            <link ref="API">4. 黑魔心艺</link>
+            <link indent="8" ref="API">紫水晶祭坛</link>
+            <link indent="8" ref="API">黑暗献祭</link>
+            <link indent="8" ref="API">死亡交易</link>
+            <link indent="8" ref="API">地精赠礼</link>
+
+            <link ref="API">5. 魔能之艺</link>
+            <link indent="8" ref="API">魔导卷</link>
+            <link indent="8" ref="API">魔导水晶</link>
+            <link indent="8" ref="API">魔导饰品</link>
+
+            <link ref="模组鸣谢名单">?. 模组鸣谢名单</link>
+            <section-break />
+        </section>
+    </chapter>
+
+    <chapter id="工匠爪艺">
+        <section>
+            <page_title>
+                <title>工匠爪艺</title>
+            </page_title>
+            <p> TODO </p>
+        </section>
+        <section id="基本工具">
+            <title>基本工具</title>
+        </section>
+        <section id="抄写台">
+            <title>抄写台</title>
+        </section>
+        <section id = "晶制台">
+            <title>晶制台</title>
+        </section>
+        <section id="金匠台">
+            <title>金匠台</title>
+        </section>
+    </chapter>
+
+    <chapter id="晶彩梦艺">
+        <section>
+            <page_title>
+                <title>晶彩梦艺</title>
+            </page_title>
+            <p>自从我见到了“那个东西”开始，我就一直很在意我的梦。虽然我知道我并不能一直陶醉在美梦之中，但有时候，这些梦会深刻的影响着我... 或许通过一些技艺可以让我深入探索我的梦境。</p>
+            <p>因此我对此做了一些研究，我发现水晶工艺甚至可以控制我的梦，也可以救赎我于噩梦之中，因此我将这重要的部分一同写入了这本爪册。</p>
+            <p>如果你也正在受噩梦的折磨，那么请务必认真阅读这一章节，这肯定会帮助到你。</p>
+        </section>
+
+        <section id="翠石矿">
+            <title>翠石矿</title>
+
+            <p>翠石矿是一种产自主世界于梦境的矿物，矿石散发着绿色的亮光。在深板岩层更容易找到这些矿物。</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="迷梦草">
+            <title>迷梦草</title>
+
+            <p>迷梦草是一种产自梦境世界的药草，通过吸食水晶繁衍，栽培在人们的梦中。一颗迷梦草只需要放在紫水晶附近，它的藤蔓就会开始不断的向着紫水晶延展，直到触及到紫水晶，随后会变成两颗光球。这些光球就是它的种子。</p>
+            <p>迷梦草可以泡茶，但是需要加入紫水晶粉才能使其拥有原本的味道，否则奇臭无比。喝下迷梦草茶可以让你变的和不加紫水晶粉末一样臭，如果你加了紫水晶粉，你就闻不到你自己的味道，但是一些不喜欢这种味道的生物会远离你，尤其是以死之物。</p>
+            <p>相关内容，检查章节<link ref="修心茶艺">修心茶艺</link>来了解更多内容</p>
+        </section>
+
+        <section id="迷途之魂">
+            <title>迷途之魂</title>
+
+            <p>将迷梦草捣碎后与紫水晶粉混合起来，并抹在纸符上，这样纸符就可以吓跑缠魂的方块，比如灵魂沙。</p>
+            <p>通过这种方式，你可以直接在方块中提取灵魂，这些可怜的灵魂却是水晶魔法中重要的材料。希望这里没有鬼道主义者。</p>
+            <p>如果武器上绑定了附魔“灵魂收割”，使用武器击杀敌对生物都会掉落灵魂，这要比批量生产纸符然后贴在方块上要高效的多。</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="亡灵交易">
+            <title>亡灵交易</title>
+
+            <p bold="true">[ 未完工 ]</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="沉浸梦境">
+            <title>沉浸梦境</title>
+
+            <p bold="true">[ 未完工 ]</p>
+
+            <p>梦境世界是个美妙的，充满香甜气息的世界。</p>
+            <p>这里没有别的生物，也没有丰富的矿产。你在这里只能找到翠石矿，以及一些紫水晶矿。</p>
+            <p>在梦境世界</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="痛苦梦境">
+            <title>痛苦梦境</title>
+
+            <p bold="true">[ 未完工 ]</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="南瓜噩梦">
+            <title>南瓜噩梦</title>
+
+            <p>如果你的梦境被南瓜入侵了，南瓜阴影会一直伴随你。如果你已经被南瓜骚扰了，那么这种情况会加重。</p>
+            <p>南瓜噩梦会让你受到的伤害翻倍，受到的医疗效果减半，每增加一个等级将会加一个倍数。</p>
+            <p>这种负面效果无法被牛奶清除，你必须设法前往梦境采集一些材料制作南瓜安慰药水。</p>
+            <p>完成鬼订单也有机会得到南瓜安慰药水，但是最好不要投入太多期望。</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="水晶镜像">
+            <title>水晶镜像</title>
+
+            <p>水晶镜像会让你的感知颠倒。</p>
+            <p>如果你受到攻击，你反而会觉得这很舒服，甚至不会受伤。反之，如果你被治疗了，你可能会内出血！</p>
+            <p>这是一个负面效果，但是你可以利用这个特性将其转为正面效果。如果你持有这个效果参与战斗，无论怎么被攻击你都只会回血。但是如果你受到了爆炸伤害，你会受到原有的两倍伤害。</p>
+            <p>这种效果无法被牛奶清除，但是通常它不会持续太长时间。拥有水晶镜像时无法入睡——你的床也让你感到不适！</p>
+            <p>完成鬼订单也有机会得到南瓜安慰药水，但是最好不要投入太多期望。</p>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+
+        <section id="迷梦">
+            <title>迷梦</title>
+
+            <!-- TODO ： stack and recipe-->
+        </section>
+    </chapter>
+
+    <chapter id="模组鸣谢名单">
+        <section>
+            <page_title>
+                <title>模组鸣谢名单</title>
+            </page_title>
+
+            <p bold="true">贡献者名单（随机排序）出示了所有为这个模组提供了相关贡献的成员，他们都是我模组制作的道路中重要的朋友。</p>
+            <p> </p>
+            <p bold="true">异星之尘 </p>
+            <p>美术贡献者， </p>
+            <p>为模组提供了重要的模型资源。这个模组曾经也是他的作品《帕斯特之梦》的附属，如果没有帕斯特之梦，也不会有晶彩梦艺。</p>
+            <p> </p>
+            <p bold="true">草莓龍醬</p>
+            <p>贡献者， </p>
+            <p>她的作品帮助我理解了1.20的神奇的注册工作原理。</p>
+            <p> </p>
+            <p bold="true">郁墨</p>
+            <p>美术贡献者，</p>
+            <p>重新绘制了部分材质的纹理。</p>
+            <p> </p>
+            <p bold="true">23117</p>
+            <p>美术贡献者，</p>
+            <p>提供了部分材质纹理。</p>
+            <p> </p>
+            <p bold="true">雪泪寒</p>
+            <p>没有对这个模组做出贡献，</p>
+            <p>但是他很可爱（X）</p>
+        </section>
+    </chapter>
+</book>

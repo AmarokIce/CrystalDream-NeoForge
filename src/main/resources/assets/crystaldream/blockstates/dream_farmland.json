@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=1": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=2": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=3": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=4": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=5": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=6": {
+      "model": "crystaldream:block/dream_farmland"
+    },
+    "moisture=7": {
+      "model": "crystaldream:block/dream_farmland_moist"
+    }
+  }
+}

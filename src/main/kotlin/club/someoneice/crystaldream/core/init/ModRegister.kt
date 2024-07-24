@@ -1,5 +1,6 @@
 package club.someoneice.crystaldream.core.init
 
+import org.jetbrains.annotations.ApiStatus
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 
 object ModRegister {
@@ -7,6 +8,7 @@ object ModRegister {
     @JvmField val MOD_BLOCKS = ModBlocks.BLOCKS
     @JvmField val MOD_TABS = ModTabs.TABS
 
+    @ApiStatus.Internal
     @JvmName("# register")
     internal fun register() {
         MOD_ITEMS.register(MOD_BUS)

@@ -1,0 +1,35 @@
+{
+    "temperature": 0.8,
+    "downfall": 0,
+    "has_precipitation": false,
+    "creature_spawn_probability": 0,
+    "effects": {
+        "sky_color": 16611827,
+        "fog_color": 16499950,
+        "water_color": 12533732,
+        "water_fog_color": 15277407,
+        "grass_color": 15932671,
+        "foliage_color": 15932671
+    },
+    "spawners": {},
+    "spawn_costs": {},
+    "carvers": {},
+    "features": [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+            "crystaldream:verdant_dream_ore"
+        ],
+        [],
+        [],
+        [
+            "crystaldream:dream_sugar_flower",
+            "crystaldream:dream_oak"
+        ],
+        []
+    ]
+}

@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.crystal
+package club.someoneice.crystaldream.common.item.crystal
 
 import club.someoneice.crystaldream.core.init.ModCapabilities
 import net.minecraft.util.Mth

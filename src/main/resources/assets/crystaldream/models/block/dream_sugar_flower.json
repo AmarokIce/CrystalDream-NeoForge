@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "crystaldream:block/dream_sugar_flower"
+  }
+}

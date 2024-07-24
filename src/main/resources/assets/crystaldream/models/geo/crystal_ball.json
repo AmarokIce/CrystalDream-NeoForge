@@ -1,0 +1,6 @@
+{
+  "parent": "traveler_of_destiny:display/crystal_ball.item",
+  "textures": {
+    "particle": "traveler_of_destiny:geo/crystal_ball"
+  }
+}

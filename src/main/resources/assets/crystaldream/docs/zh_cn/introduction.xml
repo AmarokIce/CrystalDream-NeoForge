@@ -1,0 +1,33 @@
+<library>
+    <template id="introduction">
+        <link ref="导言">0. 导言</link>
+    </template>
+
+    <chapter id="导言">
+        <section>
+            <page_title>
+                <title>导言</title>
+            </page_title>
+            <p>嘿，未来的晶制师！最近过的“嚎”吗？</p>
+            <p>你一定准备好成为一名真正的晶制师了吧！那么我要告诉你——你要走的路依然很长！很长！非常长！啊哈！就和某狼的尾巴一样长！</p>
+            <p>玩笑就开到这里了。既然你准备好开始一段属于你的旅途，先准备一些紫水晶吧，而且你不一定总是能成功。不过别担心，即便你失败了，这些也会成为你宝贵的经验。你做的越多，就越熟练。</p>
+            <p>因此，请认真收拾好你的每一个作品，即便它相当糟糕。</p>
+            <p>接下来，你应该为自己准备一个专有的工作室了，完美的作品总是会在完美的工作环境中诞生。</p>
+
+            <amethyst_altar>
+                <space />
+                <space />
+                <space />
+                <space />
+
+                <stack item="minecraft:oak_trapdoor" />
+
+                <space />
+                <space />
+                <space />
+                <space />
+                <stack item="minecraft:oak_trapdoor" />
+            </amethyst_altar>
+        </section>
+    </chapter>
+</library>

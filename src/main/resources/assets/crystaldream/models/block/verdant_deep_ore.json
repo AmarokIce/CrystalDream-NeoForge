@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "crystaldream:block/verdant_deep_ore"
+  }
+}

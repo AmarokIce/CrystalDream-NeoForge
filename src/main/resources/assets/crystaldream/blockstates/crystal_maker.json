@@ -1,0 +1,21 @@
+
+{
+  "variants": {
+    "facing=north": {
+      "model": "crystaldream:block/crystal_maker",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "crystaldream:block/crystal_maker",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "crystaldream:block/crystal_maker",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "crystaldream:block/crystal_maker",
+      "y": 90
+    }
+  }
+}
