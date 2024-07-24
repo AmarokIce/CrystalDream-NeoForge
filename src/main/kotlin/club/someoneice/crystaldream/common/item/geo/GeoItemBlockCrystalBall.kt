@@ -1,24 +1,24 @@
 package club.someoneice.crystaldream.common.item.geo
 
-import club.someoneice.crystaldream.CrystalDream
-import club.someoneice.crystaldream.init.BlockInit
+import club.someoneice.crystaldream.core.init.ModBlocks
+import club.someoneice.crystaldream.util.createModPath
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.BlockItem
-import net.minecraftforge.client.extensions.common.IClientItemExtensions
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions
 import software.bernie.geckolib.animatable.GeoItem
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
-import software.bernie.geckolib.core.animation.AnimatableManager.ControllerRegistrar
-import software.bernie.geckolib.core.animation.AnimationController
-import software.bernie.geckolib.core.`object`.PlayState
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
+import software.bernie.geckolib.animation.AnimatableManager
+import software.bernie.geckolib.animation.AnimationController
+import software.bernie.geckolib.animation.PlayState
 import software.bernie.geckolib.model.GeoModel
 import software.bernie.geckolib.renderer.GeoItemRenderer
 import software.bernie.geckolib.util.GeckoLibUtil
 import java.util.function.Consumer
 
-class GeoItemBlockCrystalBall: BlockItem(BlockInit.CRYSTAL_BALL, Properties()), GeoItem {
+class GeoItemBlockCrystalBall: BlockItem(ModBlocks.CRYSTAL_BALL, Properties()), GeoItem {
     private val cache = GeckoLibUtil.createInstanceCache(this)
 
     override fun initializeClient(consumer: Consumer<IClientItemExtensions?>) {
@@ -26,9 +26,9 @@ class GeoItemBlockCrystalBall: BlockItem(BlockInit.CRYSTAL_BALL, Properties()), 
         consumer.accept(object : IClientItemExtensions {
             private val renderer: BlockEntityWithoutLevelRenderer = object: GeoItemRenderer<GeoItemBlockCrystalBall>(object:
                 GeoModel<GeoItemBlockCrystalBall>() {
-                override fun getModelResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = ResourceLocation(CrystalDream.MODID, "geo/crystal_ball.geo.json")
-                override fun getTextureResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = ResourceLocation(CrystalDream.MODID, "textures/geo/crystal_ball.png")
-                override fun getAnimationResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = ResourceLocation(CrystalDream.MODID, "animations/crystal_ball.animation.json")
+                override fun getModelResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = createModPath("geo/crystal_ball.geo.json")
+                override fun getTextureResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = createModPath("textures/geo/crystal_ball.png")
+                override fun getAnimationResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = createModPath("animations/crystal_ball.animation.json")
             }) {
                 override fun getRenderType(animatable: GeoItemBlockCrystalBall?,
                                            texture: ResourceLocation?,
@@ -42,7 +42,7 @@ class GeoItemBlockCrystalBall: BlockItem(BlockInit.CRYSTAL_BALL, Properties()), 
         })
     }
 
-    override fun registerControllers(data: ControllerRegistrar) {
+    override fun registerControllers(data: AnimatableManager.ControllerRegistrar) {
         data.add(AnimationController(this, "1", 0) { PlayState.CONTINUE })
     }
 
