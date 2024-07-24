@@ -17,12 +17,12 @@ import software.bernie.geckolib.util.GeckoLibUtil
 class TileAltar(pos: BlockPos, state: BlockState) : TileBase(ALTAR_CORE, pos, state), IItemTile, GeoBlockEntity {
     override var itemHolder: ItemStack = ItemStack.EMPTY
 
-    override fun writeToNbt(nbt: CompoundTag, registries: HolderLookup.Provider) {
-        this.saveItem(nbt, registries)
+    override fun writeToNbt(nbt: CompoundTag, register: HolderLookup.Provider) {
+        this.saveItem(nbt, register)
     }
 
-    override fun readFromNbt(nbt: CompoundTag, registries: HolderLookup.Provider) {
-        super.loadAdditional(nbt, registries)
+    override fun readFromNbt(nbt: CompoundTag, register: HolderLookup.Provider) {
+        this.loadItem(nbt, register)
     }
 
     private val cache = GeckoLibUtil.createInstanceCache(this)

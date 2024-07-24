@@ -1,7 +1,10 @@
 package club.someoneice.crystaldream.core.init
 
+import club.someoneice.crystaldream.common.item.geo.GeoItemBlockAltar
+import club.someoneice.crystaldream.common.item.geo.GeoItemBlockCrystalBall
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.util.ItemHelper
+import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.neoforged.neoforge.registries.DeferredRegister
 import thedarkcolour.kotlinforforge.neoforge.forge.getValue
@@ -28,6 +31,11 @@ object ModItems {
     val TEABAG_FRUIT: Item by ITEMS.registerSimpleItem("teabag_fruit")
     val TEABAG_FIRE: Item by ITEMS.registerSimpleItem("teabag_fire")
     val TEABAG_BLOOD: Item by ITEMS.registerSimpleItem("teabag_blood")
+
+    val TREE_TABLE: BlockItem by ITEMS.registerSimpleBlockItem("tree_table", ModBlocks::TREE_TABLE)
+    val MAGIC_MOUNT: BlockItem by ITEMS.registerSimpleBlockItem("magic_mount", ModBlocks::MAGIC_MOUNT)
+    val MAGIC_ALTAR: Item by ITEMS.register("magic_altar", ::GeoItemBlockAltar)
+    val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
 
     /* goblins */
     val FRUIT_PIE: Item by ITEMS.registerItem("apple_pie") { ItemHelper.itemFood(6, 0.45f) }
