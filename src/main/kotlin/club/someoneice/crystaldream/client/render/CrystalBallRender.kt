@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
 import software.bernie.geckolib.renderer.GeoBlockRenderer
 
-class CrystalBallRender: GeoBlockRenderer<TileCrystalBall>(GeoCrystalBall()), BlockEntityRendererProvider<TileCrystalBall> {
+class CrystalBallRender : GeoBlockRenderer<TileCrystalBall>(GeoCrystalBall()),
+    BlockEntityRendererProvider<TileCrystalBall> {
     override fun create(pContext: BlockEntityRendererProvider.Context): BlockEntityRenderer<TileCrystalBall> = this
 }

@@ -8,12 +8,13 @@ interface IItemTile {
     var itemHolder: ItemStack
 
     fun loadItem(nbt: CompoundTag, registries: HolderLookup.Provider) {
-        itemHolder = if (nbt.contains("item")) ItemStack.parseOptional(registries, nbt.getCompound("item")) else ItemStack.EMPTY
+        itemHolder =
+            if (nbt.contains("item")) ItemStack.parseOptional(registries, nbt.getCompound("item")) else ItemStack.EMPTY
         this.markItemChanged()
     }
 
     fun saveItem(nbt: CompoundTag, registries: HolderLookup.Provider) {
-        nbt.put("item", itemHolder.save(registries))
+        if (!itemHolder.isEmpty) nbt.put("item", itemHolder.save(registries))
     }
 
     fun markItemChanged() {

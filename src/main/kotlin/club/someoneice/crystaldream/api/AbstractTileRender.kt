@@ -13,13 +13,19 @@ import software.bernie.geckolib.util.RenderUtil
 import kotlin.math.cos
 import kotlin.math.sin
 
-abstract class AbstractTileRender<T: BlockEntity>: BlockEntityRenderer<T>, BlockEntityRendererProvider<T> {
+abstract class AbstractTileRender<T : BlockEntity> : BlockEntityRenderer<T>, BlockEntityRendererProvider<T> {
     override fun create(pContext: BlockEntityRendererProvider.Context): BlockEntityRenderer<T> = this
     var item: ItemEntity? = null
 
     fun absRender(y: Double, tile: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int) {
         if (tile !is IItemTile) throw RuntimeException("Do not call a tile without IItemTileHelper use AbstractTileRender!")
-        if (item == null) item = ItemEntity(tile.level!!, tile.blockPos.x.toDouble(), tile.blockPos.y.toDouble(), tile.blockPos.z.toDouble(), tile.getItem())
+        if (item == null) item = ItemEntity(
+            tile.level!!,
+            tile.blockPos.x.toDouble(),
+            tile.blockPos.y.toDouble(),
+            tile.blockPos.z.toDouble(),
+            tile.getItem()
+        )
         pose.pushPose()
         run {
             pose.translate(0.5, y, 0.5)

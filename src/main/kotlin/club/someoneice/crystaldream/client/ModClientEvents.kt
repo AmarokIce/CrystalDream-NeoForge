@@ -46,7 +46,7 @@ object ModClientEvents {
         }
     }
 
-    private fun <T: BlockEntity> getRender() = object: AbstractTileRender<T>() {
+    private fun <T : BlockEntity> getRender() = object : AbstractTileRender<T>() {
         override fun render(entity: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int, k: Int) {
             super.absRender(1.0, entity, f, pose, buffer, i)
         }

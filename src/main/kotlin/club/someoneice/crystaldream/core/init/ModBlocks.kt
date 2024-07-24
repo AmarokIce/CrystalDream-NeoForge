@@ -19,5 +19,8 @@ object ModBlocks {
     val CRYSTAL_BALL: Block by BLOCKS.register("crystal_ball", ::BlockCrystalBall)
 
     val VERDANT_BLOCK: Block by BLOCKS.registerSimpleBlock("verdant_block", BlockBehaviour.Properties.of())
-    val VERDANT_RAW_ORE_BLOCK: Block by BLOCKS.registerSimpleBlock("verdant_raw_ore_block", BlockBehaviour.Properties.of())
+    val VERDANT_RAW_ORE_BLOCK: Block by BLOCKS.registerSimpleBlock(
+        "verdant_raw_ore_block",
+        BlockBehaviour.Properties.of()
+    )
 }

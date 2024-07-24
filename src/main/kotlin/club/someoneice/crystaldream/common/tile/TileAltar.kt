@@ -14,7 +14,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animation.*
 import software.bernie.geckolib.util.GeckoLibUtil
 
-class TileAltar(pos: BlockPos, state: BlockState): TileBase(ALTAR_CORE, pos, state), IItemTile, GeoBlockEntity {
+class TileAltar(pos: BlockPos, state: BlockState) : TileBase(ALTAR_CORE, pos, state), IItemTile, GeoBlockEntity {
     override var itemHolder: ItemStack = ItemStack.EMPTY
 
     override fun writeToNbt(nbt: CompoundTag, registries: HolderLookup.Provider) {

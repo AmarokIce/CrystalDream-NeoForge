@@ -17,12 +17,23 @@ import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.VoxelShape
 
 
-class BlockAltar: AbstractBlockWithTileItem() {
+class BlockAltar : AbstractBlockWithTileItem() {
     override fun newBlockEntity(pPos: BlockPos, pState: BlockState): BlockEntity = TileAltar(pPos, pState)
     override fun getRenderShape(state: BlockState): RenderShape = RenderShape.ENTITYBLOCK_ANIMATED
     override fun codec(): MapCodec<out BaseEntityBlock> = simpleCodec { BlockAltar() }
 
-    override fun <T : BlockEntity?> getTicker(world: Level, state: BlockState, pBlockEntityType: BlockEntityType<T>): BlockEntityTicker<T>? = createTickerHelper(pBlockEntityType, ModTiles.ALTAR_CORE, TileAltar::tick)
-    override fun getShape(pState: BlockState, pLevel: BlockGetter, pPos: BlockPos, pContext: CollisionContext): VoxelShape = box(0.0, 0.0, 0.0, 16.0, 32.0, 16.0)
+    override fun <T : BlockEntity?> getTicker(
+        world: Level,
+        state: BlockState,
+        pBlockEntityType: BlockEntityType<T>
+    ): BlockEntityTicker<T>? = createTickerHelper(pBlockEntityType, ModTiles.ALTAR_CORE, TileAltar::tick)
+
+    override fun getShape(
+        pState: BlockState,
+        pLevel: BlockGetter,
+        pPos: BlockPos,
+        pContext: CollisionContext
+    ): VoxelShape = box(0.0, 0.0, 0.0, 16.0, 32.0, 16.0)
+
     override fun isOcclusionShapeFullBlock(pState: BlockState, pLevel: BlockGetter, pPos: BlockPos): Boolean = false
 }

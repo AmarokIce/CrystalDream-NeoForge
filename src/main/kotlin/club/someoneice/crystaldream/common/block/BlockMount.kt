@@ -12,12 +12,17 @@ import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.Shapes
 import net.minecraft.world.phys.shapes.VoxelShape
 
-class BlockMount: AbstractBlockWithTileItem() {
+class BlockMount : AbstractBlockWithTileItem() {
     override fun codec(): MapCodec<BlockMount> = simpleCodec { BlockMount() }
 
     override fun newBlockEntity(pPos: BlockPos, pState: BlockState): BlockEntity = TileMount(pPos, pState)
 
-    override fun getShape(pState: BlockState, pLevel: BlockGetter, pPos: BlockPos, pContext: CollisionContext): VoxelShape {
+    override fun getShape(
+        pState: BlockState,
+        pLevel: BlockGetter,
+        pPos: BlockPos,
+        pContext: CollisionContext
+    ): VoxelShape {
         var shape: VoxelShape = Shapes.empty()
 
         shape = Shapes.join(shape, Shapes.box(0.1875, 0.0, 0.1875, 0.8125, 0.1875, 0.8125), BooleanOp.OR)

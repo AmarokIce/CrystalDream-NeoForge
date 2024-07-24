@@ -13,7 +13,7 @@ import net.minecraft.world.entity.item.ItemEntity
 import software.bernie.geckolib.renderer.GeoBlockRenderer
 import software.bernie.geckolib.util.RenderUtil
 
-class MagicAltarRender: GeoBlockRenderer<TileAltar>(GeoAltar()), BlockEntityRendererProvider<TileAltar> {
+class MagicAltarRender : GeoBlockRenderer<TileAltar>(GeoAltar()), BlockEntityRendererProvider<TileAltar> {
     override fun create(pContext: BlockEntityRendererProvider.Context): BlockEntityRenderer<TileAltar> = this
     private var item: ItemEntity? = null
 
@@ -21,9 +21,15 @@ class MagicAltarRender: GeoBlockRenderer<TileAltar>(GeoAltar()), BlockEntityRend
     override fun render(tile: TileAltar, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int, k: Int) {
         super.render(tile, f, pose, buffer, i, k)
 
-        tile as TileAltar
+        tile
 
-        if (item == null) item = ItemEntity(tile.level!!, tile.blockPos.x.toDouble(), tile.blockPos.y.toDouble(), tile.blockPos.z.toDouble(), tile.getItem())
+        if (item == null) item = ItemEntity(
+            tile.level!!,
+            tile.blockPos.x.toDouble(),
+            tile.blockPos.y.toDouble(),
+            tile.blockPos.z.toDouble(),
+            tile.getItem()
+        )
         pose.pushPose()
         run {
             pose.translate(0.5, 1.675, 0.5)

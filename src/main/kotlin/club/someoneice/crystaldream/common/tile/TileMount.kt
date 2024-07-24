@@ -9,7 +9,7 @@ import net.minecraft.nbt.CompoundTag
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.state.BlockState
 
-class TileMount(pos: BlockPos, state: BlockState): TileBase(ALTAR_MOUNT, pos, state), IItemTile {
+class TileMount(pos: BlockPos, state: BlockState) : TileBase(ALTAR_MOUNT, pos, state), IItemTile {
     override var itemHolder: ItemStack = ItemStack.EMPTY
 
     override fun writeToNbt(nbt: CompoundTag, register: HolderLookup.Provider) {

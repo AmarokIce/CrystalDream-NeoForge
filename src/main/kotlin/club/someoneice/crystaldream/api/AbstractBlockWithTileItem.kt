@@ -16,14 +16,28 @@ abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlo
     constructor() : this(Properties.of().noOcclusion().strength(3.5f))
 
 
-    override fun spawnAfterBreak(pState: BlockState, pLevel: ServerLevel, pPos: BlockPos, pStack: ItemStack, pDropExperience: Boolean) {
+    override fun spawnAfterBreak(
+        pState: BlockState,
+        pLevel: ServerLevel,
+        pPos: BlockPos,
+        pStack: ItemStack,
+        pDropExperience: Boolean
+    ) {
         super.spawnAfterBreak(pState, pLevel, pPos, pStack, pDropExperience)
         val list = ArrayList<ItemStack>()
         list.add(this.asItem().defaultInstance)
         pLevel.getBlockEntity(pPos)?.let { tile -> if (tile is IItemTile) list.add(tile.getItem()) }
     }
 
-    override fun useItemOn(stack: ItemStack, state: BlockState, level: Level, pos: BlockPos, player: Player, hand: InteractionHand, hitResult: BlockHitResult): ItemInteractionResult {
+    override fun useItemOn(
+        stack: ItemStack,
+        state: BlockState,
+        level: Level,
+        pos: BlockPos,
+        player: Player,
+        hand: InteractionHand,
+        hitResult: BlockHitResult
+    ): ItemInteractionResult {
         super.useItemOn(stack, state, level, pos, player, hand, hitResult)
         if (hand == InteractionHand.OFF_HAND) {
             return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION

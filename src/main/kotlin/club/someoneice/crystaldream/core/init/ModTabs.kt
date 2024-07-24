@@ -11,10 +11,11 @@ import net.neoforged.neoforge.registries.DeferredRegister
 import thedarkcolour.kotlinforforge.neoforge.forge.getValue
 
 object ModTabs {
-    internal val TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, CrystalDream.MODID)
+    internal val TABS: DeferredRegister<CreativeModeTab> =
+        DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, CrystalDream.MODID)
 
     @Suppress("Unused")
-    val GROUP_MAIN: CreativeModeTab by TABS.register("main", object: Supplier<CreativeModeTab> {
+    val GROUP_MAIN: CreativeModeTab by TABS.register("main", object : Supplier<CreativeModeTab> {
         override fun get() = CreativeModeTab.builder().noScrollBar()
             .title(Component.literal("crystaldream.tab"))
             .icon { ModItems.SOUL_CRYSTAL.defaultInstance }

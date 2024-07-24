@@ -12,7 +12,7 @@ import software.bernie.geckolib.animation.RawAnimation
 import software.bernie.geckolib.util.GeckoLibUtil
 import software.bernie.geckolib.util.RenderUtil
 
-class TileCrystalBall(pos: BlockPos, state: BlockState): BlockEntity(CRYSTAL_BALL, pos, state), GeoBlockEntity {
+class TileCrystalBall(pos: BlockPos, state: BlockState) : BlockEntity(CRYSTAL_BALL, pos, state), GeoBlockEntity {
     private val cache = GeckoLibUtil.createInstanceCache(this)
     private val static = RawAnimation.begin().thenLoop("0")
 
