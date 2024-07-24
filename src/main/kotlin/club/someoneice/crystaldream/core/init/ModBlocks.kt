@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister
 import thedarkcolour.kotlinforforge.neoforge.forge.getValue
 
 object ModBlocks {
-    internal val BLOCKS = DeferredRegister.createBlocks(CrystalDream.MODID)
+    internal val BLOCKS: DeferredRegister.Blocks = DeferredRegister.createBlocks(CrystalDream.MODID)
 
     val TREE_TABLE: Block by BLOCKS.register("tree_table", ::BlockTree)
     val MAGIC_MOUNT: Block by BLOCKS.register("magic_mount", ::BlockMount)

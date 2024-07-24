@@ -13,7 +13,7 @@ import thedarkcolour.kotlinforforge.neoforge.forge.getValue
 
 
 object ModTiles {
-    internal val TILES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, CrystalDream.MODID)
+    internal val TILES: DeferredRegister<BlockEntityType<*>> = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, CrystalDream.MODID)
 
     val TREE_TABLE: BlockEntityType<TileTree> by TILES.register("tree_table",
         object: Supplier<BlockEntityType<TileTree>> {

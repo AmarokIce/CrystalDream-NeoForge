@@ -6,7 +6,6 @@ import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.protocol.Packet
 import net.minecraft.network.protocol.game.ClientGamePacketListener
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket
-import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.level.block.entity.BlockEntityType
 import net.minecraft.world.level.block.state.BlockState
@@ -16,12 +15,13 @@ abstract class TileBase(type: BlockEntityType<*>?, pos: BlockPos?, state: BlockS
     abstract fun readFromNbt(nbt: CompoundTag, registries: HolderLookup.Provider)
 
     fun markDirt() {
-        super.setChanged()
         this.getLevel()?.let {
             if (it.isClientSide()) return@markDirt
-            (it as ServerLevel).players().forEach { player ->
-                player.connection.send(this.updatePacket)
-            }
+            // (it as ServerLevel).players().forEach { player ->
+            //     player.connection.send(this.updatePacket)
+            // }
+
+            it.sendBlockUpdated(this.blockPos, this.blockState, this.blockState, 3)
         }
     }
 
