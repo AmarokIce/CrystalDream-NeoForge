@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.client.geo.model
+package club.someoneice.crystaldream.client.model
 
 import club.someoneice.crystaldream.common.tile.TileCrystalBall
 import club.someoneice.crystaldream.util.createModPath

@@ -18,23 +18,32 @@ import software.bernie.geckolib.renderer.GeoItemRenderer
 import software.bernie.geckolib.util.GeckoLibUtil
 import java.util.function.Consumer
 
-class GeoItemBlockAltar: BlockItem(ModBlocks.MAGIC_ALTAR, Properties()), GeoItem {
+class GeoItemBlockAltar : BlockItem(ModBlocks.MAGIC_ALTAR, Properties()), GeoItem {
     private val cache = GeckoLibUtil.createInstanceCache(this)
 
     override fun initializeClient(consumer: Consumer<IClientItemExtensions?>) {
         super.initializeClient(consumer)
         consumer.accept(object : IClientItemExtensions {
-            private val renderer: BlockEntityWithoutLevelRenderer = object: GeoItemRenderer<GeoItemBlockAltar>(object: GeoModel<GeoItemBlockAltar>() {
-                override fun getModelResource(animatable: GeoItemBlockAltar): ResourceLocation = createModPath("geo/magic_altar.geo.json")
-                override fun getTextureResource(animatable: GeoItemBlockAltar): ResourceLocation = createModPath("textures/geo/magic_altar.png")
-                override fun getAnimationResource(animatable: GeoItemBlockAltar): ResourceLocation = createModPath("animations/magic_altar.animation.json")
-            }) {
-                override fun getRenderType(animatable: GeoItemBlockAltar?,
-                                           texture: ResourceLocation?,
-                                           bufferSource: MultiBufferSource?,
-                                           partialTick: Float): RenderType? =
-                    RenderType.entityTranslucent(getTextureLocation(animatable))
-            }
+            private val renderer: BlockEntityWithoutLevelRenderer =
+                object : GeoItemRenderer<GeoItemBlockAltar>(object : GeoModel<GeoItemBlockAltar>() {
+                    override fun getModelResource(animatable: GeoItemBlockAltar): ResourceLocation =
+                        createModPath("geo/magic_altar.geo.json")
+
+                    override fun getTextureResource(animatable: GeoItemBlockAltar): ResourceLocation =
+                        createModPath("textures/geo/magic_altar.png")
+
+                    override fun getAnimationResource(animatable: GeoItemBlockAltar): ResourceLocation =
+                        createModPath("animations/magic_altar.animation.json")
+                }) {
+                    override fun getRenderType(
+                        animatable: GeoItemBlockAltar?,
+                        texture: ResourceLocation?,
+                        bufferSource: MultiBufferSource?,
+                        partialTick: Float
+                    ): RenderType? =
+                        RenderType.entityTranslucent(getTextureLocation(animatable))
+                }
+
             override fun getCustomRenderer(): BlockEntityWithoutLevelRenderer {
                 return renderer
             }

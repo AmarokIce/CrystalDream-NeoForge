@@ -18,24 +18,33 @@ import software.bernie.geckolib.renderer.GeoItemRenderer
 import software.bernie.geckolib.util.GeckoLibUtil
 import java.util.function.Consumer
 
-class GeoItemBlockCrystalBall: BlockItem(ModBlocks.CRYSTAL_BALL, Properties()), GeoItem {
+class GeoItemBlockCrystalBall : BlockItem(ModBlocks.CRYSTAL_BALL, Properties()), GeoItem {
     private val cache = GeckoLibUtil.createInstanceCache(this)
 
     override fun initializeClient(consumer: Consumer<IClientItemExtensions?>) {
         super.initializeClient(consumer)
         consumer.accept(object : IClientItemExtensions {
-            private val renderer: BlockEntityWithoutLevelRenderer = object: GeoItemRenderer<GeoItemBlockCrystalBall>(object:
-                GeoModel<GeoItemBlockCrystalBall>() {
-                override fun getModelResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = createModPath("geo/crystal_ball.geo.json")
-                override fun getTextureResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = createModPath("textures/geo/crystal_ball.png")
-                override fun getAnimationResource(animatable: GeoItemBlockCrystalBall): ResourceLocation = createModPath("animations/crystal_ball.animation.json")
-            }) {
-                override fun getRenderType(animatable: GeoItemBlockCrystalBall?,
-                                           texture: ResourceLocation?,
-                                           bufferSource: MultiBufferSource?,
-                                           partialTick: Float): RenderType? =
-                    RenderType.entityTranslucent(getTextureLocation(animatable))
-            }
+            private val renderer: BlockEntityWithoutLevelRenderer =
+                object : GeoItemRenderer<GeoItemBlockCrystalBall>(object :
+                    GeoModel<GeoItemBlockCrystalBall>() {
+                    override fun getModelResource(animatable: GeoItemBlockCrystalBall): ResourceLocation =
+                        createModPath("geo/crystal_ball.geo.json")
+
+                    override fun getTextureResource(animatable: GeoItemBlockCrystalBall): ResourceLocation =
+                        createModPath("textures/geo/crystal_ball.png")
+
+                    override fun getAnimationResource(animatable: GeoItemBlockCrystalBall): ResourceLocation =
+                        createModPath("animations/crystal_ball.animation.json")
+                }) {
+                    override fun getRenderType(
+                        animatable: GeoItemBlockCrystalBall?,
+                        texture: ResourceLocation?,
+                        bufferSource: MultiBufferSource?,
+                        partialTick: Float
+                    ): RenderType? =
+                        RenderType.entityTranslucent(getTextureLocation(animatable))
+                }
+
             override fun getCustomRenderer(): BlockEntityWithoutLevelRenderer {
                 return renderer
             }

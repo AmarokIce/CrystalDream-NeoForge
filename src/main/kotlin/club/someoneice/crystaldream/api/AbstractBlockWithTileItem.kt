@@ -16,7 +16,6 @@ import net.minecraft.world.phys.BlockHitResult
 abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlock(properties) {
     constructor() : this(Properties.of().noOcclusion().strength(3.5f))
 
-
     override fun spawnAfterBreak(
         pState: BlockState,
         pLevel: ServerLevel,

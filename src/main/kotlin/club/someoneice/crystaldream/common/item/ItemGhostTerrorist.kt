@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.context.UseOnContext
 import net.minecraft.world.level.block.Blocks
 
-class ItemGhostTerrorist: Item(Properties().stacksTo(1)) {
+class ItemGhostTerrorist : Item(Properties().stacksTo(1)) {
     override fun onItemUseFirst(stack: ItemStack, context: UseOnContext): InteractionResult {
         val world = context.level
         val pos = context.clickedPos
@@ -20,14 +20,16 @@ class ItemGhostTerrorist: Item(Properties().stacksTo(1)) {
             block.`is`(Blocks.SOUL_SAND) -> {
                 world.setBlock(pos, Blocks.SAND.defaultBlockState(), 3)
             }
+
             block.`is`(Blocks.SOUL_SOIL) -> {
                 world.setBlock(pos, Blocks.DIRT.defaultBlockState(), 3)
             }
+
             else -> return InteractionResult.CONSUME
         }
 
         ModItems.SOUL.defaultInstance
-            .asEntityAndSpawn(world, pos.x.toDouble(), pos.y.toDouble() + 1, pos.z.toDouble())
+            .asEntityAndSpawn(world, pos.x.toDouble() + 0.5, pos.y.toDouble() + 1, pos.z.toDouble() + 0.5)
         world.playSound(context.player, pos, SoundEvents.SOUL_SAND_BREAK, SoundSource.BLOCKS)
 
         return InteractionResult.SUCCESS

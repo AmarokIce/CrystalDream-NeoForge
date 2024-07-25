@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.client.render
 
-import club.someoneice.crystaldream.client.geo.model.GeoCrystalBall
+import club.someoneice.crystaldream.client.model.GeoCrystalBall
 import club.someoneice.crystaldream.common.tile.TileCrystalBall
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
