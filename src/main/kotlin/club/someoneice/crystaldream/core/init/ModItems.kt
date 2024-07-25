@@ -1,5 +1,6 @@
 package club.someoneice.crystaldream.core.init
 
+import club.someoneice.crystaldream.common.item.ItemGhostTerrorist
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockAltar
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockCrystalBall
 import club.someoneice.crystaldream.core.CrystalDream
@@ -14,7 +15,8 @@ object ModItems {
     internal val ITEMS: DeferredRegister.Items = DeferredRegister.createItems(CrystalDream.MODID)
 
     val CRYSTAL_POWDER: Item by ITEMS.registerSimpleItem("crystal_power")
-    val GHOST: Item by ITEMS.registerSimpleItem("ghost")
+    val GHOST_TERRORIST: Item by ITEMS.register("ghost_terrorist", ::ItemGhostTerrorist)
+    val SOUL: Item by ITEMS.registerSimpleItem("deceased_soul")
     val SOUL_CRYSTAL: Item by ITEMS.registerSimpleItem("soul_crystal")
     val DREAMING_SEED: Item by ITEMS.registerSimpleItem("dream_seed")
     val DREAMING_ILLUSION: Item by ITEMS.registerSimpleItem("dreaming_illusion")

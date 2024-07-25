@@ -13,7 +13,7 @@ import software.bernie.geckolib.util.RenderUtil
 import kotlin.math.cos
 import kotlin.math.sin
 
-abstract class AbstractTileRender<T : BlockEntity> : BlockEntityRenderer<T>, BlockEntityRendererProvider<T> {
+abstract class AbstractHoldItemTileRender<T : BlockEntity> : BlockEntityRenderer<T>, BlockEntityRendererProvider<T> {
     override fun create(pContext: BlockEntityRendererProvider.Context): BlockEntityRenderer<T> = this
     var item: ItemEntity? = null
 

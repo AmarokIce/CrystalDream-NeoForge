@@ -1,5 +1,6 @@
 package club.someoneice.crystaldream.api
 
+import club.someoneice.crystaldream.util.giveOrThrowOut
 import net.minecraft.core.BlockPos
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.world.InteractionHand
@@ -52,7 +53,7 @@ abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlo
         if (player.isShiftKeyDown) {
             if (!item.isEmpty) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
             if (tile.getItem().isEmpty) return ItemInteractionResult.FAIL
-            else player.addItem(tile.getAndCleanItem())
+            else player.giveOrThrowOut(tile.getAndCleanItem())
             return ItemInteractionResult.SUCCESS
         }
 

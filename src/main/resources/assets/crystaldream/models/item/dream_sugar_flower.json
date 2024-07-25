@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "crystaldream:block/dream_sugar_flower"
-  }
-}

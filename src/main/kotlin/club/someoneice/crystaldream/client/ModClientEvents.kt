@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.client
 
-import club.someoneice.crystaldream.api.AbstractTileRender
+import club.someoneice.crystaldream.api.AbstractHoldItemTileRender
 import club.someoneice.crystaldream.client.render.CrystalBallRender
 import club.someoneice.crystaldream.client.render.MagicAltarRender
 import club.someoneice.crystaldream.common.tile.TileMount
@@ -46,7 +46,7 @@ object ModClientEvents {
         }
     }
 
-    private fun <T : BlockEntity> getRender() = object : AbstractTileRender<T>() {
+    private fun <T : BlockEntity> getRender() = object : AbstractHoldItemTileRender<T>() {
         override fun render(entity: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int, k: Int) {
             super.absRender(1.0, entity, f, pose, buffer, i)
         }

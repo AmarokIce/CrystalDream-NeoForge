@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.client.render
 
-import club.someoneice.crystaldream.api.AbstractTileRender
+import club.someoneice.crystaldream.api.AbstractHoldItemTileRender
 import club.someoneice.crystaldream.client.geo.model.GeoAltar
 import club.someoneice.crystaldream.common.tile.TileAltar
 import com.mojang.blaze3d.vertex.PoseStack
@@ -42,8 +42,8 @@ class MagicAltarRender : GeoBlockRenderer<TileAltar>(GeoAltar()), BlockEntityRen
             pose.pushPose()
             run {
                 pose.translate(-0.350, -0.55, -0.74)
-                pose.mulPose(AbstractTileRender.rotation(1.0f, 0.0f, 0.0f, 22.4f))
-                pose.mulPose(AbstractTileRender.rotation(0.0f, 0.0f, 1.0f, 22f))
+                pose.mulPose(AbstractHoldItemTileRender.rotation(1.0f, 0.0f, 0.0f, 22.4f))
+                pose.mulPose(AbstractHoldItemTileRender.rotation(0.0f, 0.0f, 1.0f, 22f))
                 pose.scale(0.4f, 0.4f, 0.1f)
             }
             pose.popPose()
