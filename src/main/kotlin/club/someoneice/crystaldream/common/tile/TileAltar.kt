@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.common.tile
 
-import club.someoneice.crystaldream.api.IItemTile
+import club.someoneice.crystaldream.api.IItemHolder
 import club.someoneice.crystaldream.api.TileBase
 import club.someoneice.crystaldream.core.init.ModTiles.ALTAR_CORE
 import net.minecraft.core.BlockPos
@@ -14,7 +14,7 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animation.*
 import software.bernie.geckolib.util.GeckoLibUtil
 
-class TileAltar(pos: BlockPos, state: BlockState) : TileBase(ALTAR_CORE, pos, state), IItemTile, GeoBlockEntity {
+class TileAltar(pos: BlockPos, state: BlockState) : TileBase(ALTAR_CORE, pos, state), IItemHolder, GeoBlockEntity {
     override var itemHolder: ItemStack = ItemStack.EMPTY
 
     override fun writeToNbt(nbt: CompoundTag, register: HolderLookup.Provider) {

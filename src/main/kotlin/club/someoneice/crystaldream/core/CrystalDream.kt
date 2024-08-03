@@ -3,9 +3,11 @@ package club.someoneice.crystaldream.core
 import club.someoneice.crystaldream.api.AbstractManaCrystal
 import club.someoneice.crystaldream.common.capability.CapabilityCrystalMana
 import club.someoneice.crystaldream.core.init.ModCapabilities
+import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModRegister
 import net.minecraft.core.registries.BuiltInRegistries
 import net.neoforged.fml.common.Mod
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent
 import org.apache.logging.log4j.LogManager
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
@@ -19,6 +21,12 @@ object CrystalDream {
         ModRegister.register()
 
         MOD_BUS.addListener(this::onCapabilityRegister)
+        MOD_BUS.addListener(this::onCommonInit)
+    }
+
+
+    private fun onCommonInit(event: FMLCommonSetupEvent) {
+        ModRecipes.init()
     }
 
     private fun onCapabilityRegister(event: RegisterCapabilitiesEvent) {

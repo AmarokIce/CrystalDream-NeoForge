@@ -1,6 +1,6 @@
 {
-  "parent": "traveler_of_destiny:display/magic_altar.item",
+  "parent": "crystaldream:display/magic_altar.item",
   "textures": {
-    "particle": "traveler_of_destiny:geo/magic_altar"
+    "particle": "crystaldream:geo/magic_altar"
   }
 }

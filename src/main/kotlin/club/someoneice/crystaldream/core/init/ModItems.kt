@@ -1,10 +1,10 @@
 package club.someoneice.crystaldream.core.init
 
+import club.someoneice.crystaldream.common.item.ItemFruitPie
 import club.someoneice.crystaldream.common.item.ItemGhostTerrorist
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockAltar
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockCrystalBall
 import club.someoneice.crystaldream.core.CrystalDream
-import club.someoneice.crystaldream.util.ItemHelper
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.neoforged.neoforge.registries.DeferredRegister
@@ -40,6 +40,6 @@ object ModItems {
     val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
 
     /* goblins */
-    val FRUIT_PIE: Item by ITEMS.registerItem("apple_pie") { ItemHelper.itemFood(6, 0.45f) }
+    val FRUIT_PIE: Item by ITEMS.register("apple_pie", ::ItemFruitPie)
     val WAND: Item by ITEMS.registerSimpleItem("wand")
 }

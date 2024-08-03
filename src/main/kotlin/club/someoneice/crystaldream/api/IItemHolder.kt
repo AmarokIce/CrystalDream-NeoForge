@@ -4,17 +4,28 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.world.item.ItemStack
 
-interface IItemTile {
+interface IItemHolder {
     var itemHolder: ItemStack
 
     fun loadItem(nbt: CompoundTag, registries: HolderLookup.Provider) {
         itemHolder =
-            if (nbt.contains("item")) ItemStack.parseOptional(registries, nbt.getCompound("item")) else ItemStack.EMPTY
-        this.markItemChanged()
+            if (nbt.getBoolean("hadItemHolder")) {
+                ItemStack.parseOptional(registries, nbt.getCompound("itemHolder"))
+            } else {
+                nbt.remove("itemHolder")
+                ItemStack.EMPTY
+            }
+        markItemChanged()
     }
 
     fun saveItem(nbt: CompoundTag, registries: HolderLookup.Provider) {
-        if (!itemHolder.isEmpty) nbt.put("item", itemHolder.save(registries))
+        if (itemHolder.isEmpty) {
+            nbt.remove("itemHolder")
+            nbt.putBoolean("hadItemHolder", false)
+        } else {
+            nbt.put("itemHolder", itemHolder.save(registries))
+            nbt.putBoolean("hadItemHolder", true)
+        }
     }
 
     fun markItemChanged() {

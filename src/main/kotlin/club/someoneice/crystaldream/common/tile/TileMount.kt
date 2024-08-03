@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.common.tile
 
-import club.someoneice.crystaldream.api.IItemTile
+import club.someoneice.crystaldream.api.IItemHolder
 import club.someoneice.crystaldream.api.TileBase
 import club.someoneice.crystaldream.core.init.ModTiles.ALTAR_MOUNT
 import net.minecraft.core.BlockPos
@@ -9,7 +9,7 @@ import net.minecraft.nbt.CompoundTag
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.state.BlockState
 
-class TileMount(pos: BlockPos, state: BlockState) : TileBase(ALTAR_MOUNT, pos, state), IItemTile {
+class TileMount(pos: BlockPos, state: BlockState) : TileBase(ALTAR_MOUNT, pos, state), IItemHolder {
     override var itemHolder: ItemStack = ItemStack.EMPTY
 
     override fun writeToNbt(nbt: CompoundTag, register: HolderLookup.Provider) {

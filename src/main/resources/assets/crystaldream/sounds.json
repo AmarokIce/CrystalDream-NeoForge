@@ -1,0 +1,19 @@
+{
+  "goblins_happy": {
+    "crystaldream": "master",
+    "sounds": [
+      {
+        "name": "crystaldream:goblins_happy01",
+        "stream": false
+      },
+      {
+        "name": "crystaldream:goblins_happy02",
+        "stream": false
+      },
+      {
+        "name": "crystaldream:goblins_happy03",
+        "stream": false
+      }
+    ]
+  }
+}

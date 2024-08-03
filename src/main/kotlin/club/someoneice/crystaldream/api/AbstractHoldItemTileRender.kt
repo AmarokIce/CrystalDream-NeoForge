@@ -18,7 +18,7 @@ abstract class AbstractHoldItemTileRender<T : BlockEntity> : BlockEntityRenderer
     var item: ItemEntity? = null
 
     fun absRender(y: Double, tile: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int) {
-        if (tile !is IItemTile) throw RuntimeException("Do not call a tile without IItemTileHelper use AbstractTileRender!")
+        if (tile !is IItemHolder) throw RuntimeException("Do not call a tile without IItemTileHelper use AbstractTileRender!")
         if (item == null) item = ItemEntity(
             tile.level!!,
             tile.blockPos.x.toDouble(),
@@ -30,10 +30,11 @@ abstract class AbstractHoldItemTileRender<T : BlockEntity> : BlockEntityRenderer
         run {
             pose.translate(0.5, y, 0.5)
             pose.scale(0.855f, 0.855f, 0.855f)
-            item?.item = tile.getItem()
-            if (item != null)
+            item!!.item = tile.getItem()
+            item.let {
                 Minecraft.getInstance().entityRenderDispatcher.getRenderer<Entity>(item!!)
                     .render(item, f, RenderUtil.getCurrentTick().toFloat(), pose, buffer, i)
+            }
 
             pose.pushPose()
             run {
@@ -44,7 +45,6 @@ abstract class AbstractHoldItemTileRender<T : BlockEntity> : BlockEntityRenderer
             }
             pose.popPose()
         }
-
         pose.popPose()
     }
 

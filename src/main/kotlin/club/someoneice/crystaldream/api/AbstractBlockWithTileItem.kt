@@ -26,7 +26,7 @@ abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlo
         super.spawnAfterBreak(pState, pLevel, pPos, pStack, pDropExperience)
         val list = ArrayList<ItemStack>()
         list.add(this.asItem().defaultInstance)
-        pLevel.getBlockEntity(pPos)?.let { tile -> if (tile is IItemTile) list.add(tile.getItem()) }
+        pLevel.getBlockEntity(pPos)?.let { tile -> if (tile is IItemHolder) list.add(tile.getItem()) }
     }
 
     override fun useItemOn(
@@ -39,13 +39,17 @@ abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlo
         hitResult: BlockHitResult
     ): ItemInteractionResult {
         super.useItemOn(stack, state, level, pos, player, hand, hitResult)
+        if (level.isClientSide) {
+            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
+        }
+
         if (hand == InteractionHand.OFF_HAND) {
             return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
         }
 
         val item = player.mainHandItem
         val tile = level.getBlockEntity(pos)
-        if (tile !is IItemTile) {
+        if (tile !is IItemHolder) {
             return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
         }
 
@@ -53,12 +57,14 @@ abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlo
             if (!item.isEmpty) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
             if (tile.getItem().isEmpty) return ItemInteractionResult.FAIL
             else player.giveOrThrowOut(tile.getAndCleanItem())
+            tile.markItemChanged()
             return ItemInteractionResult.SUCCESS
         }
 
         if (item.isEmpty || !tile.getItem().isEmpty) {
             return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
         }
+
         val it = item.copy()
         it.count = 1
         tile.setItem(it)
