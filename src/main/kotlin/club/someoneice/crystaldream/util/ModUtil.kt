@@ -32,4 +32,9 @@ fun ItemStack.asEntityAndSpawn(world: Level, posX: Double, posY: Double, posZ: D
     world.addFreshEntity(item)
 }
 
+fun ItemStack.cost(size: Int = 1): ItemStack {
+    this.shrink(size)
+    return this
+}
+
 

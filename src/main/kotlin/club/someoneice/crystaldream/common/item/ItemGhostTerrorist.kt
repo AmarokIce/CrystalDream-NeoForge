@@ -25,7 +25,7 @@ class ItemGhostTerrorist : Item(Properties().stacksTo(1)) {
                 world.setBlock(pos, Blocks.DIRT.defaultBlockState(), 3)
             }
 
-            else -> return InteractionResult.CONSUME
+            else -> return InteractionResult.PASS
         }
 
         ModItems.SOUL.defaultInstance

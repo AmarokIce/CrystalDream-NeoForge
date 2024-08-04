@@ -1,96 +1,29 @@
 {
-  "itemGroup.crystaldream": "§5晶彩§d梦§5艺",
+  "crystaldream.tab": "§5晶彩§d梦§5艺",
   "item.crystaldream.crystal_crafting_book": "§5晶彩创意",
 
-  "item.crystaldream.parchment": "羊皮纸",
-  "item.crystaldream.fireball_spell": "法术: 豪火球",
-  "item.crystaldream.lightning_spell": "法术:电击咒",
-
-  "item.crystaldream.deceased_soul": "逝者之魂",
+  "item.crystaldream.crystal_power": "水晶粉末",
   "item.crystaldream.ghost_terrorist": "清明之符",
-  "item.crystaldream.aconite": "§5附子草",
-
-
-  "item.crystaldream.verdant_ingot": "翠石锭",
-  "item.crystaldream.verdant_nugget": "翠石粒",
-  "item.crystaldream.verdant_raw_ore": "翠石粗矿",
-
-  "item.crystaldream.amethyst_dust": "紫水晶粉",
-  "item.crystaldream.mana_powder": "魔法粉",
-
-  "item.crystaldream.dreaming_illusion": "迷梦草",
-  "item.crystaldream.dreaming_illusion_seed": "迷梦种子",
-  "item.crystaldream.dreaming_thread": "美梦丝",
-
+  "item.crystaldream.deceased_soul": "亡者之魂",
+  "item.crystaldream.soul_crystal":"灵魂水晶",
+  "item.crystaldream.dream_seed": "迷梦种子",
+  "item.crystaldream.dreaming_illusion":"迷梦卷草",
+  "item.crystaldream.verdant_ingot": "碧翠石锭",
+  "item.crystaldream.verdant_nugget":"碧翠石粒",
   "item.crystaldream.crystal_cup": "紫水晶杯",
+  "item.crystaldream.wand": "法杖",
 
-  "item.crystaldream.tea_bag_sugar": "茶包：糖水",
-  "item.crystaldream.tea_bag_flower": "茶包：花茶",
-  "item.crystaldream.tea_bag_fruit": "茶包：水果茶",
-  "item.crystaldream.tea_bag_dreaming": "茶包：安眠茶",
+  "item.crystaldream.teabag_flower":  "玫瑰花茶包",
+  "item.crystaldream.teabag_sugar": "糖水包",
+  "item.crystaldream.teabag_crystal":  "水晶糖水包",
+  "item.crystaldream.teabag_fruit": "水果茶包",
+  "item.crystaldream.teabag_fire":  "炙热饮品包",
+  "item.crystaldream.teabag_blood": "鲜血饮品包",
 
-  "item.crystaldream.tea_sugar": "糖水",
-  "item.crystaldream.tea_flower": "花茶",
-  "item.crystaldream.tea_fruit": "水果茶",
-  "item.crystaldream.tea_dreaming": "安眠茶",
+  "item.crystaldream.apple_pie":  "苹果派",
 
-  "block.crystaldream.tree_table": "花茶树",
-  "block.crystaldream.magic_mount": "紫水晶支柱",
+  "block.crystaldream.tree_table": "地精之树",
+  "block.crystaldream.magic_mount":"黑石置物台",
   "block.crystaldream.magic_altar": "紫水晶祭坛",
-
-  "block.crystaldream.verdant_ore": "翠石矿",
-  "block.crystaldream.verdant_deep_ore": "深层翠石矿",
-  "block.crystaldream.verdant_dream_ore": "梦境翠石矿",
-  "block.crystaldream.verdant_raw_ore_block": "翠石粗矿块",
-  "block.crystaldream.verdant_block": "翠石块",
-
-  "block.crystaldream.dream_grass_block": "梦境草方块",
-  "block.crystaldream.dream_dirt": "梦境土",
-  "block.crystaldream.dream_stone": "梦境石",
-  "block.crystaldream.dream_dirtpath": "梦境草径",
-  "block.crystaldream.dream_farmland": "梦境耕地",
-
-  "block.crystaldream.dream_sugar_flower": "糖糖花",
-
-  "effect.crystaldream.dreaming": "如梦",
-  "effect.crystaldream.mirror": "晶像",
-  "effect.crystaldream.pumpkin_nightmare": "南瓜噩梦",
-  "effect.crystaldream.soul_called": "灵魂共鸣",
-
-  "enchantment.crystaldream.soul_getter": "灵魂收割",
-
-  "dream.pumpkin_dream.crystaldream.message": "你感觉南瓜入侵了你的梦境...",
-  "dream.paster_dream.crystaldream.message":"你梦见你进入了一个粉色的世界，你的意识告诉你只需要找到“那个”就能开启一段新的旅程...",
-  "dream.mirror_dream.crystaldream.message": "你梦见你变成了水晶... 突如其来的刺痛感让你醒的很意外，为什么躺着会感觉痛？你掐了一下自己，反而很舒服...",
-  "dream.exp-up_dream.crystaldream.message":"你在梦境中学到了相当多的知识...",
-  "dream.crystal_dream.crystaldream.message": "你即便在做梦也在做水晶工艺... 醒来后，你的手边凭空出现了一些水晶。",
-  "dream.none_dream.crystaldream.message":"你做了一个好梦！",
-  "dream.bda_dream.crystaldream.message": "你做了一个不太好的梦，但是你没什么损失。",
-
-  "misc.soul.crystaldream.info": "这些可怜的灵魂可以被你一口一个的吃掉！",
-  "misc.book0.crystaldream.info": "一本记录了晶彩梦艺的指北。",
-  "misc.book1.crystaldream.info": "上面沾满了狼毛和凤梨的气味。",
-
-  "hasUseCrystalBall.crystaldream.message": "你已经看过水晶球了。",
-  "dreamCrystalBall.crystaldream.message": "里面映射出了美丽的梦... ",
-  "nightmareCrystalBall.crystaldream.message": "里面映射出了黑色梦魇... ",
-
-  "spell.fireball.base.crystaldream.info": "火球发射!",
-  "spell.lightning.base.crystaldream.info": "电击你周围的生物。",
-
-  "creat.crystal_maker.crystaldream.tooltip": "制作",
-  "creative_lv.crystal_maker.crystaldream.tooltip": "晶制师等级: ",
-  "creative_object.crystal_maker.crystaldream.tooltip": "目前产物: ",
-
-  "death.attack.crystalReflection": "%1$s在剧烈的刺痛中成为水晶。",
-  "death.attack.corrode": "%1$s 无法摆脱噩梦。",
-
-  "item.crystaldream.shoppy_man": "行商之证",
-
-
-  "crytaldream.BASE.type": "空创杰作 系列",
-  "crytaldream.MOON.type": "晶彩梦艺 系列",
-  "crytaldream.PARTY.type": "派对极客 系列",
-  "crytaldream.GHOST.type": "归家之魂 系列"
-
+  "block.crystaldream.crystal_ball": "紫水晶球"
 }

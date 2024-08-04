@@ -1,86 +1,25 @@
 {
-  "itemGroup.crystaldream": "§5Crystal §dDream",
-  "item.crystaldream.crystal_crafting_book": "§5Crystal Crafting",
-
-  "item.crystaldream.parchment": "Parchment",
-  "item.crystaldream.fireball_spell": "Spell: Fireball",
-  "item.crystaldream.lightning_spell": "Lightning Spell",
-
-  "item.crystaldream.deceased_soul": "Deceased Soul",
-  "item.crystaldream.ghost_terrorist": "Charm of Clarity",
-  "item.crystaldream.aconite": "§5Aconite",
-
-  "item.crystaldream.verdant_ingot": "Verdant Ingot",
-  "item.crystaldream.verdant_nugget": "Verdant Nugget",
-  "item.crystaldream.verdant_raw_ore": "Raw Verdant Ore",
-
-  "item.crystaldream.amethyst_dust": "Amethyst Dust",
-  "item.crystaldream.mana_powder": "Mana Powder",
-
-  "item.crystaldream.dreaming_illusion": "Dreaming Illusion",
-  "item.crystaldream.dreaming_illusion_seed": "Dreaming Illusion Seed",
-  "item.crystaldream.dreaming_thread": "Dreaming Thread",
-
-  "item.crystaldream.crystal_cup": "Amethyst Cup",
-
-  "item.crystaldream.tea_bag_sugar": "Tea Bag: Sugar Tea",
-  "item.crystaldream.tea_bag_flower": "Tea Bag: Flower Tea",
-  "item.crystaldream.tea_bag_fruit": "Tea Bag: Fruit Tea",
-  "item.crystaldream.tea_bag_dreaming": "Tea Bag: Dreaming Tea",
-
-  "item.crystaldream.tea_sugar": "Sugar Tea",
-  "item.crystaldream.tea_flower": "Flower Tea",
-  "item.crystaldream.tea_fruit": "Fruit Tea",
-  "item.crystaldream.tea_dreaming": "Dreaming Tea",
-
-  "block.crystaldream.tree_table": "A Tree",
-  "block.crystaldream.magic_mount": "Amethyst Mount",
-  "block.crystaldream.magic_altar": "Amethyst Altar",
-
-  "block.crystaldream.verdant_ore": "Verdant Ore",
-  "block.crystaldream.verdant_deep_ore": "Deep Verdant Ore",
-  "block.crystaldream.verdant_dream_ore": "Dream Verdant Ore",
-  "block.crystaldream.verdant_raw_ore_block": "Raw Verdant Ore Block",
-  "block.crystaldream.verdant_block": "Verdant Block",
-
-  "block.crystaldream.dream_grass_block": "Dream Grass Block",
-  "block.crystaldream.dream_dirt": "Dream Dirt",
-  "block.crystaldream.dream_stone": "Dream Stone",
-  "block.crystaldream.dream_dirtpath": "Dream Dirt Path",
-  "block.crystaldream.dream_farmland": "Dream Farmland",
-
-  "block.crystaldream.dream_sugar_flower": "Sugar Flower",
-
-  "effect.crystaldream.dreaming": "Dreaming",
-  "effect.crystaldream.mirror": "Mirror",
-  "effect.crystaldream.pumpkin_nightmare": "Pumpkin Nightmare",
-  "effect.crystaldream.soul_called": "Soul Calling",
-
-  "enchantment.crystaldream.soul_getter": "Soul Harvest",
-
-  "dream.pumpkin_dream.crystaldream.message": "You feel the pumpkin invading your dream...",
-  "dream.paster_dream.crystaldream.message":"You dream that you have entered a pink world, and your consciousness tells you that you only need to find \"that\" to start a new journey...",
-  "dream.mirror_dream.crystaldream.message": "You dream that you have become crystal... The sudden tingling sensation made you wake up very unexpectedly, why does it hurt when lying down? You pinched yourself, but it was very comfortable...",
-  "dream.exp-up_dream.crystaldream.message":"You learn quite a bit in the dream...",
-  "dream.crystal_dream.crystaldream.message": "You're doing crystal crafting even if you're dreaming... When you wake up, some crystals appear out of thin air on your hand.",
-  "dream.none_dream.crystaldream.message":"A good dream isn't it！",
-  "dream.bda_dream.crystaldream.message": "A bad dream, but lucky without any surprises",
-
-  "misc.soul.crystaldream.info": "These poor souls small enough that you can eat it at one bite!",
-  "misc.book0.crystaldream.info": "A guide for Crystal Dream.",
-  "misc.book1.crystaldream.info": "It was covered with wolf hair and pineapple flavors.",
-
-  "hasUseCrystalBall.crystaldream.message": "You had use crystal ball this time.",
-  "dreamCrystalBall.crystaldream.message": "A beautiful dream inside... ",
-  "nightmareCrystalBall.crystaldream.message": "A nightmare dream inside... ",
-
-  "spell.fireball.base.crystaldream.info": "Fire a fireball!",
-  "spell.lightning.base.crystaldream.info": "Shock random creatures around you.",
-
-  "creat.crystal_maker.crystaldream.tooltip": "Crafting",
-  "creative_lv.crystal_maker.crystaldream.tooltip": "C-C LV: ",
-  "creative_object.crystal_maker.crystaldream.tooltip": "The crystal: ",
-
-  "death.attack.crystalReflection": "%1$s become a crystal in a sharp sting.",
-  "death.attack.corrode": "%1$s in the inability to break free from the nightmare."
+  "crystaldream.tab": "§5晶彩§d梦§5艺",
+  "item.crystaldream.crystal_crafting_book": "§5晶彩创意",
+  "item.crystaldream.crystal_power": "水晶粉末",
+  "item.crystaldream.ghost_terrorist": "清明之符",
+  "item.crystaldream.deceased_soul": "亡者之魂",
+  "item.crystaldream.soul_crystal": "灵魂水晶",
+  "item.crystaldream.dream_seed": "迷梦种子",
+  "item.crystaldream.dreaming_illusion": "迷梦卷草",
+  "item.crystaldream.verdant_ingot": "碧翠石锭",
+  "item.crystaldream.verdant_nugget": "碧翠石粒",
+  "item.crystaldream.crystal_cup": "紫水晶杯",
+  "item.crystaldream.wand": "法杖",
+  "item.crystaldream.teabag_flower": "玫瑰花茶包",
+  "item.crystaldream.teabag_sugar": "糖水包",
+  "item.crystaldream.teabag_crystal": "水晶糖水包",
+  "item.crystaldream.teabag_fruit": "水果茶包",
+  "item.crystaldream.teabag_fire": "炙热饮品包",
+  "item.crystaldream.teabag_blood": "鲜血饮品包",
+  "item.crystaldream.apple_pie": "苹果派",
+  "block.crystaldream.tree_table": "地精之树",
+  "block.crystaldream.magic_mount": "黑石置物台",
+  "block.crystaldream.magic_altar": "紫水晶祭坛",
+  "block.crystaldream.crystal_ball": "紫水晶球"
 }

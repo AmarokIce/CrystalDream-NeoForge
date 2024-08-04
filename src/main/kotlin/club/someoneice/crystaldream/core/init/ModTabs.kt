@@ -15,8 +15,8 @@ object ModTabs {
         DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, CrystalDream.MODID)
 
     @Suppress("Unused")
-    val GROUP_MAIN: CreativeModeTab by TABS.register("main", object : Supplier<CreativeModeTab> {
-        override fun get() = CreativeModeTab.builder().noScrollBar()
+    val GROUP_MAIN: CreativeModeTab by TABS.register("main", Supplier<CreativeModeTab> {
+        CreativeModeTab.builder().noScrollBar()
             .title(Component.literal("crystaldream.tab"))
             .icon { ModItems.SOUL_CRYSTAL.defaultInstance }
             .displayItems { _, output ->
