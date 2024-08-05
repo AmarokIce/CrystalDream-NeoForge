@@ -18,7 +18,7 @@ object ModRecipes {
     }
 
     private fun recipePotion() {
-        
+
     }
 
     private fun recipeGoblinsInit() {
