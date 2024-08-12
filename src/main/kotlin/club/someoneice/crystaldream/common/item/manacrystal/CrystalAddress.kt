@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.item
+package club.someoneice.crystaldream.common.item.manacrystal
 
 import club.someoneice.crystaldream.api.AbstractManaCrystal
 import club.someoneice.crystaldream.util.updateNbt

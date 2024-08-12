@@ -10,6 +10,7 @@ import club.someoneice.crystaldream.core.init.ModBlocks
 import club.someoneice.crystaldream.core.init.ModTiles
 import com.mojang.blaze3d.vertex.PoseStack
 import net.minecraft.client.renderer.ItemBlockRenderTypes
+import net.minecraft.client.renderer.ItemInHandRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.world.level.block.entity.BlockEntity
@@ -44,6 +45,10 @@ object ModClientEvents {
         event.enqueueWork {
             layout()
         }
+    }
+
+    fun renderItemEvent(event: ItemInHandRenderer) {
+
     }
 
     private fun <T : BlockEntity> getRender() = object : AbstractHoldItemTileRender<T>() {

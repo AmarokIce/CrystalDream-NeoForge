@@ -90,6 +90,8 @@ dependencies {
     implementation 'thedarkcolour:kotlinforforge-neoforge:5.4.0'
 
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.withType(ProcessResources).configureEach {

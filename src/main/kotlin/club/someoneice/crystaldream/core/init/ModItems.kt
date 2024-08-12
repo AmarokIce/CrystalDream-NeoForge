@@ -40,6 +40,6 @@ object ModItems {
     val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
 
     /* goblins */
-    val FRUIT_PIE: Item by ITEMS.register("apple_pie", ::ItemFruitPie)
+    val FRUIT_PIE: Item by ITEMS.register("fluit_pie", ::ItemFruitPie)
     val WAND: Item by ITEMS.registerSimpleItem("wand")
 }

@@ -1,0 +1,10 @@
+{
+  "minVersion": "0.8",
+  "package": "club.someoneice.crystaldream.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "ItemRendererMixin"
+  ]
+}
