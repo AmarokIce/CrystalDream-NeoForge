@@ -12,6 +12,10 @@ credits="TeamStarry, BeclR0Ck"
 authors="${mod_authors}"
 logoFile="crystaldream_icon.png"
 description='''${mod_description}'''
+
+[[mixins]]
+config="crystaldream.mixins.json"
+
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"

@@ -10,7 +10,6 @@ import club.someoneice.crystaldream.core.init.ModBlocks
 import club.someoneice.crystaldream.core.init.ModTiles
 import com.mojang.blaze3d.vertex.PoseStack
 import net.minecraft.client.renderer.ItemBlockRenderTypes
-import net.minecraft.client.renderer.ItemInHandRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.world.level.block.entity.BlockEntity
@@ -43,12 +42,32 @@ object ModClientEvents {
         // MenuScreens.register(MenuInit.CRYSTAL_MAKER, ::GuiCrystalMaker)
 
         event.enqueueWork {
+            replaceMissingNo()
             layout()
         }
     }
 
-    fun renderItemEvent(event: ItemInHandRenderer) {
+    fun replaceMissingNo() {
+        // The reflection will not work in Java 9+ :(
+        // I'll got take some mixins.
+        /*
+        val field = MissingTextureAtlasSprite::class.java.getDeclaredField("MISSING_TEXTURE_LOCATION")
+        field.isAccessible = true
 
+        val getDeclaredFields0 = Class::class.java.getDeclaredMethod("getDeclaredFields0", Boolean::class.java)
+        getDeclaredFields0.setAccessible(true)
+        val fields = getDeclaredFields0.invoke(Field::class.java, false) as Array<Field>
+        var modifierField: Field? = null
+        for (f in fields) {
+            if ("modifiers" == f.name) {
+                modifierField = f
+                break
+            }
+        }
+        modifierField!!.setAccessible(true);
+        modifierField.setInt(field, field.modifiers and Modifier.FINAL.inv())
+        field.set(null, createModPath("missingno"));
+        */
     }
 
     private fun <T : BlockEntity> getRender() = object : AbstractHoldItemTileRender<T>() {

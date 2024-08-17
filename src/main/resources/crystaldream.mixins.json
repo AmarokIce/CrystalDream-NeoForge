@@ -5,6 +5,7 @@
   "mixins": [
   ],
   "client": [
-    "ItemRendererMixin"
+    "ItemRendererMixin",
+    "MissingTextureAtlasSpriteMixin"
   ]
 }

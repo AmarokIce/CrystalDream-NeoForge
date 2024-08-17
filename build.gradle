@@ -10,13 +10,13 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.0'
 }
 
+
 version = mod_version
 group = mod_group_id
 base.archivesName = mod_id
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 compileKotlin.compilerOptions.jvmTarget = JvmTarget.JVM_21
-
 
 neoForge {
     version = neo_version
@@ -90,8 +90,6 @@ dependencies {
     implementation 'thedarkcolour:kotlinforforge-neoforge:5.4.0'
 
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
-
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.withType(ProcessResources).configureEach {
