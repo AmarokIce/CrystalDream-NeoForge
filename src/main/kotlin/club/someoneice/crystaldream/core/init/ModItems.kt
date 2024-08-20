@@ -24,6 +24,14 @@ object ModItems {
     val VERDANT_INGOT: Item by ITEMS.registerSimpleItem("verdant_ingot")
     val VERDANT_NUGGET: Item by ITEMS.registerSimpleItem("verdant_nugget")
 
+    /* mana and magic */
+    val OAK_ESS: Item by ITEMS.registerSimpleItem("oak_ess")
+    val DEATH_ESS: Item by ITEMS.registerSimpleItem("death_ess")
+    val END_ESS: Item by ITEMS.registerSimpleItem("end_ess")
+    val WOODEN_BOTTLE: Item by ITEMS.registerSimpleItem("wooden_bottle")
+    val PURE_LIVING: Item by ITEMS.registerSimpleItem("pure_living")
+    val EGG: Item by ITEMS.registerSimpleItem("verdant_nugget")
+
     /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")
 
