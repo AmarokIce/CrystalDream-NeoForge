@@ -29,6 +29,11 @@ abstract class TileBase(type: BlockEntityType<*>?, pos: BlockPos?, state: BlockS
         return ClientboundBlockEntityDataPacket.create(this)
     }
 
+    override fun handleUpdateTag(tag: CompoundTag, lookupProvider: HolderLookup.Provider) {
+        super.handleUpdateTag(tag, lookupProvider)
+        this.loadAdditional(tag, lookupProvider)
+    }
+
 
     override fun getUpdateTag(registries: HolderLookup.Provider): CompoundTag {
         val tag = super.getUpdateTag(registries)

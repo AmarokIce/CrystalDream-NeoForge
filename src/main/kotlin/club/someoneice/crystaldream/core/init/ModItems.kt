@@ -30,7 +30,7 @@ object ModItems {
     val END_ESS: Item by ITEMS.registerSimpleItem("end_ess")
     val WOODEN_BOTTLE: Item by ITEMS.registerSimpleItem("wooden_bottle")
     val PURE_LIVING: Item by ITEMS.registerSimpleItem("pure_living")
-    val EGG: Item by ITEMS.registerSimpleItem("verdant_nugget")
+    val ORIGIN_EGG: Item by ITEMS.registerSimpleItem("origin_egg")
 
     /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")

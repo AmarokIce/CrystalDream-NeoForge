@@ -11,6 +11,9 @@ import net.minecraft.world.level.Level
 
 fun ItemLike.asIngredient() = Ingredient.of(this)
 fun ItemLike.asStack(count: Int = 1) = ItemStack(this, count)
+fun ItemLike.asEntityAndSpawn(world: Level, posX: Double, posY: Double, posZ: Double, size: Int = 1) {
+    this.asStack(size).asEntityAndSpawn(world, posX, posY, posZ)
+}
 
 fun ItemStack.asEntityAndSpawn(world: Level, posX: Double, posY: Double, posZ: Double) {
     if (this.isEmpty) return

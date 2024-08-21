@@ -16,20 +16,14 @@ class ItemGhostTerrorist : Item(Properties().stacksTo(1)) {
         val pos = context.clickedPos
         val block = world.getBlockState(pos)
 
-        when {
-            block.`is`(Blocks.SOUL_SAND) -> {
-                world.setBlock(pos, Blocks.SAND.defaultBlockState(), 3)
-            }
-
-            block.`is`(Blocks.SOUL_SOIL) -> {
-                world.setBlock(pos, Blocks.DIRT.defaultBlockState(), 3)
-            }
-
+        val newState = when {
+            block.`is`(Blocks.SOUL_SAND) -> Blocks.SAND.defaultBlockState()
+            block.`is`(Blocks.SOUL_SOIL) -> Blocks.DIRT.defaultBlockState()
             else -> return InteractionResult.PASS
         }
 
-        ModItems.SOUL.defaultInstance
-            .asEntityAndSpawn(world, pos.x.toDouble() + 0.5, pos.y.toDouble() + 1, pos.z.toDouble() + 0.5)
+        world.setBlock(pos, newState, 3)
+        ModItems.SOUL.asEntityAndSpawn(world, pos.x.toDouble() + 0.5, pos.y.toDouble() + 1, pos.z.toDouble() + 0.5)
         world.playSound(context.player, pos, SoundEvents.SOUL_SAND_BREAK, SoundSource.BLOCKS)
 
         return InteractionResult.SUCCESS

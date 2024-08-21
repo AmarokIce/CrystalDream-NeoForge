@@ -4,16 +4,12 @@ import org.jetbrains.annotations.ApiStatus
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 
 object ModRegister {
-    @JvmField
-    val MOD_ITEMS = ModItems.ITEMS
-    @JvmField
-    val MOD_BLOCKS = ModBlocks.BLOCKS
-    @JvmField
-    val MOD_TILES = ModTiles.TILES
-    @JvmField
-    val SOUNDS = ModSoundEvents.SOUNDS
-    @JvmField
-    val MOD_TABS = ModTabs.TABS
+    @JvmField val MOD_ITEMS = ModItems.ITEMS
+    @JvmField val MOD_BLOCKS = ModBlocks.BLOCKS
+    @JvmField val MOD_TILES = ModTiles.TILES
+    @JvmField val SOUNDS = ModSoundEvents.SOUNDS
+    @JvmField val MOD_MENUS = ModMenus.MENUS
+    @JvmField val MOD_TABS = ModTabs.TABS
 
 
     @ApiStatus.Internal
@@ -23,6 +19,7 @@ object ModRegister {
         MOD_BLOCKS.register(MOD_BUS)
         MOD_TILES.register(MOD_BUS)
         SOUNDS.register(MOD_BUS)
+        MOD_MENUS.register(MOD_BUS)
         MOD_TABS.register(MOD_BUS)
     }
 }

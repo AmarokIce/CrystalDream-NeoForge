@@ -7,7 +7,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 
-class CrystalAddress: AbstractManaCrystal() {
+class CrystalAddress : AbstractManaCrystal() {
     override fun getMaxMana(): Int = 60
     fun usageMana(): Int = 5
 

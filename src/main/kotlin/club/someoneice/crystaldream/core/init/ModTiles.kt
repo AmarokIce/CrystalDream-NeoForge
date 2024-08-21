@@ -1,9 +1,6 @@
 package club.someoneice.crystaldream.core.init
 
-import club.someoneice.crystaldream.common.tile.TileAltar
-import club.someoneice.crystaldream.common.tile.TileCrystalBall
-import club.someoneice.crystaldream.common.tile.TileMount
-import club.someoneice.crystaldream.common.tile.TileTree
+import club.someoneice.crystaldream.common.tile.*
 import club.someoneice.crystaldream.core.CrystalDream
 import com.google.common.base.Supplier
 import net.minecraft.core.registries.BuiltInRegistries
@@ -31,5 +28,9 @@ object ModTiles {
     val CRYSTAL_BALL: BlockEntityType<TileCrystalBall> by TILES.register("crystal_ball",
         Supplier<BlockEntityType<TileCrystalBall>> {
             BlockEntityType.Builder.of(::TileCrystalBall, ModBlocks.CRYSTAL_BALL).build(null)
+        })
+    val NETHER_FURNACE: BlockEntityType<TileNetherFurnace> by TILES.register("nether_furnace",
+        Supplier<BlockEntityType<TileNetherFurnace>> {
+            BlockEntityType.Builder.of(::TileNetherFurnace, ModBlocks.CRYSTAL_BALL).build(null)
         })
 }

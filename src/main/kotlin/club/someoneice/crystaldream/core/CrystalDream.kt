@@ -5,9 +5,11 @@ import club.someoneice.crystaldream.common.capability.CapabilityCrystalMana
 import club.someoneice.crystaldream.core.init.ModCapabilities
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModRegister
+import club.someoneice.crystaldream.core.init.ModTiles
 import net.minecraft.core.registries.BuiltInRegistries
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
+import net.neoforged.neoforge.capabilities.Capabilities
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent
 import org.apache.logging.log4j.LogManager
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
@@ -37,5 +39,7 @@ object CrystalDream {
                 CapabilityCrystalMana(item)
             }, it)
         }
+
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModTiles.NETHER_FURNACE) { tile, _ -> tile.handler }
     }
 }

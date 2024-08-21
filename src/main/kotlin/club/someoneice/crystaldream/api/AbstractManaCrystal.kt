@@ -9,8 +9,8 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.UseAnim
 import net.minecraft.world.level.Level
 
-abstract class AbstractManaCrystal(properties: Properties): Item(properties) {
-    constructor(): this(Properties().stacksTo(1))
+abstract class AbstractManaCrystal(properties: Properties) : Item(properties) {
+    constructor() : this(Properties().stacksTo(1))
 
     abstract fun getMaxMana(): Int
 

@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 
-class CrystalSoul: AbstractManaCrystal() {
+class CrystalSoul : AbstractManaCrystal() {
     override fun getMaxMana(): Int = 0
 
     override fun onRecord(item: ItemStack, player: Player, world: Level): Boolean {

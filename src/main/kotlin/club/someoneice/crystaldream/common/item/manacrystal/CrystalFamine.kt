@@ -6,7 +6,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.Level
 
-class CrystalFamine: AbstractManaCrystal() {
+class CrystalFamine : AbstractManaCrystal() {
     override fun getMaxMana(): Int = 0
     fun usageMana(): Int = 0
 

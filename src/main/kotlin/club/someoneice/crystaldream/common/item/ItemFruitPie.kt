@@ -5,7 +5,6 @@ import club.someoneice.crystaldream.core.init.ModItems
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModSoundEvents
 import club.someoneice.crystaldream.util.asEntityAndSpawn
-import club.someoneice.crystaldream.util.copy
 import club.someoneice.crystaldream.util.instance
 import net.minecraft.core.NonNullList
 import net.minecraft.sounds.SoundSource
@@ -40,12 +39,9 @@ class ItemFruitPie : Item(
         val pos = context.clickedPos
         val state = context.level.getBlockState(context.clickedPos)
 
-        val isRespawn = when {
-            world.isClientSide -> return InteractionResult.SUCCESS
 
-            state.`is`(Blocks.CAMPFIRE) -> false
-            state.`is`(Blocks.SOUL_FIRE) -> true
-            else -> return pass
+        if (!state.`is`(Blocks.CAMPFIRE)) {
+            return pass
         }
 
         if (!state.getValue(BlockStateProperties.LIT)) {
@@ -69,7 +65,7 @@ class ItemFruitPie : Item(
 
         player.mainHandItem.shrink(1)
 
-        val items = NonNullList.withSize(9, ItemStack.EMPTY)
+        val items = NonNullList.withSize(8, ItemStack.EMPTY)
         var counter = 0
         for (x in -2..2 step 2) for (z in -2..2 step 2) {
             if (x == 0 && z == 0) continue
@@ -87,7 +83,7 @@ class ItemFruitPie : Item(
             items[counter++] = tile.getAndCleanItem()
         }
 
-        items[8] = player.offhandItem.copy().apply {
+        val handItem = player.offhandItem.copy().apply {
             if (this.isEmpty) {
                 spawnLightning()
                 return@onItemUseFirst InteractionResult.SUCCESS
@@ -100,24 +96,17 @@ class ItemFruitPie : Item(
 
         world.setBlock(pos, state.setValue(BlockStateProperties.LIT, false), 3)
 
-        if (!isRespawn) {
-            for (recipeIn in ModRecipes.RecipeGoblins) {
-                if (!recipeIn.findMatch(items)) {
-                    continue
-                }
-                recipeIn.output.copy().asEntityAndSpawn(world, pos.x + 0.5, pos.y + 1.0, pos.z + 0.5)
-                if (recipeIn.outputEffect != null) {
-                    player.addEffect(recipeIn.outputEffect.copy())
-                }
-
-                world.playSound(null, pos, ModSoundEvents.GOBLINS_HAPPY, SoundSource.BLOCKS)
-                return InteractionResult.SUCCESS
+        for (recipeIn in ModRecipes.RECIPE_OF_GOBLINS) {
+            if (!recipeIn.findMatch(items, handItem)) {
+                continue
             }
+            recipeIn.output.copy().asEntityAndSpawn(world, pos.x + 0.5, pos.y + 1.0, pos.z + 0.5)
 
-            spawnLightning()
+            world.playSound(null, pos, ModSoundEvents.GOBLINS_HAPPY, SoundSource.BLOCKS)
             return InteractionResult.SUCCESS
-        } else {
-            TODO()
         }
+
+        spawnLightning()
+        return InteractionResult.SUCCESS
     }
 }
