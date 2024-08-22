@@ -14,7 +14,7 @@ object ModBlocks {
     val MAGIC_MOUNT: BlockMount by BLOCKS.register("magic_mount", ::BlockMount)
     val MAGIC_ALTAR: BlockAltar by BLOCKS.register("magic_altar", ::BlockAltar)
     val CRYSTAL_BALL: BlockCrystalBall by BLOCKS.register("crystal_ball", ::BlockCrystalBall)
-    val NETHER_FURNACE: BlockNetherFurnace by BLOCKS.register("crystal_ball", ::BlockNetherFurnace)
+    val NETHER_FURNACE: BlockNetherFurnace by BLOCKS.register("nether_furnace", ::BlockNetherFurnace)
 
     val VERDANT_BLOCK: Block by BLOCKS.registerSimpleBlock("verdant_block", BlockBehaviour.Properties.of())
     val VERDANT_RAW_ORE_BLOCK: Block by BLOCKS.registerSimpleBlock(

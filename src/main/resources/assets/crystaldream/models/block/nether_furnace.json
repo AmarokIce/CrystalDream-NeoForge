@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "crystaldream:block/nether_furnace_face",
+    "side": "crystaldream:block/nether_furnace_side",
+    "top": "crystaldream:block/nether_furnace_top",
+    "bottom": "crystaldream:block/nether_furnace_bottom"
+  }
+}

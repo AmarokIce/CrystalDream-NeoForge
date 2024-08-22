@@ -10,10 +10,14 @@ data class RecipeNetherFurnace(
     val output: ItemStack
 ) {
     fun assemble(input: ItemStack, catalyst: ItemStack = ItemStack.EMPTY, bottle: ItemStack = ItemStack.EMPTY): ItemStack {
-        input.shrink(1)
-        catalyst.shrink(1)
-        if (!match(input, catalyst, bottle)) return this.output.copy()
-        return ItemStack.EMPTY
+        if (!match(input, catalyst, bottle)) {
+            return ItemStack.EMPTY
+        }
+
+        if (!this.bottle.isEmpty) {
+            bottle.shrink(1)
+        }
+        return this.output.copy()
     }
 
     fun match(input: ItemStack, catalyst: ItemStack, bottle: ItemStack) =

@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.client.menu.slot
+package club.someoneice.crystaldream.core.menu.slot
 
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack

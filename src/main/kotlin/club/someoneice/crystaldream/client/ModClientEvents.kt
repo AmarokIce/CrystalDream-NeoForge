@@ -3,10 +3,12 @@ package club.someoneice.crystaldream.client
 import club.someoneice.crystaldream.api.AbstractHoldItemTileRender
 import club.someoneice.crystaldream.client.render.CrystalBallRender
 import club.someoneice.crystaldream.client.render.MagicAltarRender
+import club.someoneice.crystaldream.client.screen.ScreenNetherFurnace
 import club.someoneice.crystaldream.common.tile.TileMount
 import club.someoneice.crystaldream.common.tile.TileTree
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.core.init.ModBlocks
+import club.someoneice.crystaldream.core.init.ModMenus
 import club.someoneice.crystaldream.core.init.ModTiles
 import com.mojang.blaze3d.vertex.PoseStack
 import net.minecraft.client.renderer.ItemBlockRenderTypes
@@ -18,6 +20,7 @@ import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import net.neoforged.neoforge.client.event.EntityRenderersEvent
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent
 
 @Suppress("Deprecated")
@@ -42,9 +45,20 @@ object ModClientEvents {
         // MenuScreens.register(MenuInit.CRYSTAL_MAKER, ::GuiCrystalMaker)
 
         event.enqueueWork {
-            replaceMissingNo()
             layout()
         }
+    }
+
+    private fun layout() {
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_TABLE, RenderType.cutout())
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAGIC_MOUNT, RenderType.cutout())
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAGIC_ALTAR, RenderType.cutout())
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRYSTAL_BALL, RenderType.translucent())
+    }
+
+    @SubscribeEvent
+    fun registerScreens(event: RegisterMenuScreensEvent) {
+        event.register(ModMenus.NETHER_FURNACE, ::ScreenNetherFurnace)
     }
 
     fun replaceMissingNo() {
@@ -74,12 +88,5 @@ object ModClientEvents {
         override fun render(entity: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int, k: Int) {
             super.absRender(1.0, entity, f, pose, buffer, i)
         }
-    }
-
-    private fun layout() {
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_TABLE, RenderType.cutout())
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAGIC_MOUNT, RenderType.cutout())
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAGIC_ALTAR, RenderType.cutout())
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRYSTAL_BALL, RenderType.translucent())
     }
 }

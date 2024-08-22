@@ -31,6 +31,6 @@ object ModTiles {
         })
     val NETHER_FURNACE: BlockEntityType<TileNetherFurnace> by TILES.register("nether_furnace",
         Supplier<BlockEntityType<TileNetherFurnace>> {
-            BlockEntityType.Builder.of(::TileNetherFurnace, ModBlocks.CRYSTAL_BALL).build(null)
+            BlockEntityType.Builder.of(::TileNetherFurnace, ModBlocks.NETHER_FURNACE).build(null)
         })
 }

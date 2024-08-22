@@ -11,6 +11,15 @@
   "item.crystaldream.verdant_ingot": "碧翠石锭",
   "item.crystaldream.verdant_nugget":"碧翠石粒",
   "item.crystaldream.crystal_cup": "紫水晶杯",
+  "item.crystaldream.oak_ess": "橡树精华",
+  "item.crystaldream.death_ess": "死亡精华",
+  "item.crystaldream.end_ess": "末影精华",
+  "item.crystaldream.wooden_jar": "空木瓶",
+  "item.crystaldream.pure_living": "纯净灵魂",
+  "item.crystaldream.origin_egg": "源生之蛋",
+  "item.crystaldream.soul_in_bottle": "瓶中灵魂",
+  "item.crystaldream.stable_ender_pearl": "稳定的末影珍珠",
+  "block.crystaldream.nether_furnace": "灵魂熔炉",
   "item.crystaldream.wand": "法杖",
 
   "item.crystaldream.teabag_flower":  "玫瑰花茶包",
@@ -25,5 +34,19 @@
   "block.crystaldream.tree_table": "地精之树",
   "block.crystaldream.magic_mount":"黑石置物台",
   "block.crystaldream.magic_altar": "紫水晶祭坛",
-  "block.crystaldream.crystal_ball": "紫水晶球"
+  "block.crystaldream.crystal_ball": "紫水晶球",
+
+  "jei.name.crystaldream.nether_furnace": "灵魂熔炼",
+  "jei.name.crystaldream.goblin": "地精献祭",
+
+  "success.crystaldream.stable_ender_pearl": "成功绑定坐标",
+  "clean.crystaldream.stable_ender_pearl": "成功清除坐标",
+
+  "soul_fuel.crystaldream.info": "可供熔炼的灵魂能量:",
+
+  "angry_goblin.0.crystaldream.info": "§4§l带好你的祭品！",
+  "angry_goblin.1.crystaldream.info": "§4§l你想得到什么？这里什么也没有！",
+  "angry_goblin.2.crystaldream.info": "§4§l你与你的祭品一样廉价！",
+  "angry_goblin.3.crystaldream.info": "§4§l想与我们交易，那就最好先让我们满意!",
+  "angry_goblin.4.crystaldream.info": "§4§l我们感受不到你的诚意！"
 }

@@ -28,6 +28,5 @@ fun ItemStack.cost(size: Int = 1): ItemStack {
 
 fun ItemStack.updateNbt(data: (CompoundTag) -> Unit) {
     val nbt = this.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-    nbt.update { data(it) }
-    this.set(DataComponents.CUSTOM_DATA, nbt)
+    this.set(DataComponents.CUSTOM_DATA, nbt.update { data(it) })
 }

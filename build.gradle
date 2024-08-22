@@ -84,12 +84,26 @@ repositories {
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
         content { includeGroup "software.bernie.geckolib" }
     }
+
+    maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
 dependencies {
     implementation 'thedarkcolour:kotlinforforge-neoforge:5.4.0'
 
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 }
 
 tasks.withType(ProcessResources).configureEach {
