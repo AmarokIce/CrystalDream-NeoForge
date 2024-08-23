@@ -17,7 +17,7 @@ object ModTabs {
     @Suppress("Unused")
     val GROUP_MAIN: CreativeModeTab by TABS.register("main", Supplier<CreativeModeTab> {
         CreativeModeTab.builder().noScrollBar()
-            .title(Component.literal("crystaldream.tab"))
+            .title(Component.translatable("crystaldream.tab"))
             .icon { ModItems.SOUL_CRYSTAL.defaultInstance }
             .displayItems { _, output ->
                 ModItems.ITEMS.entries.map(DeferredHolder<Item, out Item>::get).forEach(output::accept)

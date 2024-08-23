@@ -40,7 +40,7 @@ abstract class AbstractBlockWithTileItem(properties: Properties) : BaseEntityBlo
     ): ItemInteractionResult {
         super.useItemOn(stack, state, level, pos, player, hand, hitResult)
         if (level.isClientSide) {
-            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION
+            return ItemInteractionResult.SUCCESS
         }
 
         if (hand == InteractionHand.OFF_HAND) {

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "crystaldream:geo/crystal_ball" }
+    "": {
+      "model": "crystaldream:geo/crystal_ball"
+    }
   }
 }

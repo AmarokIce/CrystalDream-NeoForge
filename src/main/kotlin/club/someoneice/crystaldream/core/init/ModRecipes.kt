@@ -83,7 +83,7 @@ object ModRecipes {
         RECIPE_OF_NETHER_FURNACE.add(
             RecipeNetherFurnace(
                 ModItems.SOUL_IN_BOTTLE.asIngredient(), ModItems.OAK_ESS.asIngredient(),
-                Items.GLASS_BOTTLE.asIngredient(), ModItems.PURE_LIVING.asStack(3))
+                Items.GLASS_BOTTLE.asIngredient(), ModItems.PURE_LIVING.asStack())
         )
         RECIPE_OF_NETHER_FURNACE.add(
             RecipeNetherFurnace(

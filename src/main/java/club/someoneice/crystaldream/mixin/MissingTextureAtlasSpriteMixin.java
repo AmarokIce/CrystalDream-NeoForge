@@ -1,22 +1,7 @@
 package club.someoneice.crystaldream.mixin;
 
-import club.someoneice.crystaldream.init.ImageHelper;
-import com.mojang.blaze3d.platform.NativeImage;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
-import net.minecraft.client.renderer.texture.SpriteContents;
-import net.minecraft.client.resources.metadata.animation.FrameSize;
-import net.minecraft.server.packs.resources.ResourceMetadata;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import javax.annotation.Nullable;
-import java.io.IOException;
 
 /**
  * tO mY dEaR BeclR0Ck
@@ -25,6 +10,7 @@ import java.io.IOException;
  */
 @Mixin(MissingTextureAtlasSprite.class)
 public abstract class MissingTextureAtlasSpriteMixin {
+    /*
     @Shadow(remap = false) @Nullable private static DynamicTexture missingTexture;
 
     @Shadow(remap = false)
@@ -54,4 +40,5 @@ public abstract class MissingTextureAtlasSpriteMixin {
 
         cir.setReturnValue(missingTexture);
     }
+    */
 }

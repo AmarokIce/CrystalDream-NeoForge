@@ -10,10 +10,7 @@ import net.minecraft.world.item.BlockItem
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions
 import software.bernie.geckolib.animatable.GeoItem
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
-import software.bernie.geckolib.animation.AnimatableManager
-import software.bernie.geckolib.animation.AnimationController
-import software.bernie.geckolib.animation.AnimationState
-import software.bernie.geckolib.animation.PlayState
+import software.bernie.geckolib.animation.*
 import software.bernie.geckolib.model.GeoModel
 import software.bernie.geckolib.renderer.GeoItemRenderer
 import software.bernie.geckolib.util.GeckoLibUtil
@@ -51,6 +48,7 @@ class GeoItemBlockAltar : BlockItem(ModBlocks.MAGIC_ALTAR, Properties()), GeoIte
         })
     }
 
+    private val rawAnimation = RawAnimation.begin().thenLoop("magic_altar")
     private fun deployAnimController(state: AnimationState<GeoItemBlockAltar>): PlayState {
         return state.setAndContinue(rawAnimation)
     }

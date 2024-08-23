@@ -14,15 +14,13 @@ import software.bernie.geckolib.util.RenderUtil
 
 class TileCrystalBall(pos: BlockPos, state: BlockState) : BlockEntity(CRYSTAL_BALL, pos, state), GeoBlockEntity {
     private val cache = GeckoLibUtil.createInstanceCache(this)
-    private val static = RawAnimation.begin().thenLoop("0")
 
     override fun registerControllers(controllers: AnimatableManager.ControllerRegistrar) {
-        controllers.add(AnimationController(this) { it.setAndContinue(static) })
+        controllers.add(AnimationController(this) {
+            it.setAndContinue(RawAnimation.begin().thenLoop("0"))
+        })
     }
 
     override fun getAnimatableInstanceCache(): AnimatableInstanceCache = this.cache
-
-
-    override fun getTick(blockEntity: Any?): Double = RenderUtil.getCurrentTick()
-
+    override fun getTick(blockEntity: Any): Double = RenderUtil.getCurrentTick()
 }
