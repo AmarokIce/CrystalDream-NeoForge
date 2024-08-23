@@ -39,6 +39,14 @@ object ModItems {
     val ORIGIN_EGG: Item by ITEMS.registerItem("origin_egg") { createItemWithTooltip(ImmutableList.of("tooltip.crystaldream.origin_egg")) }
     val STABLE_ENDER_PEARL: Item by ITEMS.register("stable_ender_pearl", ::ItemStableEnderPearl)
 
+    val SUN_IN_BOTTLE: Item by ITEMS.registerItem("sun_in_bottle") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
+    val WIND_IN_BOTTLE: Item by ITEMS.registerItem("wind_in_bottle") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
+    val CLOUD_IN_BOTTLE: Item by ITEMS.registerItem("cloud_in_bottle") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
+
+    val BETRAYAL_OF_THE_WOLF: Item by ITEMS.registerItem("betrayal_of_the_wolf") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
+    val FISH_BREATHING: Item by ITEMS.registerItem("fish_breathing") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
+    val CAT_FOOTSTEPS: Item by ITEMS.registerItem("cat_footsteps") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
+
     /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")
 
@@ -56,18 +64,16 @@ object ModItems {
     val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
 
     /* goblins */
-    val FRUIT_PIE: Item by ITEMS.register("fluit_pie", ::ItemFruitPie)
+    val FRUIT_PIE: Item by ITEMS.register("fruit_pie", ::ItemFruitPie)
     val WAND: Item by ITEMS.registerSimpleItem("wand")
 
     private fun createItemWithTooltip(list: ImmutableList<String>) = ModItems.createItemWithTooltip(Item.Properties(), list)
 
     private fun createItemWithTooltip(properties: Item.Properties, list: ImmutableList<String>) = object: Item(properties) {
         override fun appendHoverText(stack: ItemStack, context: TooltipContext, tooltipComponents: MutableList<Component>, tooltipFlag: TooltipFlag) {
-            if (stack.isEmpty) return
             for (str in list) {
                 tooltipComponents.add(Component.translatable(str))
             }
         }
     }
-
 }

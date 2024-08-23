@@ -53,7 +53,7 @@ object ModClientEvents {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_TABLE, RenderType.cutout())
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAGIC_MOUNT, RenderType.cutout())
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MAGIC_ALTAR, RenderType.cutout())
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRYSTAL_BALL, RenderType.translucent())
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRYSTAL_BALL, RenderType.translucentMovingBlock())
     }
 
     @SubscribeEvent

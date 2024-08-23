@@ -16,6 +16,7 @@ object ModRecipes {
 
     fun init() {
         recipeGoblinsInit()
+        respawnRecipe()
         recipeNetherFurnace()
 
         FORGE_BUS.addListener(::registerBrewingRecipes)
@@ -35,6 +36,21 @@ object ModRecipes {
             RecipeGoblins(
                 ModItems.SOUL_CRYSTAL.asIngredient(), ModItems.ORIGIN_EGG.asStack(),
                 Pair(Items.EGG.asIngredient(), 4), Pair(ModItems.PURE_LIVING.asIngredient(), 4))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.WOODEN_BOTTLE.asIngredient(), ModItems.SUN_IN_BOTTLE.asStack(),
+                Pair(Items.SUNFLOWER.asIngredient(), 4), Pair(ModItems.OAK_ESS.asIngredient(), 4))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.WOODEN_BOTTLE.asIngredient(), ModItems.WIND_IN_BOTTLE.asStack(),
+                Pair(Items.WIND_CHARGE.asIngredient(), 4), Pair(ModItems.OAK_ESS.asIngredient(), 4))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                Items.CAT_SPAWN_EGG.asIngredient(), ModItems.CAT_FOOTSTEPS.asStack(),
+                Pair(Items.COD.asIngredient(), 4), Pair(ModItems.SOUL.asIngredient(), 4))
         )
     }
 
@@ -68,6 +84,73 @@ object ModRecipes {
             RecipeNetherFurnace(
                 ModItems.SOUL_IN_BOTTLE.asIngredient(), ModItems.OAK_ESS.asIngredient(),
                 Items.GLASS_BOTTLE.asIngredient(), ModItems.PURE_LIVING.asStack(3))
+        )
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                ModItems.SOUL.asIngredient(), Ingredient.EMPTY,
+                Items.DIRT.asIngredient(), Items.SOUL_SOIL.asStack())
+        )
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                ModItems.SOUL.asIngredient(), Ingredient.EMPTY,
+                Items.SAND.asIngredient(), Items.SOUL_SAND.asStack())
+        )
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                ModItems.DEATH_ESS.asIngredient(), ModItems.OAK_ESS.asIngredient(),
+                Items.ROTTEN_FLESH.asIngredient(), ModItems.SOUL.asStack())
+        )
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                Items.WATER_BUCKET.asIngredient(), ModItems.SUN_IN_BOTTLE.asIngredient(),
+                ModItems.WOODEN_BOTTLE.asIngredient(), ModItems.CLOUD_IN_BOTTLE.asStack())
+        )
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                Items.WOLF_SPAWN_EGG.asIngredient(), ModItems.SOUL_CRYSTAL.asIngredient(),
+                ModItems.WOODEN_BOTTLE.asIngredient(), ModItems.BETRAYAL_OF_THE_WOLF.asStack())
+        )
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                Items.COD_BUCKET.asIngredient(), ModItems.SOUL_CRYSTAL.asIngredient(),
+                ModItems.WOODEN_BOTTLE.asIngredient(), ModItems.FISH_BREATHING.asStack())
+        )
+    }
+
+    private fun respawnRecipe() {
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.ORIGIN_EGG.asIngredient(), Items.SHEEP_SPAWN_EGG.asStack(),
+                Pair(Items.WHITE_WOOL.asIngredient(), 4), Pair(ModItems.PURE_LIVING.asIngredient(), 2),
+                Pair(Items.MUTTON.asIngredient(), 2))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.ORIGIN_EGG.asIngredient(), Items.COW_SPAWN_EGG.asStack(),
+                Pair(Items.LEATHER.asIngredient(), 4), Pair(ModItems.PURE_LIVING.asIngredient(), 2),
+                Pair(Items.BEEF.asIngredient(), 2))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.ORIGIN_EGG.asIngredient(), Items.CHICKEN_SPAWN_EGG.asStack(),
+                Pair(Items.FEATHER.asIngredient(), 4), Pair(ModItems.PURE_LIVING.asIngredient(), 2),
+                Pair(Items.CHICKEN.asIngredient(), 2))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.ORIGIN_EGG.asIngredient(), Items.PIG_SPAWN_EGG.asStack(),
+                Pair(ModItems.PURE_LIVING.asIngredient(), 2), Pair(Items.PORKCHOP.asIngredient(), 6))
+        )
+
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.ORIGIN_EGG.asIngredient(), Items.CAT_SPAWN_EGG.asStack(),
+                Pair(Items.COD.asIngredient(), 4), Pair(ModItems.PURE_LIVING.asIngredient(), 4))
+        )
+        RECIPE_OF_GOBLINS.add(
+            RecipeGoblins(
+                ModItems.ORIGIN_EGG.asIngredient(), Items.WOLF_SPAWN_EGG.asStack(),
+                Pair(Items.BONE.asIngredient(), 4), Pair(ModItems.PURE_LIVING.asIngredient(), 4))
         )
     }
 

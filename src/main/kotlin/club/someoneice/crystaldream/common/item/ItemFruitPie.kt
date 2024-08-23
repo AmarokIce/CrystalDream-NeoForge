@@ -89,8 +89,14 @@ class ItemFruitPie : Item(
                 return InteractionResult.SUCCESS
             }
 
+            val item = tile.getAndCleanItem()
+
             poss[counter] = posIn
-            items[counter++] = tile.getAndCleanItem()
+            items[counter++] = item
+
+            if (item.hasCraftingRemainingItem()) {
+                tile.setItem(item.craftingRemainingItem)
+            }
         }
 
         val handItem = player.offhandItem.copy().apply {

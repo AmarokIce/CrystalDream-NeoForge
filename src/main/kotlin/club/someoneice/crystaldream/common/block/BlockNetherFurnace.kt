@@ -47,7 +47,7 @@ class BlockNetherFurnace: BaseEntityBlock(Properties.ofFullCopy(Blocks.STONE)) {
     override fun useWithoutItem(state: BlockState, world: Level, pos: BlockPos, player: Player, hitResult: BlockHitResult): InteractionResult {
         val pass = super.useWithoutItem(state, world, pos, player, hitResult)
         if (world.isClientSide()) {
-            return pass
+            return InteractionResult.SUCCESS
         }
 
         val tile = world.getBlockEntity(pos)

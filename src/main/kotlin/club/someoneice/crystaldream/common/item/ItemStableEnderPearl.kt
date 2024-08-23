@@ -53,8 +53,6 @@ class ItemStableEnderPearl: Item(Properties().stacksTo(32)) {
 
             val pos = BlockPos.of(it.getLong("pos"))
             tooltipComponents.add(Component.literal("x: ${pos.x}, y: ${pos.y}, z: ${pos.z}").withStyle(ChatFormatting.GRAY))
-
         }
-
     }
 }

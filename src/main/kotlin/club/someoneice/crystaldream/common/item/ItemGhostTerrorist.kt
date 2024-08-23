@@ -26,6 +26,10 @@ class ItemGhostTerrorist : Item(Properties().stacksTo(1)) {
         ModItems.SOUL.asEntityAndSpawn(world, pos.x.toDouble() + 0.5, pos.y.toDouble() + 1, pos.z.toDouble() + 0.5)
         world.playSound(context.player, pos, SoundEvents.SOUL_SAND_BREAK, SoundSource.BLOCKS)
 
+        if (world.random.nextDouble() < 0.3) {
+            stack.shrink(1)
+        }
+
         return InteractionResult.SUCCESS
     }
 }

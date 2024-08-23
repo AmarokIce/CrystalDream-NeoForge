@@ -18,6 +18,12 @@
   "item.crystaldream.pure_living": "纯净灵魂",
   "item.crystaldream.origin_egg": "源生之蛋",
   "item.crystaldream.soul_in_bottle": "瓶中灵魂",
+  "item.crystaldream.sun_in_bottle": "瓶中阳光",
+  "item.crystaldream.wind_in_bottle": "瓶中风暴",
+  "item.crystaldream.cloud_in_bottle": "瓶中乌云",
+  "item.crystaldream.betrayal_of_the_wolf": "狼的背叛",
+  "item.crystaldream.fish_breathing": "鱼的呼吸",
+  "item.crystaldream.cat_footsteps": "猫的脚步",
   "item.crystaldream.stable_ender_pearl": "稳定的末影珍珠",
   "block.crystaldream.nether_furnace": "灵魂熔炉",
   "item.crystaldream.wand": "法杖",
@@ -29,7 +35,7 @@
   "item.crystaldream.teabag_fire":  "炙热饮品包",
   "item.crystaldream.teabag_blood": "鲜血饮品包",
 
-  "item.crystaldream.fluit_pie":  "水果派",
+  "item.crystaldream.fruit_pie":  "水果派",
 
   "block.crystaldream.tree_table": "地精之树",
   "block.crystaldream.magic_mount":"黑石置物台",
@@ -43,6 +49,8 @@
   "clean.crystaldream.stable_ender_pearl": "成功清除坐标",
 
   "soul_fuel.crystaldream.info": "可供熔炼的灵魂能量:",
+
+  "tooltip.crystaldream.origin_egg": "这颗蛋散发着生命的气息。或许可以请地精为它注入新生。",
 
   "angry_goblin.0.crystaldream.info": "§4§l带好你的祭品！",
   "angry_goblin.1.crystaldream.info": "§4§l你想得到什么？这里什么也没有！",

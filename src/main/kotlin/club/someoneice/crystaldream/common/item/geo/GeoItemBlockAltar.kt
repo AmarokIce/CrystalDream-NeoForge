@@ -12,6 +12,7 @@ import software.bernie.geckolib.animatable.GeoItem
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animation.AnimatableManager
 import software.bernie.geckolib.animation.AnimationController
+import software.bernie.geckolib.animation.AnimationState
 import software.bernie.geckolib.animation.PlayState
 import software.bernie.geckolib.model.GeoModel
 import software.bernie.geckolib.renderer.GeoItemRenderer
@@ -50,10 +51,18 @@ class GeoItemBlockAltar : BlockItem(ModBlocks.MAGIC_ALTAR, Properties()), GeoIte
         })
     }
 
-    override fun registerControllers(data: AnimatableManager.ControllerRegistrar) {
-        data.add(
+    private fun deployAnimController(state: AnimationState<GeoItemBlockAltar>): PlayState {
+        return state.setAndContinue(rawAnimation)
+    }
+
+    override fun registerControllers(controllers: AnimatableManager.ControllerRegistrar) {
+        controllers.add(AnimationController(this, this::deployAnimController))
+
+        /*
+        controllers.add(
             AnimationController(this, "magic_altar", 0) { PlayState.CONTINUE }
         )
+        */
     }
 
     override fun getAnimatableInstanceCache(): AnimatableInstanceCache {

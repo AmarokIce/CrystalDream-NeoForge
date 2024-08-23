@@ -17,7 +17,7 @@ fun ItemLike.asEntityAndSpawn(world: Level, posX: Double, posY: Double, posZ: Do
 
 fun ItemStack.asEntityAndSpawn(world: Level, posX: Double, posY: Double, posZ: Double) {
     if (this.isEmpty) return
-    val item = ItemEntity(world, posX, posY, posZ, this)
+    val item = ItemEntity(world, posX, posY, posZ, this.copy())
     world.addFreshEntity(item)
 }
 
