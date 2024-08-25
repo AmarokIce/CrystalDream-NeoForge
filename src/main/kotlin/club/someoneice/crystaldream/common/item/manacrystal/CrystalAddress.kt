@@ -1,6 +1,5 @@
 package club.someoneice.crystaldream.common.item.manacrystal
 
-import club.someoneice.crystaldream.api.AbstractManaCrystal
 import club.someoneice.crystaldream.util.updateNbt
 import net.minecraft.core.BlockPos
 import net.minecraft.world.entity.player.Player

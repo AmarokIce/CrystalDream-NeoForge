@@ -1,14 +1,14 @@
 package club.someoneice.crystaldream.core.init
 
-import club.someoneice.crystaldream.common.item.ItemFruitPie
-import club.someoneice.crystaldream.common.item.ItemGhostTerrorist
-import club.someoneice.crystaldream.common.item.ItemStableEnderPearl
-import club.someoneice.crystaldream.common.item.NetherFurnaceFuelItem
+import club.someoneice.crystaldream.common.item.*
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockAltar
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockCrystalBall
+import club.someoneice.crystaldream.common.item.manapage.*
 import club.someoneice.crystaldream.core.CrystalDream
+import club.someoneice.crystaldream.util.instance
 import com.google.common.collect.ImmutableList
 import net.minecraft.network.chat.Component
+import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.item.*
 import net.neoforged.neoforge.registries.DeferredRegister
 import thedarkcolour.kotlinforforge.neoforge.forge.getValue
@@ -47,6 +47,14 @@ object ModItems {
     val FISH_BREATHING: Item by ITEMS.registerItem("fish_breathing") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
     val CAT_FOOTSTEPS: Item by ITEMS.registerItem("cat_footsteps") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
 
+    val EMPTY_MANA_PAGE: Item by ITEMS.register("empty_mana_page", ::ItemEmptyManaPage)
+    val MOVING_MANA_PAGE: Item by ITEMS.register("moving_mana_page", ::ItemMovingManaPage)
+    val SOUL_MANA_PAGE: Item by ITEMS.register("soul_mana_page", ::ItemSoulManaPage)
+    val HOLY_MANA_PAGE: Item by ITEMS.register("holy_mana_page", ::ItemHolyManaPage)
+    val EVIL_MANA_PAGE: Item by ITEMS.register("evil_mana_page", ::ItemEvilManaPage)
+    val DEMON_MANA_PAGE: Item by ITEMS.register("demon_mana_page", ::ItemDemonManaPage)
+
+
     /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")
 
@@ -57,15 +65,22 @@ object ModItems {
     val TEABAG_FIRE: Item by ITEMS.registerSimpleItem("teabag_fire")
     val TEABAG_BLOOD: Item by ITEMS.registerSimpleItem("teabag_blood")
 
+    val TEA_FLOWER: Item by ITEMS.registerItem("tea_flower") { ItemTea(MobEffects.HEAL.instance(20 * 5), 1.0f) }
+    val TEA_SUGAR: Item by ITEMS.registerItem("tea_sugar") { ItemTea(MobEffects.MOVEMENT_SPEED.instance(20 * 20), 1.0f) }
+    val TEA_CRYSTAL: Item by ITEMS.registerItem("tea_crystal") { ItemTea(MobEffects.LUCK.instance(20 * 30)) }
+    val TEA_FRUIT: Item by ITEMS.registerItem("tea_fruit") { ItemTea(MobEffects.JUMP.instance(20 * 10)) }
+    val TEA_FIRE: Item by ITEMS.registerItem("tea_fire") { ItemTea(MobEffects.FIRE_RESISTANCE.instance(20 * 3)) }
+    val TEA_BLOOD: Item by ITEMS.registerItem("tea_blood") { ItemTea(MobEffects.HEALTH_BOOST.instance(20 * 30)) }
+
+    /* goblins */
+    val FRUIT_PIE: Item by ITEMS.register("fruit_pie", ::ItemFruitPie)
+    val SHEPHERD_STAFF: Item by ITEMS.registerSimpleItem("shepherd_staff")
+
     val TREE_TABLE: BlockItem by ITEMS.registerSimpleBlockItem("tree_table", ModBlocks::TREE_TABLE)
     val MAGIC_MOUNT: BlockItem by ITEMS.registerSimpleBlockItem("magic_mount", ModBlocks::MAGIC_MOUNT)
     val NETHER_FURNACE: BlockItem by ITEMS.registerSimpleBlockItem("nether_furnace", ModBlocks::NETHER_FURNACE)
     val MAGIC_ALTAR: Item by ITEMS.register("magic_altar", ::GeoItemBlockAltar)
     val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
-
-    /* goblins */
-    val FRUIT_PIE: Item by ITEMS.register("fruit_pie", ::ItemFruitPie)
-    val WAND: Item by ITEMS.registerSimpleItem("wand")
 
     private fun createItemWithTooltip(list: ImmutableList<String>) = ModItems.createItemWithTooltip(Item.Properties(), list)
 

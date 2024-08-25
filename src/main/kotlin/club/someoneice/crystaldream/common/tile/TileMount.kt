@@ -1,7 +1,6 @@
 package club.someoneice.crystaldream.common.tile
 
 import club.someoneice.crystaldream.api.IItemHolder
-import club.someoneice.crystaldream.api.TileBase
 import club.someoneice.crystaldream.core.init.ModTiles.ALTAR_MOUNT
 import net.minecraft.core.BlockPos
 import net.minecraft.core.HolderLookup

@@ -1,6 +1,5 @@
 package club.someoneice.crystaldream.common.item.manacrystal
 
-import club.someoneice.crystaldream.api.AbstractManaCrystal
 import club.someoneice.crystaldream.util.updateNbt
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.nbt.ListTag

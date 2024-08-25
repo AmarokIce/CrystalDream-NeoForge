@@ -1,7 +1,6 @@
 package club.someoneice.crystaldream.common.tile
 
 import club.someoneice.crystaldream.api.INetherFurnaceFuelItem
-import club.someoneice.crystaldream.api.TileBase
 import club.someoneice.crystaldream.common.block.BlockNetherFurnace
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModTiles
