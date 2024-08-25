@@ -13,6 +13,7 @@ import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.TooltipFlag
+import net.minecraft.world.item.UseAnim
 import net.minecraft.world.level.Level
 
 class ItemTea(effect: MobEffectInstance, p: Float = 0.8f): Item(Properties().stacksTo(1)
@@ -20,6 +21,10 @@ class ItemTea(effect: MobEffectInstance, p: Float = 0.8f): Item(Properties().sta
     .food(FoodProperties.Builder()
         .nutrition(1).saturationModifier(0.0f).alwaysEdible()
         .effect({ effect.copy() }, p).build())) {
+
+    override fun getUseAnimation(stack: ItemStack): UseAnim = UseAnim.DRINK
+    override fun getUseDuration(stack: ItemStack, entity: LivingEntity): Int = 24
+
     override fun finishUsingItem(stack: ItemStack, level: Level, livingEntity: LivingEntity): ItemStack {
         if (livingEntity is Player) {
             livingEntity.giveOrThrowOut(ModItems.CRYSTAL_CUP.asStack())
