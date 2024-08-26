@@ -1,7 +1,10 @@
 package club.someoneice.crystaldream.util
 
 import club.someoneice.crystaldream.core.CrystalDream
+import net.minecraft.client.multiplayer.ClientLevel
+import net.minecraft.core.BlockPos
 import net.minecraft.core.Holder
+import net.minecraft.core.particles.ParticleOptions
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.Mth
@@ -55,4 +58,38 @@ fun Player.sendClientDisplayMessage(str: String) {
 
 fun <T, I: T> DeferredRegister<T>.registerObject(name: String, data: I): DeferredHolder<T, I> {
     return this.register(name, Supplier<I> { data })
+}
+
+fun createBlockPosArrayWithRange(pos: Int, origin: BlockPos): Array<BlockPos> {
+    return arrayOf(
+        origin.offset(pos, 0, pos),
+        origin.offset(pos, 0, 0),
+        origin.offset(0, 0, pos),
+        origin.offset(-pos, 0, -pos),
+        origin.offset(-pos, 0, 0),
+        origin.offset(0, 0, -pos),
+        origin.offset(pos, 0, -pos),
+        origin.offset(-pos, 0, pos)
+    )
+}
+
+fun spawnParticlesAs(world: ClientLevel, posStart: BlockPos, posEnd: BlockPos, type: ParticleOptions, step: Int) {
+    val start = posStart.center
+    val end = posEnd.center
+
+    val offsetX = (end.x - start.x) / step
+    val offsetY = (end.y - start.y) / step
+    val offsetZ = (end.z - start.z) / step
+
+    var stepX = start.x
+    var stepY = start.y
+    var stepZ = start.z
+
+    for (i in 0 until step) {
+        stepX += offsetX
+        stepY += offsetY
+        stepZ += offsetZ
+
+        world.addParticle(type, stepX, stepY, stepZ, 0.0, 0.0, 0.0)
+    }
 }

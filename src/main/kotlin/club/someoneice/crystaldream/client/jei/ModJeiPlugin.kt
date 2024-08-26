@@ -18,15 +18,19 @@ class ModJeiPlugin: IModPlugin {
         val helper = registration.jeiHelpers.guiHelper
         registration.addRecipeCategories(JeiRecipeNetherFurnace(helper))
         registration.addRecipeCategories(JeiRecipeGoblins(helper))
+        registration.addRecipeCategories(JeiRecipeSacrifice(helper))
     }
 
     override fun registerRecipes(registration: IRecipeRegistration) {
         registration.addRecipes(JeiRecipeNetherFurnace.TYPE, ModRecipes.RECIPE_OF_NETHER_FURNACE)
         registration.addRecipes(JeiRecipeGoblins.TYPE, ModRecipes.RECIPE_OF_GOBLINS)
+        registration.addRecipes(JeiRecipeSacrifice.TYPE, ModRecipes.RECIPE_OF_SACRIFICE)
     }
 
     override fun registerRecipeCatalysts(registration: IRecipeCatalystRegistration) {
         registration.addRecipeCatalyst(ModItems.NETHER_FURNACE.defaultInstance, JeiRecipeNetherFurnace.TYPE)
         registration.addRecipeCatalyst(ModItems.TREE_TABLE.defaultInstance, JeiRecipeGoblins.TYPE)
+        registration.addRecipeCatalyst(ModItems.MAGIC_ALTAR.defaultInstance, JeiRecipeSacrifice.TYPE)
+        registration.addRecipeCatalyst(ModItems.SHEPHERD_STAFF.defaultInstance, JeiRecipeSacrifice.TYPE)
     }
 }

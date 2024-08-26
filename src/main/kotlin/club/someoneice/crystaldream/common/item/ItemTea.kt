@@ -29,6 +29,7 @@ class ItemTea(effect: MobEffectInstance, p: Float = 0.8f): Item(Properties().sta
         if (livingEntity is Player) {
             livingEntity.giveOrThrowOut(ModItems.CRYSTAL_CUP.asStack())
         }
+
         return super.finishUsingItem(stack, level, livingEntity)
     }
 

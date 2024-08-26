@@ -4,11 +4,7 @@ import club.someoneice.crystaldream.common.tile.TileTree
 import club.someoneice.crystaldream.core.init.ModItems
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModSoundEvents
-import club.someoneice.crystaldream.util.asEntityAndSpawn
-import club.someoneice.crystaldream.util.createModInfo
-import club.someoneice.crystaldream.util.instance
-import club.someoneice.crystaldream.util.sendClientDisplayMessage
-import net.minecraft.core.BlockPos
+import club.someoneice.crystaldream.util.*
 import net.minecraft.core.NonNullList
 import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.sounds.SoundSource
@@ -32,8 +28,8 @@ class ItemFruitPie : Item(
             .nutrition(9)
             .saturationModifier(0.458f)
             .alwaysEdible()
-            .effect(MobEffects.MOVEMENT_SPEED.instance(time = 20 * 60), 0.85f)
-            .effect(MobEffects.HEAL.instance(time = 20 * 10), 0.75f)
+            .effect({ MobEffects.MOVEMENT_SPEED.instance(time = 20 * 60) }, 0.85f)
+            .effect({ MobEffects.HEAL.instance(time = 20 * 10) }, 0.75f)
             .build()
     )
 ) {
@@ -71,32 +67,26 @@ class ItemFruitPie : Item(
 
         player.mainHandItem.shrink(1)
 
-        val items = NonNullList.withSize(8, ItemStack.EMPTY)
-        val poss = NonNullList.withSize(8, BlockPos.ZERO)
+        val tilePos = createBlockPosArrayWithRange(2, pos)
+        val items = ArrayList<ItemStack>()
 
-        var counter = 0
-        for (x in -2..2 step 2) for (z in -2..2 step 2) {
-            if (x == 0 && z == 0) continue
-            val posIn = pos.offset(x, 0, z)
-            val tile = world.getBlockEntity(posIn)
+        tilePos.forEach {
+            val tile = world.getBlockEntity(it)
             if (tile !is TileTree) {
                 return pass
             }
 
-            if (tile.getItem().isEmpty) {
-                player.sendClientDisplayMessage(createModInfo("angry_goblin.${world.random.nextIntBetweenInclusive(0, 1)}", "info"))
-                spawnLightning()
-                return InteractionResult.SUCCESS
+            val itemInput = tile.getAndCleanItem()
+            items.add(itemInput)
+            if (itemInput.hasCraftingRemainingItem()) {
+                tile.setItem(itemInput.craftingRemainingItem.copy())
             }
+        }
 
-            val item = tile.getAndCleanItem()
-
-            poss[counter] = posIn
-            items[counter++] = item
-
-            if (item.hasCraftingRemainingItem()) {
-                tile.setItem(item.craftingRemainingItem)
-            }
+        if (items.any(ItemStack::isEmpty)) {
+            player.sendClientDisplayMessage(createModInfo("angry_goblin.${world.random.nextIntBetweenInclusive(0, 1)}", "info"))
+            spawnLightning()
+            return InteractionResult.SUCCESS
         }
 
         val handItem = player.offhandItem.copy().apply {
@@ -108,14 +98,14 @@ class ItemFruitPie : Item(
         world.setBlock(pos, state.setValue(BlockStateProperties.LIT, false), 3)
 
         for (recipeIn in ModRecipes.RECIPE_OF_GOBLINS) {
-            if (!recipeIn.findMatch(items, handItem)) {
+            if (!recipeIn.findMatch(NonNullList.copyOf(items), handItem)) {
                 continue
             }
             recipeIn.output.copy().asEntityAndSpawn(world, pos.x + 0.5, pos.y + 1.0, pos.z + 0.5)
 
             if (world.isClientSide) {
                 ParticleUtils.spawnParticlesOnBlockFaces(world, pos, ParticleTypes.HAPPY_VILLAGER, UniformInt.of(2, 6))
-                poss.forEach {
+                tilePos.forEach {
                     ParticleUtils.spawnParticlesOnBlockFaces(world, it, ParticleTypes.HAPPY_VILLAGER, UniformInt.of(1, 3))
                 }
             }

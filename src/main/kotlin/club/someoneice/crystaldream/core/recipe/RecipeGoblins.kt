@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.core.recipe
 
-import com.google.common.collect.ImmutableList
+import club.someoneice.crystaldream.core.init.ModRecipes
 import net.minecraft.core.NonNullList
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.crafting.Ingredient
@@ -11,31 +11,19 @@ data class RecipeGoblins(
     val hand: Ingredient = Ingredient.EMPTY,
     val output: ItemStack = ItemStack.EMPTY,
 ) {
-    companion object {
-        private fun pairToArray(pairs: Array<out Pair<Ingredient, Int>>): ImmutableList<Ingredient> {
-            val list = ImmutableList.Builder<Ingredient>()
-            for (pair in pairs) {
-                for (i in 0 until pair.second) {
-                    list.add(pair.first)
-                }
-            }
-            return list.build()
-        }
-    }
-
     constructor(hand: Ingredient, output: ItemStack, vararg inputs: Pair<Ingredient, Int>) : this(
-        NonNullList.copyOf(pairToArray(inputs)), hand, output
+        ModRecipes.pairToArray(inputs), hand, output
     )
 
     init {
+        if (input.size < 8 || input.any(Ingredient::isEmpty) || hand.isEmpty) {
+            throw IllegalArgumentException("Input cannot be empty!")
+        }
+
         if (input.size > 8) {
             val clone = input.subList(0, 8)
             input.clear()
             input.addAll(clone)
-        }
-
-        if (input.any { it.isEmpty } || hand.isEmpty) {
-            throw IllegalArgumentException("Input cannot be empty!")
         }
     }
 

@@ -7,8 +7,8 @@ import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.BlockItem
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions
 import software.bernie.geckolib.animatable.GeoItem
+import software.bernie.geckolib.animatable.client.GeoRenderProvider
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.animation.*
 import software.bernie.geckolib.model.GeoModel
@@ -19,9 +19,8 @@ import java.util.function.Consumer
 class GeoItemBlockAltar : BlockItem(ModBlocks.MAGIC_ALTAR, Properties()), GeoItem {
     private val cache = GeckoLibUtil.createInstanceCache(this)
 
-    override fun initializeClient(consumer: Consumer<IClientItemExtensions?>) {
-        super.initializeClient(consumer)
-        consumer.accept(object : IClientItemExtensions {
+    override fun createGeoRenderer(consumer: Consumer<GeoRenderProvider>) {
+        consumer.accept(object : GeoRenderProvider {
             private val renderer: BlockEntityWithoutLevelRenderer =
                 object : GeoItemRenderer<GeoItemBlockAltar>(object : GeoModel<GeoItemBlockAltar>() {
                     override fun getModelResource(animatable: GeoItemBlockAltar): ResourceLocation =
@@ -42,7 +41,7 @@ class GeoItemBlockAltar : BlockItem(ModBlocks.MAGIC_ALTAR, Properties()), GeoIte
                         RenderType.entityTranslucent(getTextureLocation(animatable))
                 }
 
-            override fun getCustomRenderer(): BlockEntityWithoutLevelRenderer {
+            override fun getGeoItemRenderer(): BlockEntityWithoutLevelRenderer {
                 return renderer
             }
         })

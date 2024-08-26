@@ -3,6 +3,7 @@ package club.someoneice.crystaldream.core.init
 import club.someoneice.crystaldream.common.item.*
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockAltar
 import club.someoneice.crystaldream.common.item.geo.GeoItemBlockCrystalBall
+import club.someoneice.crystaldream.common.item.geo.GeoItemShepherdStaff
 import club.someoneice.crystaldream.common.item.manapage.*
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.util.instance
@@ -74,7 +75,7 @@ object ModItems {
 
     /* goblins */
     val FRUIT_PIE: Item by ITEMS.register("fruit_pie", ::ItemFruitPie)
-    val SHEPHERD_STAFF: Item by ITEMS.registerSimpleItem("shepherd_staff")
+    val SHEPHERD_STAFF: Item by ITEMS.register("shepherd_staff", ::GeoItemShepherdStaff)
 
     val TREE_TABLE: BlockItem by ITEMS.registerSimpleBlockItem("tree_table", ModBlocks::TREE_TABLE)
     val MAGIC_MOUNT: BlockItem by ITEMS.registerSimpleBlockItem("magic_mount", ModBlocks::MAGIC_MOUNT)
@@ -82,7 +83,7 @@ object ModItems {
     val MAGIC_ALTAR: Item by ITEMS.register("magic_altar", ::GeoItemBlockAltar)
     val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
 
-    private fun createItemWithTooltip(list: ImmutableList<String>) = ModItems.createItemWithTooltip(Item.Properties(), list)
+    private fun createItemWithTooltip(list: ImmutableList<String>) = createItemWithTooltip(Item.Properties(), list)
 
     private fun createItemWithTooltip(properties: Item.Properties, list: ImmutableList<String>) = object: Item(properties) {
         override fun appendHoverText(stack: ItemStack, context: TooltipContext, tooltipComponents: MutableList<Component>, tooltipFlag: TooltipFlag) {
