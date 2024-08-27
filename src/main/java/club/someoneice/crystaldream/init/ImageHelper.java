@@ -5,18 +5,17 @@ import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class ImageHelper {
-    static NativeImage cache;
+    public static NativeImage cache;
 
     public static NativeImage getImage(int width, int height) {
         if (cache != null) {
             return cache;
         }
 
-        var inputStream = MissingTextureAtlasSprite.class.getClassLoader().getResourceAsStream("assets/crystaldream/textures/missingno.png");
+        var inputStream = MissingTextureAtlasSprite.class.getClassLoader().getResourceAsStream("assets/crystaldream/missingno.png");
         if (inputStream == null) {
             return null;
         }
@@ -24,11 +23,8 @@ public class ImageHelper {
         try {
             BufferedImage image = ImageIO.read(inputStream);
 
-            BufferedImage newImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-            newImg.getGraphics().drawImage(image.getScaledInstance(width, height, Image.SCALE_SMOOTH), 0, 0, null);
-
             ByteArrayOutputStream output = new ByteArrayOutputStream();
-            ImageIO.write(newImg, "png", output);
+            ImageIO.write(image, "png", output);
             byte[] bytes = output.toByteArray();
 
             output.close();
