@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.Mth
 import net.minecraft.util.RandomSource
 import net.minecraft.world.effect.MobEffect
+import net.minecraft.world.effect.MobEffectCategory
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.entity.item.ItemEntity
 import net.minecraft.world.entity.player.Player
@@ -44,6 +45,7 @@ fun <T: BlockEntity> createTile(factory: BlockEntityType.BlockEntitySupplier<out
 
 fun Holder<MobEffect>.instance(time: Int = 20 * 3, amplifier: Int = 0) = MobEffectInstance(this, time, amplifier)
 fun MobEffectInstance.copy() = MobEffectInstance(this)
+fun MobEffectInstance.isNeutral() = this.effect.value().category == MobEffectCategory.NEUTRAL
 
 fun Player.giveOrThrowOut(item: ItemStack) {
     val world = this.level()
@@ -52,7 +54,9 @@ fun Player.giveOrThrowOut(item: ItemStack) {
 }
 
 fun Player.sendClientDisplayMessage(str: String) {
-    if (!this.level().isClientSide()) return
+    if (this.level().isClientSide()) {
+        return
+    }
     this.displayClientMessage(Component.translatable(str), true)
 }
 

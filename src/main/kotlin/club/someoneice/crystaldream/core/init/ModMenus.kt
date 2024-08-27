@@ -1,7 +1,7 @@
 package club.someoneice.crystaldream.core.init
 
+import club.someoneice.crystaldream.common.menu.MenuNetherFurnace
 import club.someoneice.crystaldream.core.CrystalDream
-import club.someoneice.crystaldream.core.menu.MenuNetherFurnace
 import club.someoneice.crystaldream.util.registerObject
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.world.inventory.MenuType

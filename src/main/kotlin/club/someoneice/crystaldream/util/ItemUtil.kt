@@ -10,6 +10,7 @@ import net.minecraft.world.item.component.CustomData
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.Level
+import net.neoforged.neoforge.items.ItemStackHandler
 
 fun ItemLike.asIngredient() = Ingredient.of(this)
 fun ItemLike.asStack(count: Int = 1) = ItemStack(this, count)
@@ -39,4 +40,20 @@ fun ItemStack.updateNbt(data: (CompoundTag) -> Unit) {
 
 fun ItemStack.setCooldown(player: Player, cooldown: Int) {
     this.item.setCooldown(player, cooldown)
+}
+
+fun ItemStack.readItemInventory(world: Level, defSize: Int): ItemStackHandler {
+    val itemHandler = ItemStackHandler(defSize)
+    updateNbt {
+        if (it.contains("inventory")) {
+            itemHandler.deserializeNBT(world.registryAccess(), it.getCompound("inventory"))
+        }
+    }
+    return itemHandler
+}
+
+fun ItemStack.saveItemInventory(world: Level, itemHandler: ItemStackHandler) {
+    updateNbt {
+        it.put("inventory", itemHandler.serializeNBT(world.registryAccess()))
+    }
 }

@@ -8,6 +8,7 @@ import club.someoneice.crystaldream.common.item.manapage.*
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.util.instance
 import com.google.common.collect.ImmutableList
+import com.mojang.serialization.Codec
 import net.minecraft.network.chat.Component
 import net.minecraft.world.effect.MobEffects
 import net.minecraft.world.item.*
@@ -39,6 +40,7 @@ object ModItems {
     val PURE_LIVING: Item by ITEMS.registerItem("pure_living") { NetherFurnaceFuelItem(Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), 20 * 20) }
     val ORIGIN_EGG: Item by ITEMS.registerItem("origin_egg") { createItemWithTooltip(ImmutableList.of("tooltip.crystaldream.origin_egg")) }
     val STABLE_ENDER_PEARL: Item by ITEMS.register("stable_ender_pearl", ::ItemStableEnderPearl)
+    val ENERGY_CRYSTAL: Item by ITEMS.registerSimpleItem("energy_crystal")
 
     val SUN_IN_BOTTLE: Item by ITEMS.registerItem("sun_in_bottle") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
     val WIND_IN_BOTTLE: Item by ITEMS.registerItem("wind_in_bottle") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
@@ -55,6 +57,13 @@ object ModItems {
     val EVIL_MANA_PAGE: Item by ITEMS.register("evil_mana_page", ::ItemEvilManaPage)
     val DEMON_MANA_PAGE: Item by ITEMS.register("demon_mana_page", ::ItemDemonManaPage)
 
+    val SUN_CRYSTAL: Item by ITEMS.register("suncrystal", MagicCrystal::SunCrystal)
+    val RAIN_CRYSTAL: Item by ITEMS.register("raincrystal", MagicCrystal::RainCrystal)
+    val WIND_CRYSTAL: Item by ITEMS.register("windcrystal", MagicCrystal::WindCrystal)
+    val STORAGE_CRYSTAL: Item by ITEMS.register("storagecrystal", MagicCrystal::StorageCrystal)
+    val LIGHTNING_CRYSTAL: Item by ITEMS.register("lightningcrystal", MagicCrystal::LightningCrystal)
+    val FOX_FIRE_CRYSTAL: Item by ITEMS.register("foxfirecrystal", MagicCrystal::FoxFireCrystal)
+    val HEAL_CRYSTAL: Item by ITEMS.register("healcrystal", MagicCrystal::HealCrystal)
 
     /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")
@@ -80,6 +89,7 @@ object ModItems {
     val TREE_TABLE: BlockItem by ITEMS.registerSimpleBlockItem("tree_table", ModBlocks::TREE_TABLE)
     val MAGIC_MOUNT: BlockItem by ITEMS.registerSimpleBlockItem("magic_mount", ModBlocks::MAGIC_MOUNT)
     val NETHER_FURNACE: BlockItem by ITEMS.registerSimpleBlockItem("nether_furnace", ModBlocks::NETHER_FURNACE)
+
     val MAGIC_ALTAR: Item by ITEMS.register("magic_altar", ::GeoItemBlockAltar)
     val CRYSTAL_BALL: Item by ITEMS.register("crystal_ball", ::GeoItemBlockCrystalBall)
 
@@ -90,6 +100,8 @@ object ModItems {
             for (str in list) {
                 tooltipComponents.add(Component.translatable(str))
             }
+
+            Codec.INT.fieldOf("value").codec()
         }
     }
 }

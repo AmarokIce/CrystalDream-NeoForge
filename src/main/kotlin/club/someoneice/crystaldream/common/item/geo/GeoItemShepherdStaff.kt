@@ -5,7 +5,10 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.core.BlockPos
+import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.InteractionHand
+import net.minecraft.world.InteractionResultHolder
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EquipmentSlotGroup
@@ -14,6 +17,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.TooltipFlag
 import net.minecraft.world.item.UseAnim
 import net.minecraft.world.item.component.ItemAttributeModifiers
 import net.minecraft.world.level.Level
@@ -61,6 +65,29 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
     }
 
     override fun registerControllers(controllers: AnimatableManager.ControllerRegistrar) {
+    }
+
+    override fun use(world: Level, player: Player, usedHand: InteractionHand): InteractionResultHolder<ItemStack> {
+        if (!player.isShiftKeyDown) {
+            return super.use(world, player, usedHand)
+        }
+
+        val item = player.getItemInHand(usedHand)
+        if (world.isClientSide) {
+            return InteractionResultHolder.success(item)
+        }
+
+        // // TODO()
+
+        return InteractionResultHolder.success(item)
+    }
+
+    override fun appendHoverText(stack: ItemStack, context: TooltipContext, tooltipComponents: MutableList<Component>, tooltipFlag: TooltipFlag) {
+        if (stack.isEmpty) {
+            return
+        }
+
+        // TODO
     }
 
     override fun canAttackBlock(state: BlockState, level: Level, pos: BlockPos, player: Player): Boolean = false

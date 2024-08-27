@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.client.screen
 
-import club.someoneice.crystaldream.core.menu.MenuNetherFurnace
+import club.someoneice.crystaldream.common.menu.MenuNetherFurnace
 import club.someoneice.crystaldream.util.createModPath
 import net.minecraft.client.gui.GuiGraphics
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen

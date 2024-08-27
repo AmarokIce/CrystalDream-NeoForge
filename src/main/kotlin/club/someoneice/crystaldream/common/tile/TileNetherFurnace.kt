@@ -2,9 +2,9 @@ package club.someoneice.crystaldream.common.tile
 
 import club.someoneice.crystaldream.api.INetherFurnaceFuelItem
 import club.someoneice.crystaldream.common.block.BlockNetherFurnace
+import club.someoneice.crystaldream.common.menu.MenuNetherFurnace
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModTiles
-import club.someoneice.crystaldream.core.menu.MenuNetherFurnace
 import net.minecraft.core.BlockPos
 import net.minecraft.core.HolderLookup
 import net.minecraft.nbt.CompoundTag
@@ -56,9 +56,9 @@ class TileNetherFurnace(pos: BlockPos, state: BlockState): TileBase(ModTiles.NET
         }
     }
 
-    private var burnTime: Int = 0;
-    private var maxBurnTime: Int = 0;
-    private var progress: Int = 0;
+    private var burnTime: Int = 0
+    private var maxBurnTime: Int = 0
+    private var progress: Int = 0
 
     override fun writeToNbt(nbt: CompoundTag, registries: HolderLookup.Provider) {
         nbt.putInt("burn_time", this.burnTime)

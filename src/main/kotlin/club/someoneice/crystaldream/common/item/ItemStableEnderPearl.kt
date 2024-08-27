@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level
 class ItemStableEnderPearl: Item(Properties().stacksTo(32)) {
     override fun use(world: Level, player: Player, usedHand: InteractionHand): InteractionResultHolder<ItemStack> {
         val item = player.getItemInHand(usedHand)
+
         item.updateNbt {
             if (player.isShiftKeyDown) {
                 it.remove("pos")

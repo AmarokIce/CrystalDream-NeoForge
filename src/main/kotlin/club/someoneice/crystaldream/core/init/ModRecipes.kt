@@ -95,6 +95,10 @@ object ModRecipes {
             RecipeNetherFurnace(
                 Items.COD_BUCKET.asIngredient(), ModItems.SOUL_CRYSTAL.asIngredient(),
                 ModItems.WOODEN_BOTTLE.asIngredient(), ModItems.FISH_BREATHING.asStack()))
+        RECIPE_OF_NETHER_FURNACE.add(
+            RecipeNetherFurnace(
+                Items.GOLD_INGOT.asIngredient(), ModItems.SOUL_CRYSTAL.asIngredient(),
+                Items.DIAMOND.asIngredient(), ModItems.ENERGY_CRYSTAL.asStack()))
     }
 
     private fun recipeSacrifice() {
@@ -103,7 +107,7 @@ object ModRecipes {
         RECIPE_OF_SACRIFICE.add(RecipeSacrifice(ModItems.EMPTY_MANA_PAGE.asIngredient(), ModItems.MOVING_MANA_PAGE.asStack(),
             Pair(ModItems.CRYSTAL_POWDER.asIngredient(), 4), Pair(ModItems.STABLE_ENDER_PEARL.asIngredient(), 4)))
         RECIPE_OF_SACRIFICE.add(RecipeSacrifice(ModItems.MOVING_MANA_PAGE.asIngredient(), ModItems.SOUL_MANA_PAGE.asStack(),
-            Pair(ModItems.PURE_LIVING.asIngredient(), 4), Pair(ModItems.STABLE_ENDER_PEARL.asIngredient(), 4)))
+            Pair(ModItems.PURE_LIVING.asIngredient(), 4), Pair(ModItems.BETRAYAL_OF_THE_WOLF.asIngredient(), 4)))
         RECIPE_OF_SACRIFICE.add(RecipeSacrifice(ModItems.EMPTY_MANA_PAGE.asIngredient(), ModItems.HOLY_MANA_PAGE.asStack(),
             Pair(ModItems.PURE_LIVING.asIngredient(), 4), Pair(ModItems.SUN_IN_BOTTLE.asIngredient(), 4)))
         RECIPE_OF_SACRIFICE.add(RecipeSacrifice(ModItems.EMPTY_MANA_PAGE.asIngredient(), ModItems.EVIL_MANA_PAGE.asStack(),

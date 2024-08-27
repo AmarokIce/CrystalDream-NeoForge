@@ -1,7 +1,7 @@
-package club.someoneice.crystaldream.core.menu
+package club.someoneice.crystaldream.common.menu
 
+import club.someoneice.crystaldream.common.menu.slot.SlotOutputHandler
 import club.someoneice.crystaldream.core.init.ModMenus
-import club.someoneice.crystaldream.core.menu.slot.SlotOutputHandler
 import net.minecraft.core.BlockPos
 import net.minecraft.network.FriendlyByteBuf
 import net.minecraft.world.entity.player.Inventory
@@ -58,47 +58,47 @@ class MenuNetherFurnace(containerId: Int, private val playerInv: Inventory, priv
     }
 
     override fun quickMoveStack(player: Player, quickMovedSlotIndex: Int): ItemStack {
-        var quickMovedStack: ItemStack  = ItemStack.EMPTY;
+        var quickMovedStack: ItemStack  = ItemStack.EMPTY
         val quickMovedSlot: Slot = this.slots[quickMovedSlotIndex]
 
         if (quickMovedSlot.hasItem()) {
-            val rawStack: ItemStack = quickMovedSlot.getItem();
-            quickMovedStack = rawStack.copy();
+            val rawStack: ItemStack = quickMovedSlot.item
+            quickMovedStack = rawStack.copy()
 
             if (quickMovedSlotIndex in 3 .. 6) {
                 if (!this.moveItemStackTo(rawStack, 8, 43, true)) {
-                    return ItemStack.EMPTY;
+                    return ItemStack.EMPTY
                 }
 
-                quickMovedSlot.onQuickCraft(rawStack, quickMovedStack);
+                quickMovedSlot.onQuickCraft(rawStack, quickMovedStack)
             } else if (quickMovedSlotIndex in 7..43) {
                 if (!this.moveItemStackTo(rawStack, 0, 3, false)
                     && !this.moveItemStackTo(rawStack, 7, 8, false)) {
                     if (quickMovedSlotIndex < 34
                         && !this.moveItemStackTo(rawStack, 35, 43, false)) {
-                            return ItemStack.EMPTY;
+                            return ItemStack.EMPTY
                     } else if (!this.moveItemStackTo(rawStack, 8, 35, false)) {
-                        return ItemStack.EMPTY;
+                        return ItemStack.EMPTY
                     }
                 }
             }
             else if (!this.moveItemStackTo(rawStack, 8, 43, false)) {
-                return ItemStack.EMPTY;
+                return ItemStack.EMPTY
             }
 
             if (rawStack.isEmpty) {
-                quickMovedSlot.set(ItemStack.EMPTY);
+                quickMovedSlot.set(ItemStack.EMPTY)
             } else {
-                quickMovedSlot.setChanged();
+                quickMovedSlot.setChanged()
             }
 
             if (rawStack.count == quickMovedStack.count) {
-                return ItemStack.EMPTY;
+                return ItemStack.EMPTY
             }
-            quickMovedSlot.onTake(player, rawStack);
+            quickMovedSlot.onTake(player, rawStack)
         }
 
-        return quickMovedStack;
+        return quickMovedStack
     }
 
     override fun stillValid(player: Player): Boolean {
