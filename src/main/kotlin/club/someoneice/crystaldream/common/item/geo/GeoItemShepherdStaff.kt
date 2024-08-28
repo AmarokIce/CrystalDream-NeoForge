@@ -1,6 +1,9 @@
 package club.someoneice.crystaldream.common.item.geo
 
+import club.someoneice.crystaldream.common.item.MagicCrystal
 import club.someoneice.crystaldream.util.createModPath
+import club.someoneice.crystaldream.util.updateNbt
+import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
@@ -22,6 +25,7 @@ import net.minecraft.world.item.UseAnim
 import net.minecraft.world.item.component.ItemAttributeModifiers
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.block.state.BlockState
+import net.neoforged.fml.loading.FMLEnvironment
 import software.bernie.geckolib.animatable.GeoItem
 import software.bernie.geckolib.animatable.client.GeoRenderProvider
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache
@@ -68,26 +72,69 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
     }
 
     override fun use(world: Level, player: Player, usedHand: InteractionHand): InteractionResultHolder<ItemStack> {
-        if (!player.isShiftKeyDown) {
-            return super.use(world, player, usedHand)
+        val pass = super.use(world, player, usedHand)
+        if (usedHand == InteractionHand.OFF_HAND) {
+            return pass
         }
 
         val item = player.getItemInHand(usedHand)
+
+        if (!player.isShiftKeyDown) {
+            if (!player.offhandItem.isEmpty) {
+                return pass
+            }
+
+            item.updateNbt {
+                if (!it.contains("crystal")) {
+                    return@updateNbt
+                }
+
+                val crystal = ItemStack.parseOptional(world.registryAccess(), it.getCompound("crystal"))
+                player.setItemInHand(InteractionHand.OFF_HAND, crystal)
+            }
+
+            return InteractionResultHolder.success(item)
+        }
+
         if (world.isClientSide) {
             return InteractionResultHolder.success(item)
         }
 
-        // // TODO()
+        if (player.offhandItem.isEmpty) {
+            return pass
+        }
+
+        val crystal = player.offhandItem
+        if (crystal.item !is MagicCrystal) {
+            return pass
+        }
+
+        item.updateNbt {
+            it.put("crystal", crystal.saveOptional(world.registryAccess()))
+            crystal.shrink(1)
+        }
 
         return InteractionResultHolder.success(item)
     }
 
     override fun appendHoverText(stack: ItemStack, context: TooltipContext, tooltipComponents: MutableList<Component>, tooltipFlag: TooltipFlag) {
-        if (stack.isEmpty) {
+        if (!FMLEnvironment.dist.isClient || stack.isEmpty) {
             return
         }
 
-        // TODO
+        val world = Minecraft.getInstance().level!!
+        var crystal: ItemStack = ItemStack.EMPTY
+        stack.updateNbt {
+            if (!it.contains("crystal")) {
+                return@updateNbt
+            }
+
+            crystal = ItemStack.parseOptional(world.registryAccess(), it.getCompound("crustal"))
+        }
+
+        if (!crystal.isEmpty) {
+            tooltipComponents.add(crystal.displayName)
+        }
     }
 
     override fun canAttackBlock(state: BlockState, level: Level, pos: BlockPos, player: Player): Boolean = false
@@ -104,7 +151,7 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
                     EquipmentSlotGroup.MAINHAND
                 ).add(
                     Attributes.ATTACK_SPEED,
-                    AttributeModifier(BASE_ATTACK_SPEED_ID, 0.8, AttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifier(BASE_ATTACK_SPEED_ID, -1.6, AttributeModifier.Operation.ADD_VALUE),
                     EquipmentSlotGroup.MAINHAND
                 ).build()
         }

@@ -30,7 +30,6 @@ object CrystalDream {
         MOD_BUS.addListener(this::registerPayload)
 
         FORGE_BUS.addListener(ModRecipes::registerBrewingRecipes)
-
     }
 
     @SubscribeEvent
