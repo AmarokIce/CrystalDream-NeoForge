@@ -1,20 +1,26 @@
 package club.someoneice.crystaldream.common.item.geo
 
 import club.someoneice.crystaldream.common.item.MagicCrystal
+import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.util.createModPath
+import club.someoneice.crystaldream.util.spawnCirclePos
 import club.someoneice.crystaldream.util.updateNbt
 import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer
 import net.minecraft.client.renderer.MultiBufferSource
 import net.minecraft.client.renderer.RenderType
 import net.minecraft.core.BlockPos
+import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResultHolder
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EquipmentSlotGroup
+import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.ai.attributes.AttributeModifier
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.player.Player
@@ -80,41 +86,68 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
         val item = player.getItemInHand(usedHand)
 
         if (!player.isShiftKeyDown) {
-            if (!player.offhandItem.isEmpty) {
-                return pass
-            }
+            player.startUsingItem(usedHand)
+            return InteractionResultHolder.pass(item)
+        }
 
-            item.updateNbt {
-                if (!it.contains("crystal")) {
+        item.updateNbt {
+            if (it.contains("crystal")) {
+                if (!player.offhandItem.isEmpty) {
                     return@updateNbt
                 }
 
                 val crystal = ItemStack.parseOptional(world.registryAccess(), it.getCompound("crystal"))
                 player.setItemInHand(InteractionHand.OFF_HAND, crystal)
+                it.remove("crystal")
+
+                return@updateNbt
             }
 
-            return InteractionResultHolder.success(item)
-        }
+            if (player.offhandItem.isEmpty) {
+                return@updateNbt
+            }
 
-        if (world.isClientSide) {
-            return InteractionResultHolder.success(item)
-        }
+            val crystal = player.offhandItem
+            if (crystal.item !is MagicCrystal) {
+                return@updateNbt
+            }
 
-        if (player.offhandItem.isEmpty) {
-            return pass
-        }
-
-        val crystal = player.offhandItem
-        if (crystal.item !is MagicCrystal) {
-            return pass
-        }
-
-        item.updateNbt {
             it.put("crystal", crystal.saveOptional(world.registryAccess()))
             crystal.shrink(1)
         }
 
         return InteractionResultHolder.success(item)
+    }
+
+    override fun onUseTick(world: Level, livingEntity: LivingEntity, stack: ItemStack, remainingUseDuration: Int) {
+        if (!world.isClientSide()) {
+            return
+        }
+
+        for (pos in spawnCirclePos(livingEntity.position(), 1.2, 16)) {
+            world.addParticle(ParticleTypes.SOUL_FIRE_FLAME, pos.x, pos.y, pos.z, 0.0, 0.55, 0.0)
+        }
+    }
+
+    override fun finishUsingItem(stack: ItemStack, world: Level, player: LivingEntity): ItemStack {
+        if (world.isClientSide() || player !is ServerPlayer) {
+            return stack
+        }
+        stack.updateNbt {
+            if (!it.contains("crystal")) {
+                return@updateNbt
+            }
+
+            val crystal = ItemStack.parseOptional(world.registryAccess(), it.getCompound("crystal"))
+            if (crystal.item !is MagicCrystal) {
+                CrystalDream.LOGGER.error("The item in Shepherd Staff is not a Magic Crystal!")
+                return@updateNbt
+            }
+
+            (crystal.item as MagicCrystal).work(stack, crystal, world as ServerLevel, player)
+        }
+        player.cooldowns.addCooldown(stack.item, 20 * 5)
+        return stack
     }
 
     override fun appendHoverText(stack: ItemStack, context: TooltipContext, tooltipComponents: MutableList<Component>, tooltipFlag: TooltipFlag) {
@@ -138,20 +171,21 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
     }
 
     override fun canAttackBlock(state: BlockState, level: Level, pos: BlockPos, player: Player): Boolean = false
-    override fun getAttackDamageBonus(target: Entity, damage: Float, damageSource: DamageSource): Float = 1.2f
+    override fun getAttackDamageBonus(target: Entity, damage: Float, damageSource: DamageSource): Float = target.level().random.nextFloat() * 2.0f
     override fun getAnimatableInstanceCache(): AnimatableInstanceCache = cache
     override fun getUseAnimation(stack: ItemStack): UseAnim = UseAnim.BOW
+    override fun getUseDuration(stack: ItemStack, entity: LivingEntity): Int = 48
 
     companion object {
         fun createAttributes(): ItemAttributeModifiers {
             return ItemAttributeModifiers.builder()
                 .add(
                     Attributes.ATTACK_DAMAGE,
-                    AttributeModifier(BASE_ATTACK_DAMAGE_ID, 4.5, AttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifier(BASE_ATTACK_DAMAGE_ID, 3.5, AttributeModifier.Operation.ADD_VALUE),
                     EquipmentSlotGroup.MAINHAND
                 ).add(
                     Attributes.ATTACK_SPEED,
-                    AttributeModifier(BASE_ATTACK_SPEED_ID, -1.6, AttributeModifier.Operation.ADD_VALUE),
+                    AttributeModifier(BASE_ATTACK_SPEED_ID, -2.6, AttributeModifier.Operation.ADD_VALUE),
                     EquipmentSlotGroup.MAINHAND
                 ).build()
         }

@@ -91,7 +91,7 @@ sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             world.getEntitiesOfClass(Player::class.java, createAABBByRange(player.position(), 4)).forEach {
                 it.activeEffects.removeIf(MobEffectInstance::isNeutral)
-                it.addEffect(MobEffects.HEAL.instance(20 * 10, 1))
+                it.addEffect(MobEffects.REGENERATION.instance(20 * 10, 1))
             }
         }
     }

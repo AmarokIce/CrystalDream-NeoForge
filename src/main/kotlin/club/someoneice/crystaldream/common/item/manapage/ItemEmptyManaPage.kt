@@ -17,7 +17,7 @@ open class ItemEmptyManaPage(): Item(Properties()) {
     }
 
     override fun getUseAnimation(stack: ItemStack): UseAnim {
-        return UseAnim.CROSSBOW
+        return UseAnim.BOW
     }
 
     override fun getUseDuration(stack: ItemStack, entity: LivingEntity): Int {
@@ -26,7 +26,7 @@ open class ItemEmptyManaPage(): Item(Properties()) {
 
     override fun use(level: Level, player: Player, usedHand: InteractionHand): InteractionResultHolder<ItemStack> {
         player.startUsingItem(usedHand)
-        return InteractionResultHolder.consume<ItemStack>(player.getItemInHand(usedHand))
+        return InteractionResultHolder.consume(player.getItemInHand(usedHand))
     }
 
     override fun finishUsingItem(stack: ItemStack, level: Level, livingEntity: LivingEntity): ItemStack {

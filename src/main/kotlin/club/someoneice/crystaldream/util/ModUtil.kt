@@ -23,6 +23,8 @@ import net.minecraft.world.phys.Vec3
 import net.neoforged.neoforge.registries.DeferredHolder
 import net.neoforged.neoforge.registries.DeferredRegister
 import java.util.function.Supplier
+import kotlin.math.cos
+import kotlin.math.sin
 
 fun createModPath(path: String): ResourceLocation = ResourceLocation.fromNamespaceAndPath(CrystalDream.MODID, path)
 fun createModInfo(info: String, name: String) = "${info}.crystaldream.${name}"
@@ -96,4 +98,16 @@ fun spawnParticlesAs(world: ClientLevel, posStart: BlockPos, posEnd: BlockPos, t
 
         world.addParticle(type, stepX, stepY, stepZ, 0.0, 0.0, 0.0)
     }
+}
+
+fun spawnCirclePos(pos: Vec3, r: Double, count: Int): Array<Vec3> {
+    val md = 365.0 / count
+    val array = arrayOfNulls<Vec3>(count)
+    for (i in 1 .. count) {
+        val x = pos.x + r * sin((md * i) * Math.PI / 180)
+        val z = pos.z + r * cos((md * i) * Math.PI / 180)
+        array[i - 1] = Vec3(x, pos.y, z)
+    }
+
+    return array.filterNotNull().toTypedArray()
 }
