@@ -1,16 +1,14 @@
 package club.someoneice.crystaldream.init;
 
-import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
-import org.apache.commons.io.output.ByteArrayOutputStream;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
 public class ImageHelper {
-    public static NativeImage cache;
+    public static BufferedImage cache;
 
-    public static NativeImage getImage(int width, int height) {
+    public static BufferedImage getImage() {
         if (cache != null) {
             return cache;
         }
@@ -22,15 +20,8 @@ public class ImageHelper {
 
         try {
             BufferedImage image = ImageIO.read(inputStream);
-
-            ByteArrayOutputStream output = new ByteArrayOutputStream();
-            ImageIO.write(image, "png", output);
-            byte[] bytes = output.toByteArray();
-
-            output.close();
             inputStream.close();
-
-            cache = NativeImage.read(bytes);
+            cache = image;
         } catch (Exception ignored) {}
         return cache;
     }
