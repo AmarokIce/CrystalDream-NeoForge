@@ -1,6 +1,6 @@
 <div align=center><img src="src/main/resources/crystaldream_icon.png"></div>
 
-[<div align=center><img src="img/Teacon2024.png"></div>](https://link.mcmod.cn/target/teaconjiachen)
+[[<div align=center><img src="img/Teacon2024.png"></div>](https://link.mcmod.cn/target/teaconjiachen)](https://www.teacon.cn/jiachen/)
 
 ## <div align=center> 晶彩梦艺 </div>
 ### <div align=center> 用水晶点亮前方的道路，以水晶之誓感受自然 ... </div>
