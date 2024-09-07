@@ -5,6 +5,7 @@ import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.core.init.ModDamages
 import club.someoneice.crystaldream.core.init.ModEffects
 import club.someoneice.crystaldream.core.init.ModItems
+import club.someoneice.crystaldream.util.PlayerSleepHandler
 import club.someoneice.crystaldream.util.copy
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
@@ -78,10 +79,10 @@ object ModEvent {
     @SubscribeEvent
     fun playerWeekupEvent(event: PlayerWakeUpEvent) {
         if (event.updateLevel()) {
-            return;
+            return
         }
 
-
+        PlayerSleepHandler.doDreamEvent(event.entity)
     }
 
     @SubscribeEvent

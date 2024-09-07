@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 object PlayerSleepHandler {
     private val DREAM_SET: LinkedHashSet<(Player) -> Unit> = Sets.newLinkedHashSet()
-    fun doDreamEvent(player: Player) = DREAM_SET.random()
+    fun doDreamEvent(player: Player) = DREAM_SET.random()(player)
 
     init {
         DREAM_SET.add {
