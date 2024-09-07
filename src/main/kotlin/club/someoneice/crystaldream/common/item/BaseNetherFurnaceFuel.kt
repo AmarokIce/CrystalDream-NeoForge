@@ -8,7 +8,7 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.TooltipFlag
 
-class NetherFurnaceFuelItem(properties: Properties, private val tick: Int): Item(properties), INetherFurnaceFuelItem {
+class BaseNetherFurnaceFuel(properties: Properties, private val tick: Int): Item(properties), INetherFurnaceFuelItem {
     constructor(tick: Int): this(Properties(), tick)
 
     override fun getBurnTime(item: ItemStack): Int = tick

@@ -11,6 +11,7 @@ import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent
 import net.neoforged.neoforge.event.entity.player.PlayerEvent
+import net.neoforged.neoforge.event.entity.player.PlayerWakeUpEvent
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent
 import kotlin.math.min
 
@@ -72,6 +73,15 @@ object ModEvent {
             event.amount = value / (2 + lv)
             return
         }
+    }
+
+    @SubscribeEvent
+    fun playerWeekupEvent(event: PlayerWakeUpEvent) {
+        if (event.updateLevel()) {
+            return;
+        }
+
+
     }
 
     @SubscribeEvent
