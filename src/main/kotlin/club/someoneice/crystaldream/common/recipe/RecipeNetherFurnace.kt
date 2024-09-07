@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.core.recipe
+package club.someoneice.crystaldream.common.recipe
 
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.crafting.Ingredient

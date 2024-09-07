@@ -43,7 +43,7 @@ class BlockAltar : AbstractBlockWithTileItem() {
 
         val tile = world.getBlockEntity(pos)
         if (tile !is TileAltar) {
-            return@useItemOn ItemInteractionResult.FAIL
+            return ItemInteractionResult.FAIL
         }
 
         val candlePos = arrayOf(
@@ -80,7 +80,7 @@ class BlockAltar : AbstractBlockWithTileItem() {
         val catalyst = tile.getItem()
 
         val recipe = ModRecipes.RECIPE_OF_SACRIFICE.firstOrNull { it.findMatch(NonNullList.copyOf(items), catalyst) }
-            ?: return@useItemOn ItemInteractionResult.FAIL
+            ?: return ItemInteractionResult.FAIL
 
         tile.cleanItem()
         tilePos.forEach {
@@ -94,7 +94,7 @@ class BlockAltar : AbstractBlockWithTileItem() {
 
         tile.setItem(recipe.output.copy())
 
-        return@useItemOn ItemInteractionResult.SUCCESS
+        return ItemInteractionResult.SUCCESS
     }
 
     override fun <T : BlockEntity?> getTicker(

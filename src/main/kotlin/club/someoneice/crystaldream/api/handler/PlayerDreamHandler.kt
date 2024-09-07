@@ -1,7 +1,8 @@
-package club.someoneice.crystaldream.util
+package club.someoneice.crystaldream.api.handler
 
 import club.someoneice.crystaldream.core.init.ModEffects
 import club.someoneice.crystaldream.core.init.ModItems
+import club.someoneice.crystaldream.util.instance
 import com.google.common.collect.Sets
 import net.minecraft.network.chat.Component
 import net.minecraft.world.effect.MobEffects
@@ -9,9 +10,9 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Items
 import kotlin.random.Random
 
-object PlayerSleepHandler {
+object PlayerDreamHandler {
     private val DREAM_SET: LinkedHashSet<(Player) -> Unit> = Sets.newLinkedHashSet()
-    fun doDreamEvent(player: Player) = DREAM_SET.random()(player)
+    fun randomDreamEvent(player: Player) = DREAM_SET.random()(player)
 
     init {
         DREAM_SET.add {

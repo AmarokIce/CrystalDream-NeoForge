@@ -1,5 +1,6 @@
 package club.someoneice.crystaldream.common.item
 
+import club.someoneice.crystaldream.core.init.ModEffects
 import club.someoneice.crystaldream.util.*
 import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.network.chat.Component
@@ -91,6 +92,7 @@ sealed class MultiItemMagicCrystal(val name: String): Item(Properties().stacksTo
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             world.getEntitiesOfClass(Player::class.java, createAABBByRange(player.position(), 4)).forEach {
                 it.activeEffects.removeIf(MobEffectInstance::isNeutral)
+                it.removeEffect(ModEffects.CRYSTAL_MIRROR)
                 it.addEffect(MobEffects.REGENERATION.instance(20 * 10, 1))
             }
         }

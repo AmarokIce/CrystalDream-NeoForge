@@ -1,12 +1,8 @@
 package club.someoneice.crystaldream.core
 
-import club.someoneice.crystaldream.common.capability.CapabilityCrystalMana
-import club.someoneice.crystaldream.common.item.manacrystal.AbstractManaCrystal
-import club.someoneice.crystaldream.core.init.ModCapabilities
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModRegister
 import club.someoneice.crystaldream.core.packet.PacketSendClientMessage
-import net.minecraft.core.registries.BuiltInRegistries
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
@@ -39,6 +35,7 @@ object CrystalDream {
 
     @SubscribeEvent
     private fun onCapabilityRegister(event: RegisterCapabilitiesEvent) {
+        /*
         BuiltInRegistries.ITEM.forEach {
             if (it !is AbstractManaCrystal) return@forEach
             event.registerItem(ModCapabilities.CRYSTAL_MANA, { item, _ ->
@@ -46,6 +43,7 @@ object CrystalDream {
                 CapabilityCrystalMana(item)
             }, it)
         }
+        */
     }
 
     @SubscribeEvent

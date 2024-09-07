@@ -1,11 +1,11 @@
 package club.someoneice.crystaldream.common
 
+import club.someoneice.crystaldream.api.handler.PlayerDreamHandler
 import club.someoneice.crystaldream.common.effect.EffectCrystalMirror
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.core.init.ModDamages
 import club.someoneice.crystaldream.core.init.ModEffects
 import club.someoneice.crystaldream.core.init.ModItems
-import club.someoneice.crystaldream.util.PlayerSleepHandler
 import club.someoneice.crystaldream.util.copy
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
@@ -83,7 +83,7 @@ object ModEvent {
             return
         }
 
-        PlayerSleepHandler.doDreamEvent(event.entity)
+        PlayerDreamHandler.randomDreamEvent(event.entity)
     }
 
     @SubscribeEvent

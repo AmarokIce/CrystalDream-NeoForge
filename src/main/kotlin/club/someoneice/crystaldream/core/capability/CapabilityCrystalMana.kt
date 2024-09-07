@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.capability
+package club.someoneice.crystaldream.core.capability
 
 import club.someoneice.crystaldream.api.ICapabilityCrystalMana
 import club.someoneice.crystaldream.util.updateNbt
