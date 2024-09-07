@@ -43,15 +43,16 @@ object ModEvent {
             return
         }
 
-        event.newDamage = 0f
 
         if (entity.hasEffect(ModEffects.CRYSTAL_MIRROR.delegate)) {
             entity.health = min(entity.maxHealth, entity.health + damageValue / (if (!flag) 1.0f else 2.0f + lv))
+            event.newDamage = 0f
             return
         }
 
         if (flag) {
             entity.hurt(ModDamages.damageCorrode(entity), damageValue * (2 + lv))
+            event.newDamage = 0f
             return
         }
     }
