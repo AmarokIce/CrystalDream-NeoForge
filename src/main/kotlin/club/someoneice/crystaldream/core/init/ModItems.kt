@@ -23,7 +23,7 @@ object ModItems {
 
     val CRYSTAL_POWDER: Item by ITEMS.registerSimpleItem("crystal_power")
     val GHOST_TERRORIST: Item by ITEMS.register("ghost_terrorist", ::ItemGhostTerrorist)
-    val SOUL: Item by ITEMS.registerItem("deceased_soul") { NetherFurnaceFuelItem(20 * 30) }
+    val SOUL: Item by ITEMS.registerItem("deceased_soul") { BaseNetherFurnaceFuel(20 * 30) }
     val SOUL_CRYSTAL: Item by ITEMS.registerSimpleItem("soul_crystal")
     val DREAMING_SEED: Item by ITEMS.registerSimpleItem("dream_seed")
     val DREAMING_ILLUSION: Item by ITEMS.registerSimpleItem("dreaming_illusion")
@@ -34,10 +34,10 @@ object ModItems {
     /* mana and magic */
     val WOODEN_BOTTLE: Item by ITEMS.registerSimpleItem("wooden_jar")
     val OAK_ESS: Item by ITEMS.registerItem("oak_ess") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
-    val DEATH_ESS: Item by ITEMS.registerItem("death_ess") { NetherFurnaceFuelItem(Item.Properties().craftRemainder(WOODEN_BOTTLE), 20 * 2) }
+    val DEATH_ESS: Item by ITEMS.registerItem("death_ess") { BaseNetherFurnaceFuel(Item.Properties().craftRemainder(WOODEN_BOTTLE), 20 * 2) }
     val END_ESS: Item by ITEMS.registerItem("end_ess") { Item(Item.Properties().craftRemainder(WOODEN_BOTTLE)) }
-    val SOUL_IN_BOTTLE: Item by ITEMS.registerItem("soul_in_bottle") { NetherFurnaceFuelItem(Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), 20 * 10) }
-    val PURE_LIVING: Item by ITEMS.registerItem("pure_living") { NetherFurnaceFuelItem(Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), 20 * 20) }
+    val SOUL_IN_BOTTLE: Item by ITEMS.registerItem("soul_in_bottle") { BaseNetherFurnaceFuel(Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), 20 * 10) }
+    val PURE_LIVING: Item by ITEMS.registerItem("pure_living") { BaseNetherFurnaceFuel(Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE), 20 * 20) }
     val ORIGIN_EGG: Item by ITEMS.registerItem("origin_egg") { createItemWithTooltip(ImmutableList.of("tooltip.crystaldream.origin_egg")) }
     val STABLE_ENDER_PEARL: Item by ITEMS.register("stable_ender_pearl", ::ItemStableEnderPearl)
     val ENERGY_CRYSTAL: Item by ITEMS.registerSimpleItem("energy_crystal")
@@ -57,13 +57,13 @@ object ModItems {
     val EVIL_MANA_PAGE: Item by ITEMS.register("evil_mana_page", ::ItemEvilManaPage)
     val DEMON_MANA_PAGE: Item by ITEMS.register("demon_mana_page", ::ItemDemonManaPage)
 
-    val SUN_CRYSTAL: Item by ITEMS.register("suncrystal", MagicCrystal::SunCrystal)
-    val RAIN_CRYSTAL: Item by ITEMS.register("raincrystal", MagicCrystal::RainCrystal)
-    val WIND_CRYSTAL: Item by ITEMS.register("windcrystal", MagicCrystal::WindCrystal)
-    val STORAGE_CRYSTAL: Item by ITEMS.register("storagecrystal", MagicCrystal::StorageCrystal)
-    val LIGHTNING_CRYSTAL: Item by ITEMS.register("lightningcrystal", MagicCrystal::LightningCrystal)
-    val FOX_FIRE_CRYSTAL: Item by ITEMS.register("foxfirecrystal", MagicCrystal::FoxFireCrystal)
-    val HEAL_CRYSTAL: Item by ITEMS.register("healcrystal", MagicCrystal::HealCrystal)
+    val SUN_CRYSTAL: Item by ITEMS.register("suncrystal", MultiItemMagicCrystal::SunCrystal)
+    val RAIN_CRYSTAL: Item by ITEMS.register("raincrystal", MultiItemMagicCrystal::RainCrystal)
+    val WIND_CRYSTAL: Item by ITEMS.register("windcrystal", MultiItemMagicCrystal::WindCrystal)
+    val STORAGE_CRYSTAL: Item by ITEMS.register("storagecrystal", MultiItemMagicCrystal::StorageCrystal)
+    val LIGHTNING_CRYSTAL: Item by ITEMS.register("lightningcrystal", MultiItemMagicCrystal::LightningCrystal)
+    val FOX_FIRE_CRYSTAL: Item by ITEMS.register("foxfirecrystal", MultiItemMagicCrystal::FoxFireCrystal)
+    val HEAL_CRYSTAL: Item by ITEMS.register("healcrystal", MultiItemMagicCrystal::HealCrystal)
 
     /* tea */
     val CRYSTAL_CUP: Item by ITEMS.registerSimpleItem("crystal_cup")
@@ -81,6 +81,8 @@ object ModItems {
     val TEA_FRUIT: Item by ITEMS.registerItem("tea_fruit") { ItemTea(MobEffects.JUMP.instance(20 * 10)) }
     val TEA_FIRE: Item by ITEMS.registerItem("tea_fire") { ItemTea(MobEffects.FIRE_RESISTANCE.instance(20 * 3)) }
     val TEA_BLOOD: Item by ITEMS.registerItem("tea_blood") { ItemTea(MobEffects.HEALTH_BOOST.instance(20 * 30)) }
+
+    val PUMPKIN_REAGENT: Item by ITEMS.register("pumpkin_reagent", ::ItemPumpkinReagent)
 
     /* goblins */
     val FRUIT_PIE: Item by ITEMS.register("fruit_pie", ::ItemFruitPie)

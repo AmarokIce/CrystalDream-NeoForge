@@ -1,7 +1,6 @@
 package club.someoneice.crystaldream.core.init
 
 import club.someoneice.crystaldream.core.CrystalDream
-import club.someoneice.crystaldream.util.asStack
 import com.google.common.base.Supplier
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.network.chat.Component
@@ -21,7 +20,7 @@ object ModTabs {
             .title(Component.translatable("crystaldream.tab"))
             .icon { ModItems.CRYSTAL_BALL.defaultInstance }
             .displayItems { _, output ->
-                ModItems.ITEMS.entries.map(DeferredHolder<Item, out Item>::get).map(Item::asStack).forEach(output::accept)
+                ModItems.ITEMS.entries.map(DeferredHolder<Item, out Item>::get).forEach(output::accept)
             }.build()
     })
 }

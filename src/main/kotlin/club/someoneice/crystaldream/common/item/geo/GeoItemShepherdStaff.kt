@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.common.item.geo
 
-import club.someoneice.crystaldream.common.item.MagicCrystal
+import club.someoneice.crystaldream.common.item.MultiItemMagicCrystal
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.util.createModPath
 import club.someoneice.crystaldream.util.spawnCirclePos
@@ -108,7 +108,7 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
             }
 
             val crystal = player.offhandItem
-            if (crystal.item !is MagicCrystal) {
+            if (crystal.item !is MultiItemMagicCrystal) {
                 return@updateNbt
             }
 
@@ -139,12 +139,12 @@ class GeoItemShepherdStaff: Item(Properties().stacksTo(1).attributes(createAttri
             }
 
             val crystal = ItemStack.parseOptional(world.registryAccess(), it.getCompound("crystal"))
-            if (crystal.item !is MagicCrystal) {
+            if (crystal.item !is MultiItemMagicCrystal) {
                 CrystalDream.LOGGER.error("The item in Shepherd Staff is not a Magic Crystal!")
                 return@updateNbt
             }
 
-            (crystal.item as MagicCrystal).work(stack, crystal, world as ServerLevel, player)
+            (crystal.item as MultiItemMagicCrystal).work(stack, crystal, world as ServerLevel, player)
         }
         player.cooldowns.addCooldown(stack.item, 20 * 5)
         return stack

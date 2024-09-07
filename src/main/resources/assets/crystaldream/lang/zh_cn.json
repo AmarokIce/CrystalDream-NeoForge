@@ -57,6 +57,9 @@
   "block.crystaldream.magic_altar": "紫水晶祭坛",
   "block.crystaldream.crystal_ball": "紫水晶球",
 
+  "effect.crystaldream.crystal_mirror": "晶状镜像",
+  "effect.crystaldream.pumpkin_corrode": "南瓜噩梦",
+
   "jei.name.crystaldream.nether_furnace": "灵魂熔炼",
   "jei.name.crystaldream.goblin": "地精献祭",
   "jei.name.crystaldream.sacrifice": "水晶献祭",
@@ -77,5 +80,16 @@
   "angry_goblin.1.crystaldream.info": "§4§l你想得到什么？这里什么也没有！",
   "angry_goblin.2.crystaldream.info": "§4§l你与你的祭品一样廉价！",
   "angry_goblin.3.crystaldream.info": "§4§l想与我们交易，那就最好先让我们满意!",
-  "angry_goblin.4.crystaldream.info": "§4§l我们感受不到你的诚意！"
+  "angry_goblin.4.crystaldream.info": "§4§l我们感受不到你的诚意！",
+
+  "dream.pumpkin_dream.crystaldream.message": "你感觉南瓜入侵了你的梦境...",
+  "dream.paster_dream.crystaldream.message":"你梦见你进入了一个粉色的世界，你的意识告诉你,这里就是帕斯特梦境，只需要找到“那个”就能开启一段新的旅程...",
+  "dream.mirror_dream.crystaldream.message": "你梦见你变成了水晶... 突如其来的刺痛感让你醒的很意外，为什么躺着会感觉痛？你掐了一下自己，反而很舒服...",
+  "dream.exp-up_dream.crystaldream.message":"你在梦境中学到了相当多的知识...",
+  "dream.crystal_dream.crystaldream.message": "你即便在做梦也在做水晶工艺... 醒来后，你的手边凭空出现了一些水晶。",
+  "dream.none_dream.crystaldream.message":"你做了一个好梦！",
+  "dream.bda_dream.crystaldream.message": "你做了一个不太好的梦，但是你没什么损失。",
+
+  "death.attack.crystalReflection": "%1$s 在剧烈的刺痛中成为水晶。",
+  "death.attack.corrode": "%1$s 无法摆脱噩梦。"
 }

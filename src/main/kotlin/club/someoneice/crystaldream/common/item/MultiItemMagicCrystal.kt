@@ -15,12 +15,12 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.TooltipFlag
 
-sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
+sealed class MultiItemMagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
     fun shirkMana() = 5
 
     abstract fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer)
 
-    class SunCrystal: MagicCrystal("suncrytal") {
+    class SunCrystal: MultiItemMagicCrystal("suncrytal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             val data = player.foodData
             if (data.foodLevel < 6) {
@@ -31,7 +31,7 @@ sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
         }
     }
 
-    class RainCrystal: MagicCrystal("raincrytal") {
+    class RainCrystal: MultiItemMagicCrystal("raincrytal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             val data = player.foodData
             if (data.foodLevel < 6) {
@@ -42,7 +42,7 @@ sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
         }
     }
 
-    class WindCrystal: MagicCrystal("windcrystal") {
+    class WindCrystal: MultiItemMagicCrystal("windcrystal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             val data = player.foodData
             if (data.foodLevel < 6) {
@@ -53,13 +53,13 @@ sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
         }
     }
 
-    class StorageCrystal: MagicCrystal("storagecrystal") {
+    class StorageCrystal: MultiItemMagicCrystal("storagecrystal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             TODO("Not yet implemented")
         }
     }
 
-    class LightningCrystal: MagicCrystal("lightningcrystal") {
+    class LightningCrystal: MultiItemMagicCrystal("lightningcrystal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             world.getEntitiesOfClass(LivingEntity::class.java, createAABBByRange(player.position(), 8)).forEach {
                 if (it === player) {
@@ -74,7 +74,7 @@ sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
         }
     }
 
-    class FoxFireCrystal: MagicCrystal("foxfirecrystal") {
+    class FoxFireCrystal: MultiItemMagicCrystal("foxfirecrystal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             world.getEntitiesOfClass(LivingEntity::class.java, createAABBByRange(player.position(), 8)).forEach {
                 if (it === player) {
@@ -87,7 +87,7 @@ sealed class MagicCrystal(val name: String): Item(Properties().stacksTo(1)) {
         }
     }
 
-    class HealCrystal: MagicCrystal("healcrystal") {
+    class HealCrystal: MultiItemMagicCrystal("healcrystal") {
         override fun work(staff: ItemStack, crystal: ItemStack, world: ServerLevel, player: ServerPlayer) {
             world.getEntitiesOfClass(Player::class.java, createAABBByRange(player.position(), 4)).forEach {
                 it.activeEffects.removeIf(MobEffectInstance::isNeutral)
