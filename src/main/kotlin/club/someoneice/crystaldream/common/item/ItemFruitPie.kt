@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.common.item
 
-import club.someoneice.crystaldream.common.block.tile.TileTree
+import club.someoneice.crystaldream.common.tile.TileTree
 import club.someoneice.crystaldream.core.init.ModItems
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModSoundEvents

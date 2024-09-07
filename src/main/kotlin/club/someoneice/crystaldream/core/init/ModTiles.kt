@@ -1,10 +1,10 @@
 package club.someoneice.crystaldream.core.init
 
-import club.someoneice.crystaldream.common.block.tile.TileAltar
-import club.someoneice.crystaldream.common.block.tile.TileCrystalBall
-import club.someoneice.crystaldream.common.block.tile.TileMount
-import club.someoneice.crystaldream.common.block.tile.TileNetherFurnace
-import club.someoneice.crystaldream.common.block.tile.TileTree
+import club.someoneice.crystaldream.common.tile.TileAltar
+import club.someoneice.crystaldream.common.tile.TileCrystalBall
+import club.someoneice.crystaldream.common.tile.TileMount
+import club.someoneice.crystaldream.common.tile.TileNetherFurnace
+import club.someoneice.crystaldream.common.tile.TileTree
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.util.createTile
 import com.google.common.base.Supplier

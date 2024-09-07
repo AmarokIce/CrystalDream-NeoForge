@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.common.block
 
-import club.someoneice.crystaldream.common.block.tile.TileCrystalBall
+import club.someoneice.crystaldream.common.tile.TileCrystalBall
 import com.mojang.serialization.MapCodec
 import net.minecraft.core.BlockPos
 import net.minecraft.world.level.BlockGetter

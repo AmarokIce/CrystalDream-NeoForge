@@ -2,7 +2,7 @@ package club.someoneice.crystaldream.client.render
 
 import club.someoneice.crystaldream.api.AbstractHoldItemTileRender
 import club.someoneice.crystaldream.client.model.GeoAltar
-import club.someoneice.crystaldream.common.block.tile.TileAltar
+import club.someoneice.crystaldream.common.tile.TileAltar
 import com.mojang.blaze3d.vertex.PoseStack
 import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.MultiBufferSource

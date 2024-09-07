@@ -4,8 +4,8 @@ import club.someoneice.crystaldream.api.AbstractHoldItemTileRender
 import club.someoneice.crystaldream.client.render.CrystalBallRender
 import club.someoneice.crystaldream.client.render.MagicAltarRender
 import club.someoneice.crystaldream.client.screen.ScreenNetherFurnace
-import club.someoneice.crystaldream.common.block.tile.TileMount
-import club.someoneice.crystaldream.common.block.tile.TileTree
+import club.someoneice.crystaldream.common.tile.TileMount
+import club.someoneice.crystaldream.common.tile.TileTree
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.core.init.ModBlocks
 import club.someoneice.crystaldream.core.init.ModMenus

@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.common.block
 
-import club.someoneice.crystaldream.common.block.tile.TileNetherFurnace
+import club.someoneice.crystaldream.common.tile.TileNetherFurnace
 import club.someoneice.crystaldream.core.init.ModTiles
 import com.mojang.serialization.MapCodec
 import net.minecraft.core.BlockPos
