@@ -36,6 +36,10 @@ object ModEvent {
         val damage = event.source
         val damageValue = event.originalDamage
 
+        if (entity.level().isClientSide) {
+            return
+        }
+
         val flag = entity.hasEffect(ModEffects.PUMPKIN_CORRODE)
         val lv = if (!flag) 0 else entity.getEffect(ModEffects.PUMPKIN_CORRODE)!!.amplifier
 
@@ -62,6 +66,10 @@ object ModEvent {
         val entity = event.entity
         val value = event.amount
 
+        if (entity.level().isClientSide) {
+            return
+        }
+
         val flag = entity.hasEffect(ModEffects.CRYSTAL_MIRROR)
         val lv = if (!flag) 0 else entity.getEffect(ModEffects.CRYSTAL_MIRROR)!!.amplifier
 
@@ -80,6 +88,10 @@ object ModEvent {
     @SubscribeEvent
     fun playerWeekupEvent(event: PlayerWakeUpEvent) {
         if (event.updateLevel()) {
+            return
+        }
+
+        if (event.entity.level().isClientSide) {
             return
         }
 
