@@ -1,8 +1,8 @@
 package club.someoneice.crystaldream.client.jei
 
+import club.someoneice.crystaldream.common.recipe.RecipeSacrifice
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.core.init.ModItems
-import club.someoneice.crystaldream.core.recipe.RecipeSacrifice
 import club.someoneice.crystaldream.util.asStack
 import club.someoneice.crystaldream.util.createModPath
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder

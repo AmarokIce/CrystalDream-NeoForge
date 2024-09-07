@@ -1,7 +1,7 @@
 package club.someoneice.crystaldream.core
 
-import club.someoneice.crystaldream.common.capability.CapabilityCrystalMana
 import club.someoneice.crystaldream.common.item.manacrystal.AbstractManaCrystal
+import club.someoneice.crystaldream.core.capability.CapabilityCrystalMana
 import club.someoneice.crystaldream.core.init.ModCapabilities
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModRegister

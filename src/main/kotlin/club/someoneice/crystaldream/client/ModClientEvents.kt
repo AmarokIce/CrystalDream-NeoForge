@@ -4,8 +4,8 @@ import club.someoneice.crystaldream.api.AbstractHoldItemTileRender
 import club.someoneice.crystaldream.client.render.CrystalBallRender
 import club.someoneice.crystaldream.client.render.MagicAltarRender
 import club.someoneice.crystaldream.client.screen.ScreenNetherFurnace
-import club.someoneice.crystaldream.common.tile.TileMount
-import club.someoneice.crystaldream.common.tile.TileTree
+import club.someoneice.crystaldream.common.block.tile.TileMount
+import club.someoneice.crystaldream.common.block.tile.TileTree
 import club.someoneice.crystaldream.core.CrystalDream
 import club.someoneice.crystaldream.core.init.ModBlocks
 import club.someoneice.crystaldream.core.init.ModMenus
@@ -34,8 +34,8 @@ object ModClientEvents {
 
     @SubscribeEvent
     fun registerRenderers(event: EntityRenderersEvent.RegisterRenderers) {
-        event.registerBlockEntityRenderer(ModTiles.TREE_TABLE, getRender<TileTree>())
-        event.registerBlockEntityRenderer(ModTiles.ALTAR_MOUNT, getRender<TileMount>())
+        event.registerBlockEntityRenderer(ModTiles.TREE_TABLE, createRendererWithItemHolder<TileTree>())
+        event.registerBlockEntityRenderer(ModTiles.ALTAR_MOUNT, createRendererWithItemHolder<TileMount>())
         event.registerBlockEntityRenderer(ModTiles.ALTAR_CORE, MagicAltarRender())
         event.registerBlockEntityRenderer(ModTiles.CRYSTAL_BALL, CrystalBallRender())
     }
@@ -61,7 +61,15 @@ object ModClientEvents {
         event.register(ModMenus.NETHER_FURNACE, ::ScreenNetherFurnace)
     }
 
-    fun replaceMissingNo() {
+    private fun <T : BlockEntity> createRendererWithItemHolder() = object : AbstractHoldItemTileRender<T>() {
+        override fun render(entity: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int, k: Int) {
+            super.absRender(1.0, entity, f, pose, buffer, i)
+        }
+    }
+
+    @JvmName("# replaceMissingNo")
+    @Deprecated("Never used")
+    private fun replaceMissingNo() {
         // The reflection will not work in Java 9+ :(
         // I'll got take some mixins.
         /*
@@ -82,11 +90,5 @@ object ModClientEvents {
         modifierField.setInt(field, field.modifiers and Modifier.FINAL.inv())
         field.set(null, createModPath("missingno"));
         */
-    }
-
-    private fun <T : BlockEntity> getRender() = object : AbstractHoldItemTileRender<T>() {
-        override fun render(entity: T, f: Float, pose: PoseStack, buffer: MultiBufferSource, i: Int, k: Int) {
-            super.absRender(1.0, entity, f, pose, buffer, i)
-        }
     }
 }

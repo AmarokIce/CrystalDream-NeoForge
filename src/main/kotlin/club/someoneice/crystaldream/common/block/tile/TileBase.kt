@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.tile
+package club.someoneice.crystaldream.common.block.tile
 
 import net.minecraft.core.BlockPos
 import net.minecraft.core.HolderLookup

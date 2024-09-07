@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.client.model
 
-import club.someoneice.crystaldream.common.tile.TileAltar
+import club.someoneice.crystaldream.common.block.tile.TileAltar
 import club.someoneice.crystaldream.util.createModPath
 import net.minecraft.resources.ResourceLocation
 import software.bernie.geckolib.model.GeoModel

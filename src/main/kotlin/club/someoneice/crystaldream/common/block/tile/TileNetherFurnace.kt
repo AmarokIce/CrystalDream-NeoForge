@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.tile
+package club.someoneice.crystaldream.common.block.tile
 
 import club.someoneice.crystaldream.api.INetherFurnaceFuelItem
 import club.someoneice.crystaldream.common.block.BlockNetherFurnace

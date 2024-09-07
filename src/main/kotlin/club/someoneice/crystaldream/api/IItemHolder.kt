@@ -1,6 +1,6 @@
 package club.someoneice.crystaldream.api
 
-import club.someoneice.crystaldream.common.tile.TileBase
+import club.someoneice.crystaldream.common.block.tile.TileBase
 import net.minecraft.core.HolderLookup
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.world.item.ItemStack

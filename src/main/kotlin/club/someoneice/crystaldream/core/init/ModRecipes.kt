@@ -1,8 +1,8 @@
 package club.someoneice.crystaldream.core.init
 
-import club.someoneice.crystaldream.core.recipe.RecipeGoblins
-import club.someoneice.crystaldream.core.recipe.RecipeNetherFurnace
-import club.someoneice.crystaldream.core.recipe.RecipeSacrifice
+import club.someoneice.crystaldream.common.recipe.RecipeGoblins
+import club.someoneice.crystaldream.common.recipe.RecipeNetherFurnace
+import club.someoneice.crystaldream.common.recipe.RecipeSacrifice
 import club.someoneice.crystaldream.util.asIngredient
 import club.someoneice.crystaldream.util.asStack
 import net.minecraft.core.NonNullList

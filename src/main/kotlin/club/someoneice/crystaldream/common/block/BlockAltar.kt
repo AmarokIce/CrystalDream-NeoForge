@@ -1,8 +1,8 @@
 package club.someoneice.crystaldream.common.block
 
 import club.someoneice.crystaldream.api.AbstractBlockWithTileItem
-import club.someoneice.crystaldream.common.tile.TileAltar
-import club.someoneice.crystaldream.common.tile.TileMount
+import club.someoneice.crystaldream.common.block.tile.TileAltar
+import club.someoneice.crystaldream.common.block.tile.TileMount
 import club.someoneice.crystaldream.core.init.ModItems
 import club.someoneice.crystaldream.core.init.ModRecipes
 import club.someoneice.crystaldream.core.init.ModTiles

@@ -1,4 +1,4 @@
-package club.someoneice.crystaldream.common.tile
+package club.someoneice.crystaldream.common.block.tile
 
 import club.someoneice.crystaldream.api.IItemHolder
 import club.someoneice.crystaldream.core.init.ModTiles.ALTAR_CORE
