@@ -45,7 +45,6 @@ void read_file()
 {
     import std.file : read, readText, exists;
     import std.json;
-    import std.algorithm.sorting;
 
     void read_target_file()
     {
@@ -59,7 +58,7 @@ void read_file()
                 .escapeNonAsciiChars).object();
 
         string[string] jsonDict;
-        foreach (JSONValue node; sort(json.keys()))
+        foreach (JSONValue node; json.keys())
         {
             string key = node.str();
             jsonDict[key] = json[key].str();
