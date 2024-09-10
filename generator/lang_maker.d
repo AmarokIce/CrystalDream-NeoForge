@@ -112,6 +112,7 @@ void read_file()
 void match_and_write_to_file()
 {
     import std.file : write;
+    import std.stdio : writeln;
 
     string builder = "{\n";
     foreach (string node; lineCaches)
@@ -120,7 +121,7 @@ void match_and_write_to_file()
 
         if (node == "\n")
         {
-            builder = builder ~ "\n";
+            builder ~= "\n";
             continue;
         }
 
@@ -132,7 +133,8 @@ void match_and_write_to_file()
 
         string key = kv[0];
         string value;
-        if (key in jsonDictory)
+
+        if (includeInArray(jsonDictory.keys(), key))
         {
             value = jsonDictory[key];
         }
@@ -144,11 +146,12 @@ void match_and_write_to_file()
         key = remove_space_in_head(key);
         value = remove_space_in_head(value);
 
-        builder = builder ~ "    \"" ~ key ~ "\"" ~ ": " ~ "\"" ~ value ~ "\"" ~ "," ~ "\n";
+        writeln(format("%s:%s", key, value));
+        builder ~= "    \"" ~ key ~ "\": \"" ~ value ~ "\",\n";
     }
 
     builder = builder[0 .. $ - 2];
-    builder = builder ~ "\n" ~ "}";
+    builder ~= "\n}";
 
     write(pathBase ~ targetFile ~ ".json", builder);
 }
@@ -161,4 +164,16 @@ string remove_space_in_head(string key)
     }
 
     return key;
+}
+
+bool includeInArray(T)(T[] arr, T obj)
+{
+    foreach (T key; arr)
+    {
+        if (key == obj)
+        {
+            return true;
+        }
+    }
+    return false;
 }

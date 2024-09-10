@@ -73,22 +73,27 @@ void find_items()
 
 void scan_and_generator()
 {
+    import std.stdio : writeln;
+
     foreach (string key; items)
     {
-        auto path = pathModelBase ~ key ~ ".json";
+        auto filename = key ~ ".json";
+        auto path = pathModelBase ~ filename;
         if (exists(path))
         {
+            writeln("Pass: " ~ filename);
             continue;
         }
 
         string input = "";
-        input = input ~ "{\n";
-        input = input ~ "    \"parent\": \"minecraft:item/generated\",\n";
-        input = input ~ "    \"textures\": {\n";
-        input = input ~ "        \"layer0\": \"crystaldream:item/" ~ key ~ "\"\n";
-        input = input ~ "    }\n";
-        input = input ~ "}";
+        input ~= "{\n";
+        input ~= "    \"parent\": \"minecraft:item/generated\",\n";
+        input ~= "    \"textures\": {\n";
+        input ~= "        \"layer0\": \"crystaldream:item/" ~ key ~ "\"\n";
+        input ~= "    }\n";
+        input ~= "}";
 
+        writeln("Generator: " ~ filename);
         write(path, input);
     }
 }

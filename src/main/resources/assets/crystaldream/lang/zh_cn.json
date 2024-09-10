@@ -6,6 +6,7 @@
   "item.crystaldream.ghost_terrorist": "清明之符",
   "item.crystaldream.deceased_soul": "亡者之魂",
   "item.crystaldream.soul_crystal":"灵魂水晶",
+  "item.crystaldream.energy_crystal": "能量源晶",
   "item.crystaldream.dream_seed": "迷梦种子",
   "item.crystaldream.dreaming_illusion":"迷梦卷草",
   "item.crystaldream.verdant_ingot": "碧翠石锭",
@@ -49,6 +50,14 @@
   "item.crystaldream.evil_mana_page": "邪恶魔法书页",
   "item.crystaldream.demon_mana_page": "恶魔魔法书页",
 
+  "item.crystaldream.suncrystal": "晴空之水晶",
+  "item.crystaldream.raincrystal": "雨季之水晶",
+  "item.crystaldream.windcrystal": "风暴之水晶",
+  "item.crystaldream.storagecrystal": "存储之水晶",
+  "item.crystaldream.lightningcrystal": "雷鸣之水晶",
+  "item.crystaldream.foxfirecrystal": "狐火之水晶",
+  "item.crystaldream.healcrystal": "治愈之水晶",
+
   "item.crystaldream.fruit_pie":  "水果派",
   "item.crystaldream.shepherd_staff": "牧羊人杖",
 
@@ -67,14 +76,13 @@
   "success.crystaldream.stable_ender_pearl": "成功绑定坐标",
   "clean.crystaldream.stable_ender_pearl": "成功清除坐标",
 
-  "soul_fuel.crystaldream.info": "可供熔炼的灵魂能量:",
+  "soul_fuel.crystaldream.info": "可供熔炼的灵魂能量：",
 
   "tooltip.crystaldream.origin_egg": "这颗蛋散发着生命的气息.或许可以请地精为它注入新生.",
   "tooltip.crystaldream.tea": "§5一杯浓茶.会是什么效果呢?",
 
   "fail.crystaldream.moving_mana_page": "§4未知的目的地!",
   "success.crystaldream.soul_page": "绑定了你的灵魂!",
-
 
   "angry_goblin.0.crystaldream.info": "§4§l带好你的祭品!",
   "angry_goblin.1.crystaldream.info": "§4§l你想得到什么?这里什么也没有!",
@@ -83,7 +91,7 @@
   "angry_goblin.4.crystaldream.info": "§4§l我们感受不到你的诚意!",
 
   "dream.pumpkin_dream.crystaldream.message": "你感觉南瓜入侵了你的梦境...",
-  "dream.paster_dream.crystaldream.message":"你梦见你进入了一个粉色的世界,你的意识告诉你,这里就是帕斯特梦境,只需要找到\"那个\"就能开启一段新的旅程...",
+  "dream.paster_dream.crystaldream.message":"你梦见你进入了一个粉色的世界,你的意识告诉你,这里就是帕斯特梦境,只需要找到 `那个` 就能开启一段新的旅程...",
   "dream.mirror_dream.crystaldream.message": "你梦见你变成了水晶... 突如其来的刺痛感让你醒的很意外,为什么躺着会感觉痛?你掐了一下自己,反而很舒服...",
   "dream.exp-up_dream.crystaldream.message":"你在梦境中学到了相当多的知识...",
   "dream.crystal_dream.crystaldream.message": "你即便在做梦也在做水晶工艺... 醒来后,你的手边凭空出现了一些水晶.",
