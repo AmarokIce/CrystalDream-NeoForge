@@ -143,8 +143,8 @@ void match_and_write_to_file()
             value = kv[1];
         }
 
-        key = remove_space_in_head(key);
-        value = remove_space_in_head(value);
+        key = removeSpaceInHead(key);
+        value = removeSpaceInHead(value);
 
         writeln(format("%s:%s", key, value));
         builder ~= "    \"" ~ key ~ "\": \"" ~ value ~ "\",\n";
@@ -156,7 +156,7 @@ void match_and_write_to_file()
     write(pathBase ~ targetFile ~ ".json", builder);
 }
 
-string remove_space_in_head(string key)
+string removeSpaceInHead(string key)
 {
     while (key.startsWith(" "))
     {
